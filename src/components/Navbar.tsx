@@ -1,7 +1,7 @@
 export default function Navbar() {
   return (
     <div className="absolute top-0 left-1/2 -translate-x-1/2 flex max-w-6xl w-full
-          justify-between items-center z-10 py-5 px-12">
+          justify-between items-center z-10 py-5 lg:px-12 px-5">
 
       {/* Left */}
       <div className="flex items-center gap-3 text-card select-none">
