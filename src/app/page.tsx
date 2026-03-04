@@ -13,7 +13,7 @@ export default function Home() {
     {/* Hero */}
       <section className="relative min-h-screen overflow-hidden">
         {/* Background image */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 select-none">
           <Image
             src="/images/machynlleth-hero.png"
             alt="The charming high street of Machynlleth, Wales, with its colorful buildings and iconic clock tower"
@@ -31,7 +31,7 @@ export default function Home() {
           <div className="mx-auto w-full max-w-5xl">
             {/* Badge */}
             <div className="mb-8 inline-flex items-center gap-2 rounded-full 
-              border border-card/20 bg-card/10 px-4 py-2 backdrop-blur-sm">
+              border border-card/20 bg-card/10 px-4 py-2 backdrop-blur-sm select-none">
               <Heart className="h-4 w-4 text-red-400" />
               <span className="text-sm font-medium text-card/90">Serving Machynlleth since 1998</span>
             </div>
