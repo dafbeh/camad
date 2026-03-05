@@ -33,59 +33,68 @@ export default function Navbar() {
 
       {/* Right */}
       <div className="flex z-50">
-        <div className="hidden md:flex gap-8 text-card/80 text-sm font-medium items-center tracking-wide">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="cursor-pointer hover:text-card transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
-
-
-          <div className="flex flex-wrap items-center">
-            <Link
-              href="#volunteer"
-              className="rounded-full bg-primary px-5 py-3 font-semibold text-card
-                  transition-all hover:bg-primary/90 text-md"
-            >
-              Get Involved
-            </Link>
-          </div>
-        </div>
-
-        <div className="md:hidden flex items-center text-card"
-          onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X /> : <Menu /> }
-        </div>
-
-        {isOpen && (
-          <div className="absolute top-20 left-0 bg-[#211914]/99 w-screen">
-            <div className="flex flex-col gap-8 px-8 pb-4 pt-8">
-              {navLinks.map((link) => (
+        <nav aria-label="Main navigation">
+          <ul className="hidden md:flex gap-8 text-card/80 text-sm font-medium items-center tracking-wide">
+            {navLinks.map((link) => (
+              <li key={link.href}>
                 <Link
-                  key={link.href}
                   href={link.href}
-                  className="text-card/80 text-sm font-medium items-center tracking-wide"
+                  className="cursor-pointer hover:text-card transition-colors"
                 >
                   {link.label}
                 </Link>
-              ))}
-            </div>
+              </li>
+            ))}
 
-            <div className="flex flex-wrap items-center p-5 pt-3">
+
+            <li className="flex flex-wrap items-center">
               <Link
                 href="#volunteer"
                 className="rounded-full bg-primary px-5 py-3 font-semibold text-card
-                  transition-all hover:bg-primary/90 text-md w-full text-center"
+                  transition-all hover:bg-primary/90 text-md"
               >
                 Get Involved
               </Link>
-            </div>
-          </div>
-        )}
+            </li>
+          </ul>
+        </nav>
+
+        <button className="md:hidden flex items-center text-card"
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
+          onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+        </button>
+
+        {
+          isOpen && (
+            <nav className="absolute top-20 left-0 bg-[#211914]/99 w-screen" id="mobile-menu" aria-label="Mobile navigation">
+              <ul className="flex flex-col gap-8 px-8 pb-4 pt-8">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-card/80 text-sm font-medium items-center tracking-wide"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap items-center p-5 pt-3">
+                <Link
+                  href="#volunteer"
+                  className="rounded-full bg-primary px-5 py-3 font-semibold text-card
+                  transition-all hover:bg-primary/90 text-md w-full text-center"
+                >
+                  Get Involved
+                </Link>
+              </div>
+            </nav>
+          )
+        }
 
       </div>
     </div>
