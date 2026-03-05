@@ -36,4 +36,8 @@ The site is designed to be:
 ## 🛠️ Tech Stack
 
 - **Next.js** – React framework for production-ready web applications  
-- **Vercel** – Hosting and deployment platform  
+- **Vercel** – Hosting and deployment platform
+
+- ## 🌐 Website Preview
+
+![CAMAD Website](assets/current.png)
