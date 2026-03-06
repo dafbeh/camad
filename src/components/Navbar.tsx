@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link"
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
@@ -13,6 +13,21 @@ export default function Navbar() {
   ]
 
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="absolute top-0 left-1/2 -translate-x-1/2 flex max-w-6xl w-full
@@ -69,7 +84,7 @@ export default function Navbar() {
 
         {
           isOpen && (
-            <nav className="absolute top-20 left-0 bg-[#211914]/99 w-screen" id="mobile-menu" aria-label="Mobile navigation">
+            <nav ref={menuRef} className="absolute top-20 left-0 bg-[#211914]/99 w-screen" id="mobile-menu" aria-label="Mobile navigation">
               <ul className="flex flex-col gap-8 px-8 pb-4 pt-8">
                 {navLinks.map((link) => (
                   <li key={link.href}>
