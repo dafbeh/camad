@@ -58,7 +58,7 @@ export function Footer() {
           </div>
           <hr className="w-full h-[1px] mx-auto border-background/10" />
 
-          <div className="flex w-full justify-between text-card/40 text-sm pt-8 pb-12">
+          <div className="flex sm:flex-row flex-col sm:gap-0 gap-4 w-full sm:justify-between text-card/40 text-sm pt-8 pb-12">
             <p>2026 CAMAD. All rights reserved.</p>
             <p className="flex gap-2 items-center">Made with <Heart size={15} className="text-red-500" />in Machynlleth</p>
           </div>
