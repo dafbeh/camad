@@ -9,9 +9,12 @@ export const aboutType = defineType({
     { name: 'header1', title: 'Section 1' },
     { name: 'header2', title: 'Section 2' },
     { name: 'header3', title: 'Section 3' },
+    { name: 'header4', title: 'Section 4' },
+    { name: 'header5', title: 'Section 5' },
   ],
 
   fields: [
+    // Section 1
     defineField({
       name: 'header1',
       title: 'Header',
@@ -25,6 +28,8 @@ export const aboutType = defineType({
       rows: 2,
       fieldset: 'header1',
     }),
+
+    // Section 2
     defineField({
       name: 'header2',
       title: 'Header',
@@ -53,6 +58,8 @@ export const aboutType = defineType({
       options: { hotspot: true },
       description: 'Upload a square image (1:1 ratio recommended)',
     }),
+
+    // Section 3
     defineField({
       name: 'header3',
       title: 'Header',
@@ -63,8 +70,146 @@ export const aboutType = defineType({
       name: 'subheader4',
       title: 'Subheader',
       type: 'text',
-      rows: 3,
+      rows: 4,
       fieldset: 'header3',
+    }),
+
+    defineField({
+      name: 'cardT1',
+      title: 'Card Title',
+      type: 'string',
+      fieldset: 'header3',
+    }),
+    defineField({
+      name: 'cardB1',
+      title: 'Card Text',
+      type: 'text',
+      rows: 2,
+      fieldset: 'header3',
+    }),
+    defineField({
+      name: 'cardT2',
+      title: 'Card Title',
+      type: 'string',
+      fieldset: 'header3',
+    }),
+    defineField({
+      name: 'cardB2',
+      title: 'Card Text',
+      type: 'text',
+      rows: 2,
+      fieldset: 'header3',
+    }),
+    defineField({
+      name: 'cardT3',
+      title: 'Card Title',
+      type: 'string',
+      fieldset: 'header3',
+    }),
+    defineField({
+      name: 'cardB3',
+      title: 'Card Text',
+      type: 'text',
+      rows: 2,
+      fieldset: 'header3',
+    }),
+
+    // Section 4
+    defineField({
+      name: 'header4',
+      title: 'Header',
+      type: 'string',
+      fieldset: 'header4',
+    }),
+    defineField({
+      name: 'subheader5',
+      title: 'Subheader Paragraph 1',
+      type: 'text',
+      rows: 3,
+      fieldset: 'header4',
+    }),
+    defineField({
+      name: 'subheader6',
+      title: 'Subheader Paragraph 2',
+      type: 'text',
+      rows: 4,
+      fieldset: 'header4',
+    }),
+    defineField({
+      name: 'header4Image',
+      title: 'Header Image',
+      type: 'image',
+      fieldset: 'header4',
+      options: { hotspot: true },
+      description: 'Upload a square image (1:1 ratio recommended)',
+    }),
+
+    // Section 5
+    defineField({
+      name: 'header5',
+      title: 'Header',
+      type: 'string',
+      fieldset: 'header5',
+    }),
+    defineField({
+      name: 'subheader7',
+      title: 'Subheader',
+      type: 'text',
+      rows: 2,
+      fieldset: 'header5',
+    }),
+
+    defineField({
+      name: 'miniCardT1',
+      title: 'Card Title',
+      type: 'string',
+      fieldset: 'header5',
+    }),
+    defineField({
+      name: 'miniCardB1',
+      title: 'Card Text',
+      type: 'text',
+      rows: 2,
+      fieldset: 'header5',
+    }),
+    defineField({
+      name: 'miniCardT2',
+      title: 'Card Title',
+      type: 'string',
+      fieldset: 'header5',
+    }),
+    defineField({
+      name: 'miniCardB2',
+      title: 'Card Text',
+      type: 'text',
+      rows: 2,
+      fieldset: 'header5',
+    }),
+    defineField({
+      name: 'miniCardT3',
+      title: 'Card Title',
+      type: 'string',
+      fieldset: 'header5',
+    }),
+    defineField({
+      name: 'miniCardB3',
+      title: 'Card Text',
+      type: 'text',
+      rows: 2,
+      fieldset: 'header5',
+    }),
+    defineField({
+      name: 'miniCardT4',
+      title: 'Card Title',
+      type: 'string',
+      fieldset: 'header5',
+    }),
+    defineField({
+      name: 'miniCardB4',
+      title: 'Card Text',
+      type: 'text',
+      rows: 2,
+      fieldset: 'header5',
     }),
   ],
 })

@@ -10,6 +10,6 @@ export const structure: StructureResolver = (S) =>
         .child(
           S.document()
             .schemaType('page')
-            .documentId('about')
+            .documentId('aboutpage')
         ),
     ])

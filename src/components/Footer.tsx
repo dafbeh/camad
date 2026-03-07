@@ -1,5 +1,5 @@
 import Link from "next/link"
-import {Heart} from "lucide-react"
+import { Heart } from "lucide-react"
 
 export function Footer() {
   return (
@@ -52,7 +52,10 @@ export function Footer() {
                 <p className="text-sm leading-relaxed text-background/60">
                   Pop in for a cup of tea and a chat. We would love to hear from you.
                 </p>
-                <p className="mt-4 text-sm text-background/60">Machynlleth, Powys, Wales</p>
+                <div className="flex flex-col gap-2 mt-3 text-sm text-background/30">
+                  <p>Tuesday — Thursday: 9:30am - 3:00pm</p>
+                  <p>Friday: 9:30am - 2:00pm</p>
+                </div>
               </div>
             </div>
           </div>

@@ -1,0 +1,7 @@
+# Get IDs
+$pages = sanity documents query "*[_type == 'page']._id" --apiVersion 2021-03-25
+
+# Remove brackets, quotes, and commas, then delete each
+$pages -replace '[\[\]",]', '' | ForEach-Object { 
+    $_.Trim() | ForEach-Object { sanity documents delete $_ --yes }
+}

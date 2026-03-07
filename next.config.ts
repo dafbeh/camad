@@ -1,8 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  i18n: {
+    locales: ['en', 'cy'],  // English & Welsh
+    defaultLocale: 'en',
+  },
   images: {
-    domains: ['cdn.sanity.io'],
+    remotePatterns: [{ hostname: 'cdn.sanity.io' }],
   },
 }
 
