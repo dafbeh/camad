@@ -38,12 +38,12 @@ export default function Navbar({ background = false }: { background?: boolean })
         <Link href="/" className="flex items-center gap-3 text-card select-none">
           <div className="bg-primary rounded-full w-5 h-5 p-5 flex
               items-center justify-center">
-            <span className="text-lg font-sans font-bold tracking-tight text-primary-foreground">C</span>
+            <span className="text-lg font-bold tracking-tight text-primary-foreground">C</span>
           </div>
           <div className="flex flex-col">
-            <span className={`font-bold font-sans text-lg tracking-tight 
+            <span className={`font-bold text-lg tracking-tight 
                 ${background ? "text-foreground/90" : ""}`}>CAMAD</span>
-            <span className={`font-light font-sans text-xs 
+            <span className={`font-light text-xs 
                 ${background ? "text-foreground/90" : "text-card/70"}`}>Community Action Machynlleth</span>
           </div>
         </Link>
