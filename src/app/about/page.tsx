@@ -123,7 +123,7 @@ export default async function About() {
           />
           <SmallerCard
             title={about?.miniCardT4}
-            body={about?.miniCardB2}
+            body={about?.miniCardB4}
             icon={Smile}
           />
         </div>
