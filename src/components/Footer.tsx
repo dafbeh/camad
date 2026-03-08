@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer>
       <div className="w-full bg-foreground">
-        <div className="max-w-7xl sm:px-1 px-4 py-2 mx-auto">
+        <div className="max-w-7xl px-5 lg:px-15 py-2 mx-auto">
           <div className="grid gap-11 md:grid-cols-3 pt-16 pb-10">
 
             {/* Left */}
