@@ -47,7 +47,7 @@ export default async function About() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-8 bg-[#efebe1] justify-center items-center w-full sm:pb-20 pb-5 pt-20">
+      <section className="flex flex-col gap-8 bg-[#efebe1] justify-center items-center w-full sm:pb-20 pb-13 pt-18">
         <Label text={"A cycle of giving"} icon={RefreshCw} />
         <h1 className="text-foreground text-center text-4xl max-w-lg font-bold font-serif tracking-tight">{about?.header3}</h1>
         <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-3">
@@ -99,7 +99,7 @@ export default async function About() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-5 pt-20">
+      <section className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-5 pt-18">
         <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">{about?.header5}</h1>
         <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-5">
           {about?.subheader7}
@@ -130,7 +130,7 @@ export default async function About() {
       </section>
 
       <section>
-        <div className="flex w-full bg-accent/95 lg:p-18 p-3">
+        <div className="flex w-full bg-accent/95 lg:p-18 p-3 py-5">
           <div className="text-center mx-auto max-w-5xl bg-primary rounded-2xl pt-15 pb-15 sm:px-18 px-3">
             <div className="flex flex-col gap-5">
               <MessageCircle className="mx-auto text-card/80" size={40} />

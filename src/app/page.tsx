@@ -20,7 +20,6 @@ export default function Home() {
             fill
             className="object-cover"
             priority
-            quality={90}
           />
           {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-foreground/70 via-foreground/50 to-foreground/80" />
