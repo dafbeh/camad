@@ -24,7 +24,7 @@ export default async function About() {
         </p>
       </header>
 
-      <section className="flex lg:flex-row flex-col gap-10 bg-accent/95 justify-center items-center w-full lg:p-18 py-18 px-10">
+      <section className="flex lg:flex-row flex-col gap-10 bg-accent/95 justify-center items-center w-full lg:p-18 py-18 px-3">
         <div className="flex flex-col gap-4 lg:max-w-xl w-full">
           <h1 className="text-foreground text-4xl lg:max-w-md font-bold font-serif tracking-tight pb-3">
             {about?.header2}</h1>
@@ -50,11 +50,11 @@ export default async function About() {
       <section className="flex flex-col gap-8 bg-[#efebe1] justify-center items-center w-full sm:pb-20 pb-5 pt-20">
         <Label text={"A cycle of giving"} icon={RefreshCw} />
         <h1 className="text-foreground text-center text-4xl max-w-lg font-bold font-serif tracking-tight">{about?.header3}</h1>
-        <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-5">
+        <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-3">
           {about?.subheader4}
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 sm:gap-6 gap-3 sm:px-17 px-5 pt-8 max-w-7xl items-stretch">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 sm:gap-6 gap-3 sm:px-17 px-3 pt-8 sm:pb-0 pb-5 max-w-7xl items-stretch">
           <SmallCard
             title={about?.cardT1}
             body={about?.cardB1}
@@ -73,7 +73,7 @@ export default async function About() {
         </div>
       </section>
 
-      <section className="flex lg:flex-row flex-col gap-15 bg-accent/95 justify-center items-center w-full lg:p-18 py-18 px-10">
+      <section className="flex lg:flex-row flex-col gap-15 bg-accent/95 justify-center items-center w-full lg:p-18 py-18 px-3">
         <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full">
           <Image
             src={
@@ -105,7 +105,7 @@ export default async function About() {
           {about?.subheader7}
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 sm:gap-6 gap-3 sm:px-17 px-5 pt-8 max-w-7xl items-stretch">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 sm:gap-6 gap-3 sm:px-17 px-3 pt-8 max-w-7xl items-stretch">
           <SmallerCard
             title={about?.miniCardT1}
             body={about?.miniCardB1}
