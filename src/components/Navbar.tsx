@@ -30,8 +30,8 @@ export default function Navbar({ background = false }: { background?: boolean })
   }, []);
 
   return (
-    <div className={`fixed top-0 left-0 w-full z-50 
-        ${background ? "sticky top-0 z-50 border-b border-border bg-accent/95 backdrop-blur-md" : ""}`}>
+    <div className={`top-0 left-0 w-full z-50 
+        ${background ? "sticky top-0 z-50 border-b border-border bg-accent/95 backdrop-blur-md" : "absolute"}`}>
       <div className="mx-auto flex max-w-6xl w-full justify-between items-center py-5 lg:px-12 px-5">
 
         {/* Left */}

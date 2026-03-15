@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { getAbout } from "@/sanity/lib/client"
 import { SmallCard, SmallerCard } from "@/components/SmallCard"
+import Cta from "@/components/Cta"
 
 export default async function About() {
   const about = await getAbout()
@@ -35,17 +36,16 @@ export default async function About() {
 
           <p className="text-foreground/70">{about?.subheader3}</p>
         </div>
-        <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full">
+        <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full z-2">
           <Image
             src={
-              about?.header2Image
-                ? urlFor(about.header2Image).width(600).url()
-                : "/images/15.jpg"
+              "/images/15.jpg"
             }
             alt="image"
             fill
-            className="object-cover rounded-lg shadow-lg"
+            className="object-cover rounded-lg"
           />
+          <div className="lg:block hidden absolute -bottom-3 -left-3 z-1 h-full w-full rounded-2xl bg-primary/10" />
         </div>
       </section>
 
@@ -131,35 +131,15 @@ export default async function About() {
         </div>
       </section>
 
-      <section>
-        <div className="flex w-full bg-accent/95 lg:p-18 p-3 py-5">
-          <div className="text-center mx-auto max-w-5xl bg-primary rounded-2xl pt-15 pb-15 sm:px-18 px-3">
-            <div className="flex flex-col gap-5">
-              <MessageCircle className="mx-auto text-card/80" size={40} />
-              <h1 className="text-card font-serif font-semibold tracking-tight sm:text-4xl text-3xl">Not sure where to start? Neither are most people.</h1>
-              <p className="text-accent/80 font-sans sm:text-md text-sm mx-auto max-w-xl">Pop in, have a cup of tea, and let us know what is going on with you and where
-                you want to go. We will do our best to get you there.</p>
-
-              <div className="flex sm:flex-row flex-col mt-5 mx-auto items-center gap-4">
-                <Link
-                  href="/contact"
-                  className="rounded-full bg-card/90 sm:px-8 sm:py-3.5 px-10 py-3 text-base font-base text-foreground font-semibold
-                  shadow-lg transition-all hover:bg-card/80 hover:shadow-xl flex gap-2 items-center"
-                >
-                  Get in Touch <ArrowRight size={18} className="text-foreground/90" />
-                </Link>
-                <Link
-                  href="/services"
-                  className="rounded-full border border-card/30 bg-card/10 sm:px-8 sm:py-3.5 px-5 py-3 text-base font-base 
-                  text-card backdrop-blur-sm transition-all hover:bg-card/20"
-                >
-                  Browse Opportunities
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Cta
+        Icon={MessageCircle}
+        header={"Not sure where to start? Neither are most people."}
+        body={"Pop in, have a cup of tea, and let us know what is going on with you and where you want to go. We will do our best to get you there."}
+        button1={"Get in Touch"}
+        button2={"Browse Opportunities"}
+        button1Link={"/contact"}
+        button2Link={"/services"}
+      />
 
       <Footer />
     </>
