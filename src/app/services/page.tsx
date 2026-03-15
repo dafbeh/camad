@@ -3,8 +3,9 @@ import Link from "next/link"
 import Navbar from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
 import Label from "@/components/Label"
-import { Heart, Phone } from "lucide-react"
+import { Heart, Phone, Car, CreditCard, PoundSterling } from "lucide-react"
 import Cta from "@/components/Cta"
+import { ServiceCard, DetailRow } from "@/components/ServiceCard"
 
 export default function Services() {
   return (
@@ -39,27 +40,67 @@ export default function Services() {
         </div>
       </section>
 
-      <section id="transport" className="flex lg:flex-row flex-col gap-15 bg-accent/95 justify-center items-center w-full lg:p-18 py-18 px-3">
-        <div className="start-self flex flex-col gap-4">
-          <Label text={"Transport Services"} icon={Heart} />
-          <div className="flex flex-col gap-4 lg:max-w-lg w-full">
-            <h1 className="text-foreground text-4xl lg:max-w-[330px] font-bold font-serif tracking-tight pb-3">
-              Helping you get where you need to go</h1>
+      <section id="transport" className="flex flex-col bg-accent/95 lg:p-18 pt-18 lg:pb-0 px-3">
+        <div className="flex lg:flex-row flex-col gap-15 justify-center items-center w-full">
+          <div className="start-self flex flex-col gap-4">
+            <Label text={"Transport Services"} icon={Heart} />
+            <div className="flex flex-col gap-4 lg:max-w-lg w-full">
+              <h1 className="text-foreground text-4xl lg:max-w-[330px] font-bold font-serif tracking-tight pb-3">
+                Helping you get where you need to go</h1>
 
-            <p className="text-foreground/70">These transport schemes help ensure that living in a rural area does not limit independence or access to services.</p>
+              <p className="text-foreground/70">These transport schemes help ensure that living in a rural area does not limit independence or access to services.</p>
 
+            </div>
+          </div>
+          <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full z-2">
+            <Image
+              src={
+                "/images/camadOffice.png"
+              }
+              alt="image"
+              fill
+              className="object-cover rounded-lg"
+            />
+            <div className="lg:block hidden absolute -bottom-3 -left-3 z-1 h-full w-full rounded-2xl bg-primary/10" />
           </div>
         </div>
-        <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full z-2">
+
+        <div className="flex max-w-6xl w-full mx-auto py-18 grid gap-6 md:grid-cols-2">
+          <ServiceCard
+            icon={<Car className="h-6 w-6" />}
+            title="Community Car"
+            description="Volunteer drivers use their own vehicles to transport people who do not have access to suitable transport. This service is primarily for health-related appointments, such as hospital visits, eye tests, and other essential journeys."
+          />
+          <ServiceCard
+            icon={<CreditCard className="h-6 w-6" />}
+            title="Taxi Card Scheme"
+            description="The Taxi Card Scheme provides subsidised taxi fares for older people and those living with disabilities."
+            details={[
+              { icon: <PoundSterling className="h-4 w-4" />, text: "Annual membership: £9" },
+              { icon: <Heart className="h-4 w-4" />, text: "Members receive £50 worth of taxi vouchers" },
+            ]}
+          />
+        </div>
+      </section>
+
+      <section id="health" className="flex lg:flex-row flex-col gap-15 bg-[#efebe1] justify-center items-center w-full lg:p-18 py-18 px-3">
+        <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full">
           <Image
-            src={
-              "/images/camadOffice.png"
-            }
+            src={"/images/camadOffice.png"}
             alt="image"
             fill
-            className="object-cover rounded-lg"
+            className="object-cover rounded-lg shadow-lg"
           />
-          <div className="lg:block hidden absolute -bottom-3 -left-3 z-1 h-full w-full rounded-2xl bg-primary/10" />
+        </div>
+        <div className="flex flex-col gap-4 lg:max-w-xl w-full">
+          <div className="self-start mb-4">
+            <Label text={"Health & Wellbeing"} icon={Heart} />
+          </div>
+          <h1 className="text-foreground text-4xl lg:max-w-lg font-bold font-serif tracking-tight pb-3">
+            Caring for body and mind</h1>
+
+          <p className="text-foreground/70">From foot care to mental health support, we offer services that nurture the whole person.</p>
+
         </div>
       </section>
 
