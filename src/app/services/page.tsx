@@ -3,7 +3,7 @@ import Link from "next/link"
 import Navbar from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
 import Label from "@/components/Label"
-import { Heart, Phone, Car, CreditCard, PoundSterling } from "lucide-react"
+import { Heart, Phone, Car, CreditCard, PoundSterling, Footprints, Clock, Users, MapPin, Coffee } from "lucide-react"
 import Cta from "@/components/Cta"
 import { ServiceCard, DetailRow } from "@/components/ServiceCard"
 
@@ -25,8 +25,7 @@ export default function Services() {
             {[
               { label: "Transport", href: "#transport" },
               { label: "Health & Wellbeing", href: "#health" },
-              { label: "Community Support", href: "#community" },
-              { label: "Social Activities", href: "#social" },
+              { label: "Community Support", href: "#community" }
             ].map((item) => (
               <a
                 key={item.label}
@@ -59,9 +58,9 @@ export default function Services() {
               }
               alt="image"
               fill
-              className="object-cover rounded-lg"
+              className="object-cover rounded-lg z-2"
             />
-            <div className="lg:block hidden absolute -bottom-3 -left-3 z-1 h-full w-full rounded-2xl bg-primary/10" />
+            <div className="lg:block hidden absolute -bottom-3 -left-3 z-1 h-full w-full rounded-2xl bg-primary/10 z-0" />
           </div>
         </div>
 
@@ -83,24 +82,59 @@ export default function Services() {
         </div>
       </section>
 
-      <section id="health" className="flex lg:flex-row flex-col gap-15 bg-[#efebe1] justify-center items-center w-full lg:p-18 py-18 px-3">
-        <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full">
-          <Image
-            src={"/images/camadOffice.png"}
-            alt="image"
-            fill
-            className="object-cover rounded-lg shadow-lg"
-          />
-        </div>
-        <div className="flex flex-col gap-4 lg:max-w-xl w-full">
-          <div className="self-start mb-4">
-            <Label text={"Health & Wellbeing"} icon={Heart} />
+      <section id="health" className="flex flex-col bg-[#efebe1] w-full lg:p-18 py-18 px-3">
+        <div className="flex lg:flex-row flex-col gap-15 justify-center items-center">
+          <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full">
+            <Image
+              src={"/images/camadOffice.png"}
+              alt="image"
+              fill
+              className="object-cover rounded-lg shadow-lg"
+            />
           </div>
-          <h1 className="text-foreground text-4xl lg:max-w-lg font-bold font-serif tracking-tight pb-3">
-            Caring for body and mind</h1>
+          <div className="flex flex-col gap-4 lg:max-w-xl w-full">
+            <div className="self-start mb-4">
+              <Label text={"Health & Wellbeing"} icon={Heart} />
+            </div>
+            <h1 className="text-foreground text-4xl lg:max-w-lg font-bold font-serif tracking-tight pb-3">
+              Caring for body and mind</h1>
 
-          <p className="text-foreground/70">From foot care to mental health support, we offer services that nurture the whole person.</p>
+            <p className="text-foreground/70">From foot care to mental health support, we offer services that nurture the whole person.</p>
 
+          </div>
+        </div>
+        <div className="flex max-w-6xl w-full mx-auto pt-18">
+          <div className="grid gap-6 lg:grid-cols-3">
+            <ServiceCard
+              icon={<Footprints className="h-6 w-6" />}
+              title="Foot Care Clinic"
+              description="Run by trained volunteers, the clinic provides basic foot care, nail cutting, and advice on suitable footwear. Healthy feet help reduce the risk of falls and mobility problems."
+              details={[
+                { icon: <PoundSterling className="h-4 w-4" />, text: "Small charge per session" },
+                { icon: <Clock className="h-4 w-4" />, text: "Every second Thursday, 9:30am – 12:00pm" },
+                { icon: <Phone className="h-4 w-4" />, text: "Appointment required" },
+              ]}
+            />
+            <ServiceCard
+              icon={<Coffee className="h-6 w-6" />}
+              title="Tuesday Drop-In"
+              description="A supportive drop-in session for anyone experiencing mental health or wellbeing challenges including anxiety, depression, OCD, or addiction. A relaxed lounge environment with tea, biscuits, soft music, and informal activities like art and music."
+              details={[
+                { icon: <Clock className="h-4 w-4" />, text: "Tuesdays: 1:00pm – 3:00pm" },
+                { icon: <Heart className="h-4 w-4" />, text: "Funded by The Tudor Trust" },
+              ]}
+              accent
+            />
+            <ServiceCard
+              icon={<Users className="h-6 w-6" />}
+              title="Women's Support Group"
+              description="A weekly group providing a welcoming space for local women to meet, talk and support one another. The group offers the chance to meet others, share knowledge and skills, and enjoy conversation over tea or coffee."
+              details={[
+                { icon: <Clock className="h-4 w-4" />, text: "Wednesdays: 10:00am – 12:00pm" },
+                { icon: <MapPin className="h-4 w-4" />, text: "The Warren Room, Care Centre" },
+              ]}
+            />
+          </div>
         </div>
       </section>
 

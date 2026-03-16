@@ -13,8 +13,8 @@ export function ServiceCard({ icon, title, description, details, accent, classNa
       className={`rounded-2xl border border-border bg-card p-8 transition-shadow hover:shadow-md 
           ${className ?? ""}`}>
       <div
-        className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl 
-            ${accent ? "bg-accent/10 text-accent" : "bg-primary/10 text-primary"}`}>
+        className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10
+            ${accent ? "text-orange-700" : "text-primary"}`}>
         {icon}
       </div>
       <h3 className="text-lg font-semibold text-foreground">{title}</h3>

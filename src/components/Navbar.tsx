@@ -8,7 +8,7 @@ export default function Navbar({ background = false }: { background?: boolean })
   const navLinks = [
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Volunteer", href: "/volunteer" },
+    { label: "News", href: "/news" },
     { label: "Contact", href: "/contact" },
   ]
 

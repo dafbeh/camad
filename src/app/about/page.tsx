@@ -36,16 +36,16 @@ export default async function About() {
 
           <p className="text-foreground/70">{about?.subheader3}</p>
         </div>
-        <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full z-2">
+        <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full">
           <Image
             src={
               "/images/15.jpg"
             }
             alt="image"
             fill
-            className="object-cover rounded-lg"
+            className="object-cover rounded-lg z-2"
           />
-          <div className="lg:block hidden absolute -bottom-3 -left-3 z-1 h-full w-full rounded-2xl bg-primary/10" />
+          <div className="lg:block hidden absolute -bottom-3 -left-3 z-1 h-full w-full rounded-2xl bg-primary/10 z-0" />
         </div>
       </section>
 
