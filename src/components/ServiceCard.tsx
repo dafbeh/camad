@@ -4,10 +4,11 @@ type serviceCardProps = {
   description: string,
   details?: { icon: React.ReactNode; text: string }[],
   accent?: boolean,
+  grid?: boolean,
   className?: string
 }
 
-export function ServiceCard({ icon, title, description, details, accent, className }: serviceCardProps) {
+export function ServiceCard({ icon, title, description, details, accent, grid, className }: serviceCardProps) {
   return (
     <div
       className={`rounded-2xl border border-border bg-card p-8 transition-shadow hover:shadow-md 
@@ -22,12 +23,12 @@ export function ServiceCard({ icon, title, description, details, accent, classNa
         {description}
       </p>
       {details && details.length > 0 && (
-        <div className="mt-5 space-y-2">
+        <div className={`mt-5 ${grid ? "grid grid-cols-2 gap-2" : "space-y-2"}`}>
           {details.map((detail, i) => (
-            <DetailRow key={i} icon={detail.icon}>
-              {detail.text}
-            </DetailRow>
-          ))}
+          <DetailRow key={i} icon={detail.icon}>
+            {detail.text}
+          </DetailRow>
+        ))}
         </div>
       )}
     </div>

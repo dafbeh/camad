@@ -3,7 +3,7 @@ import Link from "next/link"
 import Navbar from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
 import Label from "@/components/Label"
-import { Heart, Phone, Car, CreditCard, PoundSterling, Footprints, Clock, Users, MapPin, Coffee } from "lucide-react"
+import { Heart, Phone, Car, CreditCard, PoundSterling, Footprints, Clock, Users, MapPin, Coffee, UtensilsCrossed, Pill, CalendarHeart } from "lucide-react"
 import Cta from "@/components/Cta"
 import { ServiceCard, DetailRow } from "@/components/ServiceCard"
 
@@ -132,6 +132,107 @@ export default function Services() {
               details={[
                 { icon: <Clock className="h-4 w-4" />, text: "Wednesdays: 10:00am – 12:00pm" },
                 { icon: <MapPin className="h-4 w-4" />, text: "The Warren Room, Care Centre" },
+              ]}
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-5 pt-18">
+        <Label text={"Community Support Services"} icon={UtensilsCrossed} />
+        <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">Practical help when you need it</h1>
+        <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-5">
+          From hot meals to prescription delivery, we help with the day-to-day essentials.
+        </p>
+
+        <div className="grid gap-6 lg:grid-cols-2 max-w-6xl px-3 lg:px-0">
+          <div className="rounded-2xl border border-border bg-card p-8 transition-shadow hover:shadow-md">
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <UtensilsCrossed className="h-6 w-6" />
+            </div>
+            <h3 className="text-xl font-semibold text-foreground">
+              Meals on Wheels
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              A volunteer-run service delivering hot meals to people who
+              cannot cook for themselves. Meals are prepared by Cartref Dyfi.
+            </p>
+
+            <div className="mt-6 space-y-3">
+              <DetailRow icon={<PoundSterling className="h-4 w-4" />}>
+                £6.50 per meal (main course and pudding)
+              </DetailRow>
+              <DetailRow icon={<Clock className="h-4 w-4" />}>
+                Tuesdays and Fridays, 12:30pm – 1:30pm
+              </DetailRow>
+              <DetailRow icon={<MapPin className="h-4 w-4" />}>
+                Machynlleth and Penegoes
+              </DetailRow>
+              <DetailRow icon={<Heart className="h-4 w-4" />}>
+                Diabetic meals available on request
+              </DetailRow>
+            </div>
+
+            <div className="mt-6 rounded-xl bg-muted p-4">
+              <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                Eligibility includes:
+              </p>
+              <ul className="mt-2 grid gap-1 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  Individuals who are housebound
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  Those unable to shop or cook
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  People recovering from illness or surgery
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  Those at risk of malnutrition
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  Those living with an elderly carer needing assistance
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex flex-col h-full lg:justify-between justify-center gap-6 lg:gap-0">
+            <ServiceCard
+              icon={<Pill className="h-6 w-6" />}
+              title="Prescription Delivery"
+              description="Volunteers collect and deliver prescriptions to people who cannot leave their homes or access the pharmacy themselves. This essential service helps ensure you never miss vital medication."
+              className="h-fit"
+            />
+
+            <ServiceCard
+              icon={<CalendarHeart className="h-6 w-6" />}
+              title="Monthly Lunch Club"
+              description="The Lunch Club offers a chance for older people to socialise and enjoy a hot meal together. A friendly gathering with good food and great conversation."
+              accent
+              grid
+              details={[
+                {
+                  icon: <Users className="h-4 w-4" />,
+                  text: "For people aged 60+",
+                },
+                {
+                  icon: <Clock className="h-4 w-4" />,
+                  text: "Once a month on Thursday",
+                },
+                {
+                  icon: <MapPin className="h-4 w-4" />,
+                  text: "Bowling Club",
+                },
+                {
+                  icon: <PoundSterling className="h-4 w-4" />,
+                  text: "£8.50 per person",
+                },
               ]}
             />
           </div>
