@@ -138,14 +138,14 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-5 pt-18">
+      <section className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-5 pt-18 lg:px-18">
         <Label text={"Community Support Services"} icon={UtensilsCrossed} />
         <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">Practical help when you need it</h1>
         <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-5">
           From hot meals to prescription delivery, we help with the day-to-day essentials.
         </p>
 
-        <div className="grid gap-6 lg:grid-cols-2 max-w-6xl px-3 lg:px-0">
+        <div className="grid gap-3 lg:grid-cols-2 max-w-6xl px-3 xl:px-0">
           <div className="rounded-2xl border border-border bg-card p-8 transition-shadow hover:shadow-md">
             <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <UtensilsCrossed className="h-6 w-6" />
@@ -202,7 +202,7 @@ export default function Services() {
             </div>
           </div>
 
-          <div className="flex flex-col h-full lg:justify-between justify-center gap-6 lg:gap-0">
+          <div className="flex flex-col h-full justify-between gap-3">
             <ServiceCard
               icon={<Pill className="h-6 w-6" />}
               title="Prescription Delivery"
