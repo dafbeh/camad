@@ -6,16 +6,19 @@ import Label from "@/components/Label"
 import { Heart, Phone, Car, CreditCard, PoundSterling, Footprints, Clock, Users, MapPin, Coffee, UtensilsCrossed, Pill, CalendarHeart } from "lucide-react"
 import Cta from "@/components/Cta"
 import { ServiceCard, DetailRow } from "@/components/ServiceCard"
+import { getService } from "@/sanity/lib/client"
 
-export default function Services() {
+export default async function Services() {
+  const service = await getService()
+
   return (
     <>
       <Navbar background={true} />
       <header className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full pb-18 pt-12">
         <Label text={"Our Services"} icon={Heart} />
-        <h1 className="text-foreground sm:text-5xl md:text-6xl text-4xl text-center font-bold font-serif tracking-tight">Supporting our community</h1>
+        <h1 className="text-foreground sm:text-5xl md:text-6xl text-4xl text-center font-bold font-serif tracking-tight">{service?.header1}</h1>
         <p className="max-w-2xl text-center text-foreground/70 text-lg md:px-0 px-5">
-          We offer a range of services designed to support wellbeing, independence, and social connection for people living in Machynlleth and the surrounding areas.
+          {service?.subheader1}
         </p>
       </header>
 
@@ -45,9 +48,9 @@ export default function Services() {
             <Label text={"Transport Services"} icon={Heart} />
             <div className="flex flex-col gap-4 lg:max-w-lg w-full">
               <h1 className="text-foreground text-4xl lg:max-w-[330px] font-bold font-serif tracking-tight pb-3">
-                Helping you get where you need to go</h1>
+                {service?.header2}</h1>
 
-              <p className="text-foreground/70">These transport schemes help ensure that living in a rural area does not limit independence or access to services.</p>
+              <p className="text-foreground/70">{service?.subheader2}</p>
 
             </div>
           </div>
@@ -67,16 +70,16 @@ export default function Services() {
         <div className="flex max-w-6xl w-full mx-auto py-18 grid gap-6 md:grid-cols-2">
           <ServiceCard
             icon={<Car className="h-6 w-6" />}
-            title="Community Car"
-            description="Volunteer drivers use their own vehicles to transport people who do not have access to suitable transport. This service is primarily for health-related appointments, such as hospital visits, eye tests, and other essential journeys."
+            title={service?.cards1[0].title}
+            description={service?.cards1[0].body}
           />
           <ServiceCard
             icon={<CreditCard className="h-6 w-6" />}
-            title="Taxi Card Scheme"
-            description="The Taxi Card Scheme provides subsidised taxi fares for older people and those living with disabilities."
+            title={service?.cards1[1].title}
+            description={service?.cards1[1].body}
             details={[
-              { icon: <PoundSterling className="h-4 w-4" />, text: "Annual membership: £9" },
-              { icon: <Heart className="h-4 w-4" />, text: "Members receive £50 worth of taxi vouchers" },
+              { icon: <PoundSterling className="h-4 w-4" />, text: service?.cards1[1].price },
+              { icon: <Heart className="h-4 w-4" />, text: service?.cards1[1].extra },
             ]}
           />
         </div>
@@ -97,9 +100,9 @@ export default function Services() {
               <Label text={"Health & Wellbeing"} icon={Heart} />
             </div>
             <h1 className="text-foreground text-4xl lg:max-w-lg font-bold font-serif tracking-tight pb-3">
-              Caring for body and mind</h1>
+              {service?.header3}</h1>
 
-            <p className="text-foreground/70">From foot care to mental health support, we offer services that nurture the whole person.</p>
+            <p className="text-foreground/70">{service?.subheader3}</p>
 
           </div>
         </div>
@@ -107,31 +110,31 @@ export default function Services() {
           <div className="grid gap-6 lg:grid-cols-3">
             <ServiceCard
               icon={<Footprints className="h-6 w-6" />}
-              title="Foot Care Clinic"
-              description="Run by trained volunteers, the clinic provides basic foot care, nail cutting, and advice on suitable footwear. Healthy feet help reduce the risk of falls and mobility problems."
+              title={service?.cards2[0].title}
+              description={service?.cards2[0].body}
               details={[
-                { icon: <PoundSterling className="h-4 w-4" />, text: "Small charge per session" },
-                { icon: <Clock className="h-4 w-4" />, text: "Every second Thursday, 9:30am – 12:00pm" },
-                { icon: <Phone className="h-4 w-4" />, text: "Appointment required" },
+                { icon: <PoundSterling className="h-4 w-4" />, text: service?.cards2[0].price },
+                { icon: <Clock className="h-4 w-4" />, text: service?.cards2[0].date, },
+                { icon: <Phone className="h-4 w-4" />, text: service?.cards2[0].phone },
               ]}
             />
             <ServiceCard
               icon={<Coffee className="h-6 w-6" />}
-              title="Tuesday Drop-In"
-              description="A supportive drop-in session for anyone experiencing mental health or wellbeing challenges including anxiety, depression, OCD, or addiction. A relaxed lounge environment with tea, biscuits, soft music, and informal activities like art and music."
+              title={service?.cards2[1].title}
+              description={service?.cards2[1].body}
               details={[
-                { icon: <Clock className="h-4 w-4" />, text: "Tuesdays: 1:00pm – 3:00pm" },
-                { icon: <Heart className="h-4 w-4" />, text: "Funded by The Tudor Trust" },
+                { icon: <Clock className="h-4 w-4" />, text: service?.cards2[1].date, },
+                { icon: <Heart className="h-4 w-4" />, text: service?.cards2[1].extra, },
               ]}
               accent
             />
             <ServiceCard
               icon={<Users className="h-6 w-6" />}
-              title="Women's Support Group"
-              description="A weekly group providing a welcoming space for local women to meet, talk and support one another. The group offers the chance to meet others, share knowledge and skills, and enjoy conversation over tea or coffee."
+              title={service?.cards2[2].title}
+              description={service?.cards2[2].body}
               details={[
-                { icon: <Clock className="h-4 w-4" />, text: "Wednesdays: 10:00am – 12:00pm" },
-                { icon: <MapPin className="h-4 w-4" />, text: "The Warren Room, Care Centre" },
+                { icon: <Clock className="h-4 w-4" />, text: service?.cards2[2].date, },
+                { icon: <MapPin className="h-4 w-4" />, text: service?.cards2[2].location, },
               ]}
             />
           </div>
@@ -140,9 +143,9 @@ export default function Services() {
 
       <section className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-5 pt-18 lg:px-18">
         <Label text={"Community Support Services"} icon={UtensilsCrossed} />
-        <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">Practical help when you need it</h1>
+        <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">{service?.header4}</h1>
         <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-5">
-          From hot meals to prescription delivery, we help with the day-to-day essentials.
+          {service?.subheader4}
         </p>
 
         <div className="grid gap-3 lg:grid-cols-2 max-w-6xl px-3 xl:px-0">
@@ -151,25 +154,24 @@ export default function Services() {
               <UtensilsCrossed className="h-6 w-6" />
             </div>
             <h3 className="text-xl font-semibold text-foreground">
-              Meals on Wheels
+              {service?.cards3[0].title}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              A volunteer-run service delivering hot meals to people who
-              cannot cook for themselves. Meals are prepared by Cartref Dyfi.
+              {service?.cards3[0].body}
             </p>
 
             <div className="mt-6 space-y-3">
               <DetailRow icon={<PoundSterling className="h-4 w-4" />}>
-                £6.50 per meal (main course and pudding)
+                {service?.cards3[0].price}
               </DetailRow>
               <DetailRow icon={<Clock className="h-4 w-4" />}>
-                Tuesdays and Fridays, 12:30pm – 1:30pm
+                {service?.cards3[0].date}
               </DetailRow>
               <DetailRow icon={<MapPin className="h-4 w-4" />}>
-                Machynlleth and Penegoes
+                {service?.cards3[0].location}
               </DetailRow>
               <DetailRow icon={<Heart className="h-4 w-4" />}>
-                Diabetic meals available on request
+                {service?.cards3[0].extra}
               </DetailRow>
             </div>
 
@@ -178,26 +180,12 @@ export default function Services() {
                 Eligibility includes:
               </p>
               <ul className="mt-2 grid gap-1 text-sm text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                  Individuals who are housebound
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                  Those unable to shop or cook
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                  People recovering from illness or surgery
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                  Those at risk of malnutrition
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                  Those living with an elderly carer needing assistance
-                </li>
+                {service?.cards3?.[0]?.eligibility?.map((item: string, index: number) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -205,33 +193,33 @@ export default function Services() {
           <div className="flex flex-col h-full justify-between gap-3">
             <ServiceCard
               icon={<Pill className="h-6 w-6" />}
-              title="Prescription Delivery"
-              description="Volunteers collect and deliver prescriptions to people who cannot leave their homes or access the pharmacy themselves. This essential service helps ensure you never miss vital medication."
+              title={service?.cards3[1].title}
+              description={service?.cards3[1].body}
               className="h-fit"
             />
 
             <ServiceCard
               icon={<CalendarHeart className="h-6 w-6" />}
-              title="Monthly Lunch Club"
-              description="The Lunch Club offers a chance for older people to socialise and enjoy a hot meal together. A friendly gathering with good food and great conversation."
+              title={service?.cards3[2].title}
+              description={service?.cards3[2].body}
               accent
               grid
               details={[
                 {
                   icon: <Users className="h-4 w-4" />,
-                  text: "For people aged 60+",
+                  text: service?.cards3[2].extra,
                 },
                 {
                   icon: <Clock className="h-4 w-4" />,
-                  text: "Once a month on Thursday",
+                  text: service?.cards3[2].date,
                 },
                 {
                   icon: <MapPin className="h-4 w-4" />,
-                  text: "Bowling Club",
+                  text: service?.cards3[2].location,
                 },
                 {
                   icon: <PoundSterling className="h-4 w-4" />,
-                  text: "£8.50 per person",
+                  text: service?.cards3[2].price,
                 },
               ]}
             />

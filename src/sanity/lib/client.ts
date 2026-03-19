@@ -14,5 +14,5 @@ export async function getAbout() {
 }
 
 export async function getService() {
-  return client.fetch(`*[_type == "page" && _id == "servicepage"][0]`)
+  return client.fetch(`*[_type == "service" && _id == "servicepage"][0]`)
 }

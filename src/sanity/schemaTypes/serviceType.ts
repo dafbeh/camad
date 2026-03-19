@@ -1,5 +1,4 @@
 import { defineField, defineType } from 'sanity'
-import { cardType } from './cardType'
 
 export const serviceType = defineType({
   name: 'service',
