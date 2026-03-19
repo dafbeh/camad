@@ -58,18 +58,18 @@ export default async function About() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 sm:gap-6 gap-3 sm:px-17 px-3 pt-8 sm:pb-0 pb-5 max-w-7xl items-stretch">
           <SmallCard
-            title={about?.cardT1}
-            body={about?.cardB1}
+            title={about?.cards1[0].title}
+            body={about?.cards1[0].body}
             icon={HandHelping}
           />
           <SmallCard
-            title={about?.cardT2}
-            body={about?.cardB2}
+            title={about?.cards1[1].title}
+            body={about?.cards1[1].body}
             icon={UsersRound}
           />
           <SmallCard
-            title={about?.cardT3}
-            body={about?.cardB3}
+            title={about?.cards1[2].title}
+            body={about?.cards1[2].body}
             icon={Heart}
           />
         </div>
@@ -109,23 +109,23 @@ export default async function About() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 sm:gap-6 gap-3 sm:px-17 px-3 pt-8 max-w-7xl items-stretch">
           <SmallerCard
-            title={about?.miniCardT1}
-            body={about?.miniCardB1}
+            title={about?.cards2[0].title}
+            body={about?.cards2[0].body}
             icon={Heart}
           />
           <SmallerCard
-            title={about?.miniCardT2}
-            body={about?.miniCardB2}
+            title={about?.cards2[1].title}
+            body={about?.cards2[1].body}
             icon={RefreshCw}
           />
           <SmallerCard
-            title={about?.miniCardT3}
-            body={about?.miniCardB3}
+            title={about?.cards2[2].title}
+            body={about?.cards2[2].body}
             icon={Briefcase}
           />
           <SmallerCard
-            title={about?.miniCardT4}
-            body={about?.miniCardB4}
+            title={about?.cards2[3].title}
+            body={about?.cards2[3].body}
             icon={Smile}
           />
         </div>
