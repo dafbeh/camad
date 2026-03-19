@@ -12,3 +12,7 @@ export const client = createClient({
 export async function getAbout() {
   return client.fetch(`*[_type == "page" && _id == "aboutpage"][0]`)
 }
+
+export async function getService() {
+  return client.fetch(`*[_type == "page" && _id == "servicepage"][0]`)
+}

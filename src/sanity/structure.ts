@@ -9,7 +9,14 @@ export const structure: StructureResolver = (S) =>
         .title('About Page')
         .child(
           S.document()
-            .schemaType('page')
+            .schemaType('about')
             .documentId('aboutpage')
+        ),
+      S.listItem()
+        .title('Service Page')
+        .child(
+          S.document()
+            .schemaType('service')
+            .documentId('servicepage')
         ),
     ])
