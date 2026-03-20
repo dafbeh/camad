@@ -141,7 +141,7 @@ export default async function Services() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-5 pt-18 lg:px-18">
+      <section id="community" className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-5 pt-18 lg:px-18">
         <Label text={"Community Support Services"} icon={UtensilsCrossed} />
         <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">{service?.header4}</h1>
         <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-5">
