@@ -1,4 +1,4 @@
-import type {StructureResolver} from 'sanity/structure'
+import type { StructureResolver } from 'sanity/structure'
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = (S) =>
@@ -19,4 +19,8 @@ export const structure: StructureResolver = (S) =>
             .schemaType('service')
             .documentId('servicepage')
         ),
+      S.listItem()
+        .title('Posts')
+        .schemaType('post')
+        .child(S.documentTypeList('post').title('Posts')),
     ])

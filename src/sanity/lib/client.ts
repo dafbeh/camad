@@ -16,3 +16,18 @@ export async function getAbout() {
 export async function getService() {
   return client.fetch(`*[_type == "service" && _id == "servicepage"][0]`)
 }
+
+export async function getPosts() {
+  return await client.fetch(`
+    *[_type == "post"] | order(publishedAt desc){
+      _id,
+      title,
+      summary,
+      slug,
+      author,
+      mainImage,
+      category,
+      publishedAt
+    }
+  `)
+}

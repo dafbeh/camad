@@ -4,8 +4,11 @@ import Label from "@/components/Label"
 import NewsCard from "@/components/NewsCard"
 import { Footer } from "@/components/Footer"
 import { Heart, Calendar, ArrowRight } from "lucide-react"
+import { getPosts } from "@/sanity/lib/client"
 
-export default function Page() {
+export default async function Page() {
+  const posts = await getPosts()
+
   return (
     <>
       <Navbar background={true} />
@@ -60,7 +63,17 @@ export default function Page() {
           <div className="flex flex-col gap-3 w-full">
             <h1 className="text-foreground text-3xl max-w-lg font-bold font-serif tracking-tight">Recent Stories</h1>
             <div className="mt-5 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-5">
-              
+              {posts.map((post: any) => (
+                <div key={post._id}>
+                  <NewsCard
+                    image={post.mainImage}
+                    category={post.category}
+                    date={post.publishedAt}
+                    title={post.title}
+                    summary={post.summary}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

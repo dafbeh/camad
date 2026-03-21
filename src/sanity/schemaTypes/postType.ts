@@ -1,5 +1,5 @@
 // studio/schemaTypes/postType.ts
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export const postType = defineType({
   name: 'post',
@@ -12,9 +12,16 @@ export const postType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'summary',
+      type: 'string',
+      description: '1 sentance summary',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'slug',
       type: 'slug',
-      options: {source: 'title'},
+      options: { source: 'title' },
+      description: 'Unique name for the link (use "-" for spaces)',
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -24,11 +31,14 @@ export const postType = defineType({
     defineField({
       name: 'mainImage',
       type: 'image',
-      options: {hotspot: true},
+      options: { hotspot: true },
+      validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'categories',
+      name: 'category',
       type: 'string',
+      description: 'such as "EVENT" or "PROJECT"',
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'publishedAt',
@@ -38,7 +48,7 @@ export const postType = defineType({
     defineField({
       name: 'body',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [{ type: 'block' }],
     }),
   ],
 })
