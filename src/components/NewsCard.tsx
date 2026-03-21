@@ -22,7 +22,7 @@ export default function NewsCard({ image, category, date, title, summary }: News
             className="aspect-[4/3] w-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
-        <div className="mb-2 flex items-center gap-3">
+        <div className="mb-2 flex items-center gap-2">
           <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider text-primary">
             {category.toUpperCase()}
           </span>
