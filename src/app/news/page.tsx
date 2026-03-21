@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Navbar from "@/components/Navbar"
 import Label from "@/components/Label"
+import NewsCard from "@/components/NewsCard"
 import { Footer } from "@/components/Footer"
 import { Heart, Calendar, ArrowRight } from "lucide-react"
 
@@ -12,17 +13,17 @@ export default function Page() {
       <header className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full pb-18 pt-12">
         <Label text={"News & Stories"} icon={Heart} />
         <h1 className="text-foreground text-6xl font-bold font-serif tracking-tight">Community Updates</h1>
-        <p className="max-w-2xl text-center text-foreground/70 text-lg md:px-0 px-5">
+        <p className="text-center text-foreground/70 text-lg md:px-0 px-5">
           Stories, events, and news from CAMAD and the Machynlleth community.
         </p>
       </header>
 
       <section className="flex bg-accent/95 justify-center w-full lg:p-18 py-18 px-3">
-        <div className="select-none h-full flex lg:flex-row flex-col gap-10 cursor-pointer group">
+        <div className="select-none max-w-6xl h-full flex lg:flex-row flex-col gap-10 cursor-pointer group">
           <div className="my-auto relative aspect-[6/4] lg:w-[500px] lg:min-w-[400px] w-full overflow-hidden rounded-lg">
             <Image
               src={
-                "/images/15.jpg"
+                "/images/market.jpg"
               }
               alt="image"
               fill
@@ -54,11 +55,16 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-[#efebe1] w-full sm:pb-20 pb-13 pt-18">
-        <div className="flex max-w-6xl mx-auto">
-          <h1 className="text-foreground text-center text-4xl max-w-lg font-bold font-serif tracking-tight">Recent Stories</h1>
+      <section className="bg-[#efebe1] w-full sm:pb-16 pb-13 pt-18 px-3 lg:px-0">
+        <div className="flex max-w-5xl mx-auto">
+          <div className="flex flex-col gap-3 w-full">
+            <h1 className="text-foreground text-3xl max-w-lg font-bold font-serif tracking-tight">Recent Stories</h1>
+            <div className="mt-5 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-5">
+              
+            </div>
+          </div>
         </div>
-      </section >
+      </section>
 
       <Footer />
     </>

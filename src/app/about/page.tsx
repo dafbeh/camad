@@ -1,12 +1,11 @@
 import Image from "next/image"
-import Link from "next/link"
 import Navbar from "@/components/Navbar"
 import Label from "@/components/Label"
 import { Footer } from "@/components/Footer"
 import { urlFor } from "@/sanity/lib/image"
 import {
   Heart, RefreshCw, HandHelping, UsersRound,
-  Coffee, MessageCircle, ArrowRight, Briefcase, Smile
+  Coffee, MessageCircle, Briefcase, Smile
 } from "lucide-react";
 import { getAbout } from "@/sanity/lib/client"
 import { SmallCard, SmallerCard } from "@/components/SmallCard"
