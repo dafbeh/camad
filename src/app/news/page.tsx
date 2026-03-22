@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import Navbar from "@/components/Navbar"
 import Label from "@/components/Label"
 import NewsCard from "@/components/NewsCard"
@@ -6,6 +7,7 @@ import { Footer } from "@/components/Footer"
 import { Heart, Calendar, ArrowRight } from "lucide-react"
 import { getPosts } from "@/sanity/lib/client"
 import { urlFor } from "@/sanity/lib/image"
+import { formatDate } from "@/lib/formatDate"
 
 export default async function Page() {
   const posts = await getPosts()
@@ -24,7 +26,7 @@ export default async function Page() {
         </header>
 
         <section className="flex bg-accent/95 justify-center w-full lg:p-18 py-18 px-3">
-          <div className="select-none max-w-6xl h-full flex lg:flex-row flex-col gap-10 cursor-pointer group">
+          <Link href={`/news/${posts[0].slug.current}`} className="select-none max-w-6xl h-full flex lg:flex-row flex-col gap-10 cursor-pointer group">
             <div className="my-auto relative aspect-[6/4] lg:w-[500px] lg:min-w-[400px] w-full overflow-hidden rounded-lg">
               <Image
                 src={urlFor(posts[0].mainImage).width(500).height(500).url()}
@@ -45,7 +47,7 @@ export default async function Page() {
                 </span>
               </div>
               <div className="lg:max-w-lg max-w-full flex flex-col h-full gap-2">
-                <h2 className="text-foreground group-hover:text-primary md:text-5xl text-3xl font-bold font-serif tracking-tight leading-14">
+                <h2 className="text-foreground group-hover:text-primary md:text-5xl text-3xl font-bold font-serif tracking-tight lg:leading-14">
                   {posts[0].title}
                 </h2>
                 <p className="text-foreground/70 text-lg">{posts[0].summary}</p>
@@ -55,7 +57,7 @@ export default async function Page() {
                 <ArrowRight className="h-4 w-4 mt-px transition-transform group-hover:translate-x-1" />
               </div>
             </div>
-          </div>
+          </Link>
         </section>
 
         {posts.length >= 2 &&
@@ -85,24 +87,4 @@ export default async function Page() {
       <Footer />
     </div>
   )
-}
-
-function formatDate(dateString: string) {
-  const date = new Date(dateString)
-
-  const day = date.getDate()
-  const month = date.toLocaleString('en-GB', { month: 'long' })
-  const year = date.getFullYear()
-
-  const getSuffix = (d: number) => {
-    if (d > 3 && d < 21) return 'th'
-    switch (d % 10) {
-      case 1: return 'st'
-      case 2: return 'nd'
-      case 3: return 'rd'
-      default: return 'th'
-    }
-  }
-
-  return `${day}${getSuffix(day)} ${month} ${year}`
 }
