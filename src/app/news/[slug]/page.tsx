@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar"
 import { PortableText, type SanityDocument } from "next-sanity";
 import Image from "next/image"
+import Link from "next/link"
 import { urlFor } from "@/sanity/lib/image"
 import { client } from '@/sanity/lib/client'
 import { formatDate } from "@/lib/formatDate"
@@ -17,10 +18,12 @@ export default async function Page({ params }: any) {
     <div>
       <Navbar background={true} />
 
-      <article className="flex flex-col gap-8 max-w-5xl mx-auto py-12">
-        <button className="flex w-fit gap-1 items-center font-medium text-sm text-foreground/70 select-none hover:text-primary cursor-pointer">
-          <ArrowLeft size={15} /> Back to News
-        </button>
+      <article className="flex flex-col sm:gap-8 gap-5 max-w-5xl mx-auto py-12 lg:px-0 px-3">
+        <Link href="/news">
+          <button className="flex w-fit gap-1 items-center font-medium text-sm text-foreground/70 select-none hover:text-primary cursor-pointer">
+            <ArrowLeft size={15} /> Back to News
+          </button>
+        </Link>
 
         <div className="flex gap-5">
           <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
@@ -46,7 +49,7 @@ export default async function Page({ params }: any) {
           className="w-full rounded-lg object-cover"
         />
 
-        <div className="prose max-w-none w-full">
+        <div className="prose max-w-none w-full mt-2">
           {Array.isArray(post.body) && <PortableText value={post.body} />}
         </div>
       </article>
