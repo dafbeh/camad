@@ -1,3 +1,5 @@
+import Image from "next/image"
+import { urlFor } from "@/sanity/lib/image"
 import Navbar from "@/components/Navbar"
 import Label from "@/components/Label"
 import { Footer } from "@/components/Footer"
@@ -7,6 +9,7 @@ import { getContact } from "@/sanity/lib/client"
 
 export default async function Page() {
   const contact = await getContact()
+  console.log(contact.team)
 
   return (
     <div>
@@ -105,7 +108,7 @@ export default async function Page() {
           </div>
 
         </div>
-        <div className="relative lg:aspect-square aspect-4/2 lg:w-[500px] lg:min-w-[400px] w-full">
+        <div className="relative lg:aspect-square aspect-4/2 lg:w-[500px] lg:min-w-[400px] w-full overflow-hidden">
           <div className="border-2 h-full w-full rounded-2xl bg-primary/10 flex flex-col gap-1 items-center justify-center">
             <Map />
           </div>
@@ -119,8 +122,37 @@ export default async function Page() {
           {contact?.subheader3}
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 sm:gap-6 gap-3 sm:px-17 px-3 pt-8 sm:pb-0 pb-5 max-w-7xl items-stretch">
-          {/* Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 sm:gap-6 gap-3 sm:px-20 px-3 pt-8 sm:pb-0 pb-5 max-w-7xl items-stretch">
+          {contact.team.map((user: any) => (
+            <div key={user._key}>
+              <div className="group h-full bg-card/90 rounded-2xl border-1 border-primary/20 transition-shadow hover:shadow-md">
+                <div className="flex flex-col gap-2 pb-5">
+                  <div className="aspect-[4/5] overflow-hidden rounded-t-2xl">
+                    <Image
+                      src={
+                        user.picture
+                          ? urlFor(user.picture).width(600).url()
+                          : "/images/camadOffice.png"
+                      }
+                      alt="image"
+                      width={300}
+                      height={300}
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex flex-col px-4 pb-4 gap-1">
+                    <div className="my-3">
+                      <h3 className="font-semibold text-foreground">{user?.name}</h3>
+                      <p className="text-sm font-medium text-primary">{user?.role}</p>
+                    </div>
+                    <p className="text-sm leading-relaxed text-foreground/70">
+                      {user?.body}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

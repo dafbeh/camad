@@ -13,8 +13,13 @@ export const teamType = defineType({
       description: 'Upload a square image (1:1 ratio recommended)',
     }),
     defineField({
-      name: 'title',
-      title: 'Title',
+      name: 'name',
+      title: 'Name',
+      type: 'string',
+    }),
+    defineField({
+      name: 'role',
+      title: 'Role',
       type: 'string',
     }),
     defineField({
