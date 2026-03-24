@@ -4,7 +4,9 @@ import {aboutType} from './aboutType'
 import {serviceType} from './serviceType'
 import {cardType} from './cardType'
 import {postType} from './postType'
+import {teamType} from './teamType'
+import {contactType} from './contactType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [aboutType, serviceType, cardType, postType],
+  types: [aboutType, serviceType, cardType, postType, teamType, contactType],
 }

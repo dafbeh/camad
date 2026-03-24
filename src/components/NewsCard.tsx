@@ -26,7 +26,7 @@ export default function NewsCard({ image, category, date, title, summary }: News
           <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider text-primary">
             {category.toUpperCase()}
           </span>
-          <span className="text-xs text-foreground/70">{formatDate(date)}</span>
+          <span className="text-xs text-foreground/70">{date}</span>
         </div>
         <h3 className="font-serif text-xl font-bold leading-snug text-foreground transition-colors group-hover:text-primary text-balance">
           {title}
@@ -37,24 +37,4 @@ export default function NewsCard({ image, category, date, title, summary }: News
       </article>
     </div>
   )
-}
-
-function formatDate(dateString: string) {
-  const date = new Date(dateString)
-
-  const day = date.getDate()
-  const month = date.toLocaleString('en-GB', { month: 'long' })
-  const year = date.getFullYear()
-
-  const getSuffix = (d: number) => {
-    if (d > 3 && d < 21) return 'th'
-    switch (d % 10) {
-      case 1: return 'st'
-      case 2: return 'nd'
-      case 3: return 'rd'
-      default: return 'th'
-    }
-  }
-
-  return `${day}${getSuffix(day)} ${month} ${year}`
 }

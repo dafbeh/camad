@@ -31,3 +31,7 @@ export async function getPosts() {
     }
   `)
 }
+
+export async function getContact() {
+  return client.fetch(`*[_type == "contact" && _id == "contactpage"][0]`)
+}
