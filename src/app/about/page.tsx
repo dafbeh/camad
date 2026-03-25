@@ -10,7 +10,7 @@ import {
 import { getAbout } from "@/sanity/lib/client"
 import { SmallCard, SmallerCard } from "@/components/SmallCard"
 import Cta from "@/components/Cta"
-import { ImageSkeleton } from "@/components/skeleton"
+import ImageWithSkeleton from "@/components/ImageSkeleton"
 
 export default async function About() {
   const about = await getAbout()
@@ -37,9 +37,9 @@ export default async function About() {
           <p className="text-foreground/70">{about?.subheader3}</p>
         </div>
         <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full">
-          <Image
+          <ImageWithSkeleton
             src={
-              "/images/15.jpg"
+              urlFor(about.header2Image).width(600).url()
             }
             alt="image"
             fill
@@ -77,11 +77,9 @@ export default async function About() {
 
       <section className="flex lg:flex-row flex-col gap-15 bg-accent/95 justify-center items-center w-full lg:p-18 py-18 px-3">
         <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full">
-          <Image
+          <ImageWithSkeleton
             src={
-              about?.header4Image
-                ? urlFor(about.header4Image).width(600).url()
-                : "/images/camadOffice.png"
+              urlFor(about.header4Image).width(600).url()
             }
             alt="image"
             fill

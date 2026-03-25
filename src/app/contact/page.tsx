@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer"
 import Map from "@/components/Map"
 import { Heart, MapPin, Phone, Mail, Clock, UsersRound } from "lucide-react"
 import { getContact } from "@/sanity/lib/client"
+import ImageWithSkeleton from "@/components/ImageSkeleton"
 
 export default async function Page() {
   const contact = await getContact()
@@ -130,11 +131,7 @@ export default async function Page() {
                 <div className="flex flex-col gap-2 pb-5">
                   <div className="aspect-[4/5] overflow-hidden rounded-t-2xl">
                     <Image
-                      src={
-                        user.picture
-                          ? urlFor(user.picture).width(600).url()
-                          : "/images/camadOffice.png"
-                      }
+                      src={urlFor(user.picture).width(600).url()}
                       alt="image"
                       width={500}
                       height={500}

@@ -43,6 +43,14 @@ export const serviceType = defineType({
       fieldset: 'header2',
     }),
     defineField({
+      name: 'header2Image',
+      title: 'Header Image',
+      type: 'image',
+      fieldset: 'header2',
+      options: { hotspot: true },
+      description: 'Upload a square image (1:1 ratio recommended)',
+    }),
+    defineField({
       name: 'cards1',
       title: 'Cards',
       type: 'array',
@@ -64,6 +72,14 @@ export const serviceType = defineType({
       type: 'text',
       rows: 2,
       fieldset: 'header3',
+    }),
+    defineField({
+      name: 'header3Image',
+      title: 'Header Image',
+      type: 'image',
+      fieldset: 'header3',
+      options: { hotspot: true },
+      description: 'Upload a square image (1:1 ratio recommended)',
     }),
     defineField({
       name: 'cards2',

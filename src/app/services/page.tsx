@@ -7,6 +7,8 @@ import { Heart, Phone, Car, CreditCard, PoundSterling, Footprints, Clock, Users,
 import Cta from "@/components/Cta"
 import { ServiceCard, DetailRow } from "@/components/ServiceCard"
 import { getService } from "@/sanity/lib/client"
+import ImageWithSkeleton from "@/components/ImageSkeleton"
+import { urlFor } from "@/sanity/lib/image"
 
 export default async function Services() {
   const service = await getService()
@@ -55,10 +57,8 @@ export default async function Services() {
             </div>
           </div>
           <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full z-2">
-            <Image
-              src={
-                "/images/camadOffice.png"
-              }
+            <ImageWithSkeleton
+              src={urlFor(service?.header2Image).width(600).url()}
               alt="image"
               fill
               className="object-cover rounded-lg z-2"
@@ -88,8 +88,8 @@ export default async function Services() {
       <section id="health" className="flex flex-col bg-[#efebe1] w-full lg:p-18 py-18 px-3">
         <div className="flex lg:flex-row flex-col gap-15 justify-center items-center">
           <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full">
-            <Image
-              src={"/images/camadOffice.png"}
+            <ImageWithSkeleton
+              src={urlFor(service?.header3Image).width(600).url()}
               alt="image"
               fill
               className="object-cover rounded-lg shadow-lg"
