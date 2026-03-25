@@ -121,7 +121,7 @@ export const contactType = defineType({
       name: 'sponsors',
       title: 'Sponsors',
       type: 'array',
-      of: [{ type: 'string' }],
+      of: [{ type: 'sponsorType' }],
       fieldset: 'header4',
     }),
     defineField({

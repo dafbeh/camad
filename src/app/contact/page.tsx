@@ -9,7 +9,8 @@ import { getContact } from "@/sanity/lib/client"
 
 export default async function Page() {
   const contact = await getContact()
-  console.log(contact.team)
+
+  console.log(contact?.sponsors)
 
   return (
     <div>
@@ -127,7 +128,7 @@ export default async function Page() {
             <div key={user._key}>
               <div className="group h-full bg-card/90 rounded-2xl border-1 border-primary/20 transition-shadow hover:shadow-md">
                 <div className="flex flex-col gap-2 pb-5">
-                  <div className="aspect-[3/5] overflow-hidden rounded-t-2xl">
+                  <div className="aspect-[4/5] overflow-hidden rounded-t-2xl">
                     <Image
                       src={
                         user.picture
@@ -163,11 +164,32 @@ export default async function Page() {
           {contact?.subheader4}
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 sm:gap-6 gap-3 sm:px-17 px-3 pt-2 sm:pb-0 pb-5 max-w-7xl items-stretch">
-          {contact?.sponsors.map((sponsor: string) => (
-            <p key={sponsor} className="text-center text-foreground/70 text-md md:px-0 px-3">
-              {sponsor}
-            </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 sm:gap-6 gap-3 lg:px-30 md:px-18 px-3 pt-2 sm:pb-0 pb-5 max-w-6xl items-stretch">
+          {contact?.sponsors.map((sponsor: any) => (
+            <div key={sponsor._key}>
+              <div className="group h-full bg-card/90 rounded-2xl border-1 border-primary/20 transition-shadow hover:shadow-md">
+                <div className="flex flex-col gap-2 pb-5">
+                  <div className="aspect-square overflow-hidden rounded-t-2xl">
+                    <Image
+                      src={
+                        sponsor.picture
+                          ? urlFor(sponsor.picture).width(600).url()
+                          : "/images/camadOffice.png"
+                      }
+                      alt="image"
+                      width={500}
+                      height={500}
+                      className="h-full w-full object-scale-down transition-transform duration-300 max-w-4/6 mx-auto my-auto select-none"
+                    />
+                  </div>
+                  <div className="flex flex-col px-4 gap-1">
+                    <div className="mx-auto">
+                      <h3 className="font-medium text-foreground">{sponsor.name}</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
 

@@ -10,6 +10,7 @@ import {
 import { getAbout } from "@/sanity/lib/client"
 import { SmallCard, SmallerCard } from "@/components/SmallCard"
 import Cta from "@/components/Cta"
+import { ImageSkeleton } from "@/components/skeleton"
 
 export default async function About() {
   const about = await getAbout()
@@ -47,7 +48,7 @@ export default async function About() {
           <div className="lg:block hidden absolute -bottom-3 -left-3 z-1 h-full w-full rounded-2xl bg-primary/10 z-0" />
         </div>
       </section>
-
+      
       <section className="flex flex-col gap-8 bg-[#efebe1] justify-center items-center w-full sm:pb-20 pb-13 pt-18">
         <Label text={"A cycle of giving"} icon={RefreshCw} />
         <h1 className="text-foreground text-center text-4xl max-w-lg font-bold font-serif tracking-tight">{about?.header3}</h1>
