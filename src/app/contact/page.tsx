@@ -127,7 +127,7 @@ export default async function Page() {
             <div key={user._key}>
               <div className="group h-full bg-card/90 rounded-2xl border-1 border-primary/20 transition-shadow hover:shadow-md">
                 <div className="flex flex-col gap-2 pb-5">
-                  <div className="aspect-[4/5] overflow-hidden rounded-t-2xl">
+                  <div className="aspect-[3/5] overflow-hidden rounded-t-2xl">
                     <Image
                       src={
                         user.picture
@@ -135,8 +135,8 @@ export default async function Page() {
                           : "/images/camadOffice.png"
                       }
                       alt="image"
-                      width={300}
-                      height={300}
+                      width={500}
+                      height={500}
                       className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
