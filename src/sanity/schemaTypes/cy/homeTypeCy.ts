@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity'
 
-export const homeType = defineType({
-  name: 'home',
+export const homeTypeCy = defineType({
+  name: 'homeCy',
   title: 'Page Content',
   type: 'document',
 
@@ -20,7 +20,7 @@ export const homeType = defineType({
       title: 'label',
       type: 'string',
     }),
-
+    
     // Section 1
     defineField({
       name: 'header1',

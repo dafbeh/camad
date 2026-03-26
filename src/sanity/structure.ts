@@ -41,4 +41,12 @@ export const structure: StructureResolver = (S) =>
 
       S.divider(),
 
+      S.listItem()
+        .title('Home Page (Cymraeg)')
+        .child(
+          S.document()
+            .schemaType('homeCy')
+            .documentId('homesPageCy')
+        ),
+
     ])

@@ -4,8 +4,9 @@ import { Heart, Users, HandHelping } from "lucide-react"
 import Navbar from "@/components/Navbar"
 import { getHome } from "@/sanity/lib/client"
 
-export default async function Home() {
-  const home = await getHome()
+export default async function Home({ welsh } : {welsh?: boolean}) {
+  const language = welsh ? 'cy' : 'en'
+  const home = await getHome(language)
 
   return (
     <>
@@ -35,7 +36,7 @@ export default async function Home() {
             <div className="mb-8 inline-flex items-center gap-2 rounded-full 
               border border-card/20 bg-card/10 px-4 py-2 backdrop-blur-sm select-none">
               <Heart className="h-4 w-4 text-red-400" />
-              <span className="text-sm font-medium text-card/90">Serving Machynlleth since 1998</span>
+              <span className="text-sm font-medium text-card/90">{home?.label}</span>
             </div>
 
             {/* Heading */}
@@ -63,7 +64,7 @@ export default async function Home() {
                 className="rounded-full border border-card/30 bg-card/10 px-8 py-3.5 text-base font-semibold 
                   text-card backdrop-blur-sm transition-all hover:bg-card/20"
               >
-                {home?.button1}
+                {home?.button2}
               </Link>
             </div>
 
