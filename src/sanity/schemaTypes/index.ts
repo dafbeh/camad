@@ -1,5 +1,6 @@
 import { type SchemaTypeDefinition } from 'sanity'
 
+import {homeType} from './homeType'
 import {aboutType} from './aboutType'
 import {serviceType} from './serviceType'
 import {cardType} from './cardType'
@@ -9,5 +10,5 @@ import {contactType} from './contactType'
 import {sponsorType} from './sponsorType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [aboutType, serviceType, cardType, postType, teamType, contactType, sponsorType],
+  types: [aboutType, serviceType, cardType, postType, teamType, contactType, sponsorType, homeType],
 }

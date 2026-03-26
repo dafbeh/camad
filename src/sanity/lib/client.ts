@@ -9,6 +9,10 @@ export const client = createClient({
   useCdn: false, // Set to false if statically generating pages, using ISR or tag-based revalidation
 })
 
+export async function getHome() {
+  return client.fetch(`*[_type == "home" && _id == "homespage"][0]`)
+}
+
 export async function getAbout() {
   return client.fetch(`*[_type == "page" && _id == "aboutpage"][0]`)
 }

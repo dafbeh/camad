@@ -2,8 +2,11 @@ import Image from "next/image"
 import Link from "next/link"
 import { Heart, Users, HandHelping } from "lucide-react"
 import Navbar from "@/components/Navbar"
+import { getHome } from "@/sanity/lib/client"
 
-export default function Home() {
+export default async function Home() {
+  const home = await getHome()
+
   return (
     <>
       <section>
@@ -38,15 +41,12 @@ export default function Home() {
             {/* Heading */}
             <h1 className="max-w-3xl font-serif text-4xl font-semibold leading-tight 
               tracking-tight text-card sm:text-5xl md:text-6xl lg:text-7xl text-balance">
-              Strengthening Our Community, Together
+              {home?.header1}
             </h1>
 
             {/* Subheading */}
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-card/90 md:text-2xl">
-              {/* CAMAD connects volunteers with those who need support across
-            Machynlleth and the surrounding district. Whether you want to lend a hand
-            or need a little help, we are here for you. */}
-              Website refresh coming soon...
+              {home?.subheader1}
             </p>
 
             {/* CTA buttons */}
@@ -56,14 +56,14 @@ export default function Home() {
                 className="rounded-full bg-primary px-8 py-3.5 text-base font-semibold text-primary-foreground 
                   shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
               >
-                Become a Volunteer
+               {home?.button1}
               </Link>
               <Link
                 href="/services"
                 className="rounded-full border border-card/30 bg-card/10 px-8 py-3.5 text-base font-semibold 
                   text-card backdrop-blur-sm transition-all hover:bg-card/20"
               >
-                Our Services
+                {home?.button1}
               </Link>
             </div>
 
@@ -71,18 +71,18 @@ export default function Home() {
             <div className="mt-16 grid sm:max-w-2xl grid-cols-1 sm:grid-cols-2 gap-6 md:grid-cols-3">
               <StatCard
                 icon={<Users className="h-5 w-5" />}
-                value="200+"
-                label="Active Volunteers"
+                value={home?.card1H}
+                label={home?.card1B}
               />
               <StatCard
                 icon={<HandHelping className="h-5 w-5" />}
-                value="1,500+"
-                label="People Supported"
+                value={home?.card2H}
+                label={home?.card2B}
               />
               <StatCard
                 icon={<Heart className="h-5 w-5" />}
-                value="25+"
-                label="Years of Service"
+                value={home?.card3H}
+                label={home?.card3B}
               />
             </div>
           </div>

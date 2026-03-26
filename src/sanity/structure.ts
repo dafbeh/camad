@@ -6,6 +6,13 @@ export const structure: StructureResolver = (S) =>
     .title('Content')
     .items([
       S.listItem()
+        .title('Home Page')
+        .child(
+          S.document()
+            .schemaType('home')
+            .documentId('homespage')
+        ),
+      S.listItem()
         .title('About Page')
         .child(
           S.document()
@@ -31,4 +38,7 @@ export const structure: StructureResolver = (S) =>
             .schemaType('contact')
             .documentId('contactpage')
         ),
+
+      S.divider(),
+
     ])
