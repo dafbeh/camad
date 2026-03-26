@@ -6,11 +6,11 @@ import Navbar from "@/components/Navbar"
 export default function Home() {
   return (
     <>
-    <section>
-      <Navbar />
-    </section>
+      <section>
+        <Navbar />
+      </section>
 
-    {/* Hero */}
+      {/* Hero */}
       <section className="relative min-h-screen overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0 select-none">
@@ -52,14 +52,14 @@ export default function Home() {
             {/* CTA buttons */}
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
-                href="#volunteer"
+                href="/volunteer"
                 className="rounded-full bg-primary px-8 py-3.5 text-base font-semibold text-primary-foreground 
                   shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
               >
                 Become a Volunteer
               </Link>
               <Link
-                href="#services"
+                href="/services"
                 className="rounded-full border border-card/30 bg-card/10 px-8 py-3.5 text-base font-semibold 
                   text-card backdrop-blur-sm transition-all hover:bg-card/20"
               >
