@@ -9,6 +9,8 @@ import { getPosts } from "@/sanity/lib/client"
 import { urlFor } from "@/sanity/lib/image"
 import { formatDate } from "@/lib/formatDate"
 
+export const revalidate = 60
+
 export default async function Page() {
   const posts = await getPosts()
 

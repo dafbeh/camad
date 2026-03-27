@@ -12,6 +12,8 @@ import { SmallCard, SmallerCard } from "@/components/SmallCard"
 import Cta from "@/components/Cta"
 import ImageWithSkeleton from "@/components/ImageSkeleton"
 
+export const revalidate = 60
+
 export default async function About() {
   const about = await getAbout()
 

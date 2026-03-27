@@ -10,6 +10,8 @@ import { getService } from "@/sanity/lib/client"
 import ImageWithSkeleton from "@/components/ImageSkeleton"
 import { urlFor } from "@/sanity/lib/image"
 
+export const revalidate = 60
+
 export default async function Services() {
   const service = await getService()
 

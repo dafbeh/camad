@@ -8,6 +8,8 @@ import { Heart, MapPin, Phone, Mail, Clock, UsersRound } from "lucide-react"
 import { getContact } from "@/sanity/lib/client"
 import ImageWithSkeleton from "@/components/ImageSkeleton"
 
+export const revalidate = 60
+
 export default async function Page() {
   const contact = await getContact()
 

@@ -4,6 +4,8 @@ import { Heart, Users, HandHelping } from "lucide-react"
 import Navbar from "@/components/Navbar"
 import { getHome } from "@/sanity/lib/client"
 
+export const revalidate = 60
+
 export default async function Home({ welsh } : {welsh?: boolean}) {
   const language = welsh ? 'cy' : 'en'
   const home = await getHome(language)
@@ -11,7 +13,7 @@ export default async function Home({ welsh } : {welsh?: boolean}) {
   return (
     <>
       <section>
-        <Navbar />
+        <Navbar welsh={welsh} />
       </section>
 
       {/* Hero */}

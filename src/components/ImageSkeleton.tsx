@@ -24,7 +24,7 @@ export default function ImageWithSkeleton({ src, alt, className, fill }: Props) 
         fill={fill}
         className={`${className} ${loading ? "opacity-0" : "opacity-100"
           }`}
-        onLoadingComplete={() => setLoading(false)}
+        onLoad={() => setLoading(false)}
       />
     </>
   );
