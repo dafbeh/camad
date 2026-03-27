@@ -4,8 +4,16 @@ import Link from "next/link"
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from "lucide-react";
 
-export default function Navbar({ background = false }: { background?: boolean }) {
-  const navLinks = [
+export default function Navbar({ background = false, welsh = false }: {
+  background?: boolean
+  welsh?: boolean
+}) {
+  const navLinks = welsh ? [
+    { label: "Amdanom", href: "/cy/about" },
+    { label: "Gwasanaethau", href: "/cy/services" },
+    { label: "Newyddion", href: "/cy/news" },
+    { label: "Cyswllt", href: "/cy/contact" },
+  ] : [
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "News", href: "/news" },
@@ -44,7 +52,7 @@ export default function Navbar({ background = false }: { background?: boolean })
             <span className={`font-bold text-lg tracking-tight 
                 ${background ? "text-foreground/90" : ""}`}>CAMAD</span>
             <span className={`font-light text-xs 
-                ${background ? "text-foreground/90" : "text-card/70"}`}>Community Action Machynlleth</span>
+                ${background ? "text-foreground/90" : "text-card/70"}`}>{ welsh ? "Gweithredu Cymunedol Machynlleth" : "Community Action Machynlleth" }</span>
           </div>
         </Link>
 
@@ -67,11 +75,11 @@ export default function Navbar({ background = false }: { background?: boolean })
 
               <li className="flex flex-wrap items-center">
                 <Link
-                  href="/contact"
+                  href={welsh ? "/cy/contact" : "/contact"}
                   className="rounded-full bg-primary px-5 py-3 font-semibold text-card
                   transition-all hover:bg-primary/90 text-md"
                 >
-                  Get Involved
+                  { welsh ? "Cymerwch Ran" : "Get Involved" }
                 </Link>
               </li>
             </ul>
@@ -103,11 +111,11 @@ export default function Navbar({ background = false }: { background?: boolean })
 
                 <div className="flex flex-wrap items-center p-5 pt-3">
                   <Link
-                    href="#volunteer"
+                    href={welsh ? "/cy/contact" : "/contact"}
                     className="rounded-full bg-primary px-5 py-3 font-semibold text-card
                   transition-all hover:bg-primary/90 text-md w-full text-center"
                   >
-                    Get Involved
+                    { welsh ? "Cymerwch Ran" : "Get Involved" }
                   </Link>
                 </div>
               </nav>
