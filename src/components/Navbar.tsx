@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar({ background = false, welsh = false }: {
   background?: boolean
@@ -37,6 +38,8 @@ export default function Navbar({ background = false, welsh = false }: {
     };
   }, []);
 
+  const pathname = usePathname();
+
   return (
     <div className={`top-0 left-0 w-full z-50 
         ${background ? "sticky top-0 z-50 border-b border-border bg-accent/95 backdrop-blur-md" : "absolute"}`}>
@@ -52,7 +55,7 @@ export default function Navbar({ background = false, welsh = false }: {
             <span className={`font-bold text-lg tracking-tight 
                 ${background ? "text-foreground/90" : ""}`}>CAMAD</span>
             <span className={`font-light text-xs 
-                ${background ? "text-foreground/90" : "text-card/70"}`}>{ welsh ? "Gweithredu Cymunedol Machynlleth" : "Community Action Machynlleth" }</span>
+                ${background ? "text-foreground/90" : "text-card/70"}`}>{welsh ? "Gweithredu Cymunedol Machynlleth" : "Community Action Machynlleth"}</span>
           </div>
         </Link>
 
@@ -60,17 +63,27 @@ export default function Navbar({ background = false, welsh = false }: {
         <div className="flex z-50">
           <nav aria-label="Main navigation">
             <ul className="hidden md:flex gap-8 text-card/80 text-sm font-medium items-center tracking-wide">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`cursor-pointer hover:text-card transition-colors 
-                        ${background ? "text-muted-foreground hover:text-foreground" : "text-card/80 hover:text-card"}`}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className={`cursor-pointer hover:text-card transition-colors 
+                        ${background
+                          ? isActive
+                            ? "text-primary hover:text-foreground underline text-decoration-primary hover:decoration-foreground underline-offset-[3px] decoration-2"
+                            : "text-muted-foreground hover:text-foreground"
+                          : isActive
+                            ? "text-card/80 hover:text-card"
+                            : "text-card/80 hover:text-card"
+                        }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                )
+              })}
 
 
               <li className="flex flex-wrap items-center">
@@ -79,7 +92,7 @@ export default function Navbar({ background = false, welsh = false }: {
                   className="rounded-full bg-primary px-5 py-3 font-semibold text-card
                   transition-all hover:bg-primary/90 text-md"
                 >
-                  { welsh ? "Cymerwch Ran" : "Get Involved" }
+                  {welsh ? "Cymerwch Ran" : "Get Involved"}
                 </Link>
               </li>
             </ul>
@@ -115,7 +128,7 @@ export default function Navbar({ background = false, welsh = false }: {
                     className="rounded-full bg-primary px-5 py-3 font-semibold text-card
                   transition-all hover:bg-primary/90 text-md w-full text-center"
                   >
-                    { welsh ? "Cymerwch Ran" : "Get Involved" }
+                    {welsh ? "Cymerwch Ran" : "Get Involved"}
                   </Link>
                 </div>
               </nav>
