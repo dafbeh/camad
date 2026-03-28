@@ -87,7 +87,7 @@ export default async function Services() {
         </div>
       </section>
 
-      <section id="health" className="flex flex-col bg-[#efebe1] w-full lg:p-18 py-18 px-3">
+      <section id="health" className="flex flex-col bg-[#e6ece8] w-full lg:p-18 py-18 px-3">
         <div className="flex lg:flex-row flex-col gap-15 justify-center items-center">
           <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full">
             <ImageWithSkeleton

@@ -51,7 +51,7 @@ export default async function About() {
         </div>
       </section>
       
-      <section className="flex flex-col gap-8 bg-[#efebe1] justify-center items-center w-full sm:pb-20 pb-13 pt-18">
+      <section className="flex flex-col gap-8 bg-[#e6ece8] justify-center items-center w-full sm:pb-20 pb-13 pt-18">
         <Label text={"A cycle of giving"} icon={RefreshCw} />
         <h1 className="text-foreground text-center text-4xl max-w-lg font-bold font-serif tracking-tight">{about?.header3}</h1>
         <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-3">
