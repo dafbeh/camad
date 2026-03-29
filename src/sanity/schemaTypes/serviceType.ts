@@ -56,7 +56,6 @@ export const serviceType = defineType({
       type: 'array',
       of: [{ type: 'card' }],
       fieldset: 'header2',
-      validation: (Rule) => Rule.min(2).max(2),
     }),
 
     // Section 3
@@ -112,6 +111,14 @@ export const serviceType = defineType({
       of: [{ type: 'card' }],
       fieldset: 'header4',
       validation: (Rule) => Rule.min(3).max(3),
+    }),
+
+    defineField({
+      name: 'eligibility',
+      title: 'Eligibility',
+      description: 'List of eligibility for Meals on Wheels',
+      type: 'array',
+      of: [{ type: 'string' }],
     }),
   ],
 })

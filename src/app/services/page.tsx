@@ -74,16 +74,14 @@ export default async function Services() {
             icon={service?.cards1[0].icon}
             title={service?.cards1[0].title}
             description={service?.cards1[0].body}
+            details={service?.cards1[0].details}
           />
 
           <ServiceCard
             icon={service?.cards1[1].icon}
             title={service?.cards1[1].title}
             description={service?.cards1[1].body}
-            details={[
-              { icon: "PoundSterling", text: service?.cards1[1].price },
-              { icon: "Heart", text: service?.cards1[1].extra },
-            ]}
+            details={service?.cards1[1].details}
           />
         </div>
       </section>
@@ -115,21 +113,14 @@ export default async function Services() {
               icon={service?.cards2[0].icon}
               title={service?.cards2[0].title}
               description={service?.cards2[0].body}
-              details={[
-                { icon: "PoundSterling", text: service?.cards2[0].price },
-                { icon: "Clock", text: service?.cards2[0].date },
-                { icon: "Phone", text: service?.cards2[0].phone },
-              ]}
+              details={service?.cards2[0].details}
             />
 
             <ServiceCard
               icon={service?.cards2[1].icon}
               title={service?.cards2[1].title}
               description={service?.cards2[1].body}
-              details={[
-                { icon: "Clock", text: service?.cards2[1].date },
-                { icon: "Heart", text: service?.cards2[1].extra },
-              ]}
+              details={service?.cards2[1].details}
               accent
             />
 
@@ -137,10 +128,7 @@ export default async function Services() {
               icon={service?.cards2[2].icon}
               title={service?.cards2[2].title}
               description={service?.cards2[2].body}
-              details={[
-                { icon: "Clock", text: service?.cards2[2].date },
-                { icon: "MapPin", text: service?.cards2[2].location },
-              ]}
+              details={service?.cards2[2].details}
             />
           </div>
         </div>
@@ -166,18 +154,16 @@ export default async function Services() {
             </p>
 
             <div className="mt-6 space-y-3">
-              <DetailRow icon={<Icons.PoundSterling className="h-4 w-4" />}>
-                {service?.cards3[0].price}
-              </DetailRow>
-              <DetailRow icon={<Icons.Clock className="h-4 w-4" />}>
-                {service?.cards3[0].date}
-              </DetailRow>
-              <DetailRow icon={<Icons.MapPin className="h-4 w-4" />}>
-                {service?.cards3[0].location}
-              </DetailRow>
-              <DetailRow icon={<Icons.Heart className="h-4 w-4" />}>
-                {service?.cards3[0].extra}
-              </DetailRow>
+              {service?.cards3[0].details?.map((detail: { icon: string, text: string }, index: number) => {
+                const IconComponent =
+                  (Icons as unknown as Record<string, React.ComponentType<any>>)[detail.icon] || Icons.Heart;
+
+                return (
+                  <DetailRow key={index} icon={<IconComponent className="h-4 w-4" />}>
+                    {detail.text}
+                  </DetailRow>
+                );
+              })}
             </div>
 
             <div className="mt-6 rounded-xl bg-muted p-4">
@@ -185,7 +171,7 @@ export default async function Services() {
                 Eligibility includes:
               </p>
               <ul className="mt-2 grid gap-1 text-sm text-muted-foreground">
-                {service?.cards3?.[0]?.eligibility?.map((item: string, index: number) => (
+                {service?.eligibility?.map((item: string, index: number) => (
                   <li key={index} className="flex items-start gap-2">
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                     {item}
@@ -208,12 +194,7 @@ export default async function Services() {
               description={service?.cards3[2].body}
               accent
               grid
-              details={[
-                { icon: "Users", text: service?.cards3[2].extra },
-                { icon: "Clock", text: service?.cards3[2].date },
-                { icon: "MapPin", text: service?.cards3[2].location },
-                { icon: "PoundSterling", text: service?.cards3[2].price },
-              ]}
+              details={service?.cards3[2].details}
             />
           </div>
         </div>
