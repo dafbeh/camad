@@ -3,7 +3,7 @@ import Link from "next/link"
 import Navbar from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
 import Label from "@/components/Label"
-import { Heart, Phone, Car, CreditCard, PoundSterling, Footprints, Clock, Users, MapPin, Coffee, UtensilsCrossed, Pill, CalendarHeart } from "lucide-react"
+import * as Icons from "lucide-react";
 import Cta from "@/components/Cta"
 import { ServiceCard, DetailRow } from "@/components/ServiceCard"
 import { getService } from "@/sanity/lib/client"
@@ -19,7 +19,7 @@ export default async function Services() {
     <>
       <Navbar background={true} />
       <header className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full pb-18 pt-12">
-        <Label text={"Our Services"} icon={Heart} />
+        <Label text={"Our Services"} icon={Icons.Heart} />
         <h1 className="text-foreground sm:text-5xl md:text-6xl text-4xl text-center font-bold font-serif tracking-tight">{service?.header1}</h1>
         <p className="max-w-2xl text-center text-foreground/70 text-lg md:px-0 px-5">
           {service?.subheader1}
@@ -49,7 +49,7 @@ export default async function Services() {
       <section id="transport" className="flex flex-col bg-accent/95 lg:p-18 pt-18 lg:pb-0 px-3">
         <div className="flex lg:flex-row flex-col gap-15 justify-center items-center w-full">
           <div className="start-self flex flex-col gap-4">
-            <Label text={"Transport Services"} icon={Heart} />
+            <Label text={"Transport Services"} icon={Icons.Heart} />
             <div className="flex flex-col gap-4 lg:max-w-lg w-full">
               <h1 className="text-foreground text-4xl lg:max-w-[330px] font-bold font-serif tracking-tight pb-3">
                 {service?.header2}</h1>
@@ -71,17 +71,18 @@ export default async function Services() {
 
         <div className="flex max-w-6xl w-full mx-auto py-18 grid gap-6 md:grid-cols-2">
           <ServiceCard
-            icon={<Car className="h-6 w-6" />}
+            icon={service?.cards1[0].icon}
             title={service?.cards1[0].title}
             description={service?.cards1[0].body}
           />
+
           <ServiceCard
-            icon={<CreditCard className="h-6 w-6" />}
+            icon={service?.cards1[1].icon}
             title={service?.cards1[1].title}
             description={service?.cards1[1].body}
             details={[
-              { icon: <PoundSterling className="h-4 w-4" />, text: service?.cards1[1].price },
-              { icon: <Heart className="h-4 w-4" />, text: service?.cards1[1].extra },
+              { icon: "PoundSterling", text: service?.cards1[1].price },
+              { icon: "Heart", text: service?.cards1[1].extra },
             ]}
           />
         </div>
@@ -99,7 +100,7 @@ export default async function Services() {
           </div>
           <div className="flex flex-col gap-4 lg:max-w-xl w-full">
             <div className="self-start mb-4">
-              <Label text={"Health & Wellbeing"} icon={Heart} />
+              <Label text={"Health & Wellbeing"} icon={Icons.Heart} />
             </div>
             <h1 className="text-foreground text-4xl lg:max-w-lg font-bold font-serif tracking-tight pb-3">
               {service?.header3}</h1>
@@ -111,32 +112,34 @@ export default async function Services() {
         <div className="flex max-w-6xl w-full mx-auto pt-18">
           <div className="grid gap-6 lg:grid-cols-3">
             <ServiceCard
-              icon={<Footprints className="h-6 w-6" />}
+              icon={service?.cards2[0].icon}
               title={service?.cards2[0].title}
               description={service?.cards2[0].body}
               details={[
-                { icon: <PoundSterling className="h-4 w-4" />, text: service?.cards2[0].price },
-                { icon: <Clock className="h-4 w-4" />, text: service?.cards2[0].date, },
-                { icon: <Phone className="h-4 w-4" />, text: service?.cards2[0].phone },
+                { icon: "PoundSterling", text: service?.cards2[0].price },
+                { icon: "Clock", text: service?.cards2[0].date },
+                { icon: "Phone", text: service?.cards2[0].phone },
               ]}
             />
+
             <ServiceCard
-              icon={<Coffee className="h-6 w-6" />}
+              icon={service?.cards2[1].icon}
               title={service?.cards2[1].title}
               description={service?.cards2[1].body}
               details={[
-                { icon: <Clock className="h-4 w-4" />, text: service?.cards2[1].date, },
-                { icon: <Heart className="h-4 w-4" />, text: service?.cards2[1].extra, },
+                { icon: "Clock", text: service?.cards2[1].date },
+                { icon: "Heart", text: service?.cards2[1].extra },
               ]}
               accent
             />
+
             <ServiceCard
-              icon={<Users className="h-6 w-6" />}
+              icon={service?.cards2[2].icon}
               title={service?.cards2[2].title}
               description={service?.cards2[2].body}
               details={[
-                { icon: <Clock className="h-4 w-4" />, text: service?.cards2[2].date, },
-                { icon: <MapPin className="h-4 w-4" />, text: service?.cards2[2].location, },
+                { icon: "Clock", text: service?.cards2[2].date },
+                { icon: "MapPin", text: service?.cards2[2].location },
               ]}
             />
           </div>
@@ -144,7 +147,7 @@ export default async function Services() {
       </section>
 
       <section id="community" className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-5 pt-18 lg:px-18">
-        <Label text={"Community Support Services"} icon={UtensilsCrossed} />
+        <Label text={"Community Support Services"} icon={Icons.UtensilsCrossed} />
         <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">{service?.header4}</h1>
         <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-5">
           {service?.subheader4}
@@ -153,7 +156,7 @@ export default async function Services() {
         <div className="grid gap-3 lg:grid-cols-2 max-w-6xl px-3 xl:px-0">
           <div className="rounded-2xl border border-border bg-card p-8 transition-shadow hover:shadow-md">
             <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-              <UtensilsCrossed className="h-6 w-6" />
+              <Icons.UtensilsCrossed />
             </div>
             <h3 className="text-xl font-semibold text-foreground">
               {service?.cards3[0].title}
@@ -163,16 +166,16 @@ export default async function Services() {
             </p>
 
             <div className="mt-6 space-y-3">
-              <DetailRow icon={<PoundSterling className="h-4 w-4" />}>
+              <DetailRow icon={<Icons.PoundSterling className="h-4 w-4" />}>
                 {service?.cards3[0].price}
               </DetailRow>
-              <DetailRow icon={<Clock className="h-4 w-4" />}>
+              <DetailRow icon={<Icons.Clock className="h-4 w-4" />}>
                 {service?.cards3[0].date}
               </DetailRow>
-              <DetailRow icon={<MapPin className="h-4 w-4" />}>
+              <DetailRow icon={<Icons.MapPin className="h-4 w-4" />}>
                 {service?.cards3[0].location}
               </DetailRow>
-              <DetailRow icon={<Heart className="h-4 w-4" />}>
+              <DetailRow icon={<Icons.Heart className="h-4 w-4" />}>
                 {service?.cards3[0].extra}
               </DetailRow>
             </div>
@@ -194,35 +197,22 @@ export default async function Services() {
 
           <div className="flex flex-col h-full justify-between gap-3">
             <ServiceCard
-              icon={<Pill className="h-6 w-6" />}
+              icon={service?.cards3[1].icon}
               title={service?.cards3[1].title}
               description={service?.cards3[1].body}
-              className="h-fit"
             />
 
             <ServiceCard
-              icon={<CalendarHeart className="h-6 w-6" />}
+              icon={service?.cards3[2].icon}
               title={service?.cards3[2].title}
               description={service?.cards3[2].body}
               accent
               grid
               details={[
-                {
-                  icon: <Users className="h-4 w-4" />,
-                  text: service?.cards3[2].extra,
-                },
-                {
-                  icon: <Clock className="h-4 w-4" />,
-                  text: service?.cards3[2].date,
-                },
-                {
-                  icon: <MapPin className="h-4 w-4" />,
-                  text: service?.cards3[2].location,
-                },
-                {
-                  icon: <PoundSterling className="h-4 w-4" />,
-                  text: service?.cards3[2].price,
-                },
+                { icon: "Users", text: service?.cards3[2].extra },
+                { icon: "Clock", text: service?.cards3[2].date },
+                { icon: "MapPin", text: service?.cards3[2].location },
+                { icon: "PoundSterling", text: service?.cards3[2].price },
               ]}
             />
           </div>
@@ -230,7 +220,7 @@ export default async function Services() {
       </section>
 
       <Cta
-        Icon={Phone}
+        Icon={Icons.Phone}
         header={"Need one of our services?"}
         body={"Give us a call or pop in to our office. We are always happy to help and can talk you through how each service works."}
         button1={"Get in Touch"}

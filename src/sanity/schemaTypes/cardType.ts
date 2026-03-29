@@ -6,6 +6,12 @@ export const cardType = defineType({
   type: 'object',
   fields: [
     defineField({
+      name: 'icon',
+      title: 'Main Icon',
+      type: 'string',
+      description: 'Icons from https://lucide.dev/icons/'
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',

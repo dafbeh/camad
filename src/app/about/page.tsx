@@ -3,10 +3,7 @@ import Navbar from "@/components/Navbar"
 import Label from "@/components/Label"
 import { Footer } from "@/components/Footer"
 import { urlFor } from "@/sanity/lib/image"
-import {
-  Heart, RefreshCw, HandHelping, UsersRound,
-  Coffee, MessageCircle, Briefcase, Smile
-} from "lucide-react";
+import * as Icons from "lucide-react";
 import { getAbout } from "@/sanity/lib/client"
 import { SmallCard, SmallerCard } from "@/components/SmallCard"
 import Cta from "@/components/Cta"
@@ -22,7 +19,7 @@ export default async function About() {
       <Navbar background={true} />
 
       <header className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full pb-18 pt-12">
-        <Label text={"Since 1998"} icon={Heart} />
+        <Label text={"Since 1998"} icon={Icons.Heart} />
         <h1 className="text-foreground text-6xl font-bold font-serif tracking-tight">{about?.header1}</h1>
         <p className="max-w-xl text-center text-foreground/70 text-lg md:px-0 px-5">
           {about?.subheader1}
@@ -52,7 +49,7 @@ export default async function About() {
       </section>
       
       <section className="flex flex-col gap-8 bg-[#e6ece8] justify-center items-center w-full sm:pb-20 pb-13 pt-18">
-        <Label text={"A cycle of giving"} icon={RefreshCw} />
+        <Label text={"A cycle of giving"} icon={Icons.RefreshCw} />
         <h1 className="text-foreground text-center text-4xl max-w-lg font-bold font-serif tracking-tight">{about?.header3}</h1>
         <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-3">
           {about?.subheader4}
@@ -62,17 +59,17 @@ export default async function About() {
           <SmallCard
             title={about?.cards1[0].title}
             body={about?.cards1[0].body}
-            icon={HandHelping}
+            icon={Icons[about?.cards1[0].icon as keyof typeof Icons] as any}
           />
           <SmallCard
             title={about?.cards1[1].title}
             body={about?.cards1[1].body}
-            icon={UsersRound}
+            icon={Icons[about?.cards1[1].icon as keyof typeof Icons] as any}
           />
           <SmallCard
             title={about?.cards1[2].title}
             body={about?.cards1[2].body}
-            icon={Heart}
+            icon={Icons[about?.cards1[2].icon as keyof typeof Icons] as any}
           />
         </div>
       </section>
@@ -90,7 +87,7 @@ export default async function About() {
         </div>
         <div className="flex flex-col gap-4 lg:max-w-xl w-full">
           <div className="self-start mb-4">
-            <Label text={"Come say hello"} icon={Coffee} className={"text-orange-700"} />
+            <Label text={"Come say hello"} icon={Icons.Coffee} className={"text-orange-700"} />
           </div>
           <h1 className="text-foreground text-4xl lg:max-w-lg font-bold font-serif tracking-tight pb-3">
             {about?.header4}</h1>
@@ -111,28 +108,28 @@ export default async function About() {
           <SmallerCard
             title={about?.cards2[0].title}
             body={about?.cards2[0].body}
-            icon={Heart}
+            icon={Icons[about?.cards2[0].icon as keyof typeof Icons] as any}
           />
           <SmallerCard
             title={about?.cards2[1].title}
             body={about?.cards2[1].body}
-            icon={RefreshCw}
+            icon={Icons[about?.cards2[1].icon as keyof typeof Icons] as any}
           />
           <SmallerCard
             title={about?.cards2[2].title}
             body={about?.cards2[2].body}
-            icon={Briefcase}
+            icon={Icons[about?.cards2[2].icon as keyof typeof Icons] as any}
           />
           <SmallerCard
             title={about?.cards2[3].title}
             body={about?.cards2[3].body}
-            icon={Smile}
+            icon={Icons[about?.cards2[3].icon as keyof typeof Icons] as any}
           />
         </div>
       </section>
 
       <Cta
-        Icon={MessageCircle}
+        Icon={Icons.MessageCircle}
         header={"Not sure where to start? Neither are most people."}
         body={"Pop in, have a cup of tea, and let us know what is going on with you and where you want to go. We will do our best to get you there."}
         button1={"Get in Touch"}
