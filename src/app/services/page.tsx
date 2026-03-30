@@ -70,19 +70,17 @@ export default async function Services() {
         </div>
 
         <div className="flex max-w-6xl w-full mx-auto py-18 grid gap-6 md:grid-cols-2">
-          <ServiceCard
-            icon={service?.cards1[0].icon}
-            title={service?.cards1[0].title}
-            description={service?.cards1[0].body}
-            details={service?.cards1[0].details}
-          />
-
-          <ServiceCard
-            icon={service?.cards1[1].icon}
-            title={service?.cards1[1].title}
-            description={service?.cards1[1].body}
-            details={service?.cards1[1].details}
-          />
+          {service?.cards1.map((card: {
+            icon: string, title: string, body: string, details?:
+            { icon: string, text: string }[]
+          }, index: number) => (
+            <ServiceCard key={index}
+              icon={card.icon}
+              title={card.title}
+              description={card.body}
+              details={card.details}
+            />
+          ))}
         </div>
       </section>
 
@@ -109,27 +107,17 @@ export default async function Services() {
         </div>
         <div className="flex max-w-6xl w-full mx-auto pt-18">
           <div className="grid gap-6 lg:grid-cols-3">
-            <ServiceCard
-              icon={service?.cards2[0].icon}
-              title={service?.cards2[0].title}
-              description={service?.cards2[0].body}
-              details={service?.cards2[0].details}
-            />
-
-            <ServiceCard
-              icon={service?.cards2[1].icon}
-              title={service?.cards2[1].title}
-              description={service?.cards2[1].body}
-              details={service?.cards2[1].details}
-              accent
-            />
-
-            <ServiceCard
-              icon={service?.cards2[2].icon}
-              title={service?.cards2[2].title}
-              description={service?.cards2[2].body}
-              details={service?.cards2[2].details}
-            />
+            {service?.cards2.map((card: {
+              icon: string, title: string, body: string, details?:
+              { icon: string, text: string }[]
+            }, index: number) => (
+              <ServiceCard key={index}
+                icon={card.icon}
+                title={card.title}
+                description={card.body}
+                details={card.details}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -182,22 +170,37 @@ export default async function Services() {
           </div>
 
           <div className="flex flex-col h-full justify-between gap-3">
-            <ServiceCard
-              icon={service?.cards3[1].icon}
-              title={service?.cards3[1].title}
-              description={service?.cards3[1].body}
-            />
-
-            <ServiceCard
-              icon={service?.cards3[2].icon}
-              title={service?.cards3[2].title}
-              description={service?.cards3[2].body}
-              accent
-              grid
-              details={service?.cards3[2].details}
-            />
+            {service?.cards3.splice(1).map((card: {
+              icon: string, title: string, body: string, details?:
+              { icon: string, text: string }[]
+            }, index: number) => (
+              <ServiceCard key={index}
+                icon={card.icon}
+                title={card.title}
+                description={card.body}
+                details={card.details}
+                grid
+              />
+            ))}
           </div>
+
         </div>
+        {service.cards3.length > 3 &&
+          <div className="grid gap-3 -mt-4 lg:grid-cols-2 max-w-6xl px-3 xl:px-0">
+            {service?.cards3.splice(3).map((card: {
+              icon: string, title: string, body: string, details?:
+              { icon: string, text: string }[]
+            }, index: number) => (
+              <ServiceCard key={index}
+                icon={card.icon}
+                title={card.title}
+                description={card.body}
+                details={card.details}
+                grid
+              />
+            ))}
+          </div>
+        }
       </section>
 
       <Cta

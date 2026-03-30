@@ -86,7 +86,6 @@ export const serviceType = defineType({
       type: 'array',
       of: [{ type: 'card' }],
       fieldset: 'header3',
-      validation: (Rule) => Rule.min(3).max(3),
     }),
 
     // Section 4
@@ -110,7 +109,6 @@ export const serviceType = defineType({
       type: 'array',
       of: [{ type: 'card' }],
       fieldset: 'header4',
-      validation: (Rule) => Rule.min(3).max(3),
     }),
 
     defineField({

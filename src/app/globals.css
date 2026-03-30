@@ -3,6 +3,10 @@
 @import "shadcn/tailwind.css";
 @plugin "@tailwindcss/typography";
 
+/* html {
+  font-size: 110%;
+} */
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
