@@ -54,7 +54,18 @@ export default async function Services() {
               <h1 className="text-foreground text-4xl lg:max-w-[330px] font-bold font-serif tracking-tight pb-3">
                 {service?.header2}</h1>
 
-              <p className="text-foreground/70">{service?.subheader2}</p>
+              <p className="text-foreground/70 pb-2">{service?.subheader2}</p>
+              {service?.cards1.length < 2 && service?.cards1.map((card: {
+                icon: string, title: string, body: string, details?:
+                { icon: string, text: string }[]
+              }, index: number) => (
+                <ServiceCard key={index}
+                  icon={card.icon}
+                  title={card.title}
+                  description={card.body}
+                  details={card.details}
+                />
+              ))}
 
             </div>
           </div>
@@ -69,18 +80,22 @@ export default async function Services() {
           </div>
         </div>
 
-        <div className="flex max-w-6xl w-full mx-auto py-18 grid gap-6 md:grid-cols-2">
-          {service?.cards1.map((card: {
-            icon: string, title: string, body: string, details?:
-            { icon: string, text: string }[]
-          }, index: number) => (
-            <ServiceCard key={index}
-              icon={card.icon}
-              title={card.title}
-              description={card.body}
-              details={card.details}
-            />
-          ))}
+        <div className="flex pb-18">
+          {service?.cards1.length >= 2 &&
+            <div className="flex max-w-6xl w-full mx-auto pt-18 grid gap-6 md:grid-cols-2">
+              {service?.cards1.map((card: {
+                icon: string, title: string, body: string, details?:
+                { icon: string, text: string }[]
+              }, index: number) => (
+                <ServiceCard key={index}
+                  icon={card.icon}
+                  title={card.title}
+                  description={card.body}
+                  details={card.details}
+                />
+              ))}
+            </div>
+          }
         </div>
       </section>
 
