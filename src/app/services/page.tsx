@@ -46,15 +46,15 @@ export default async function Services() {
         </div>
       </section>
 
-      <section id="transport" className="flex flex-col bg-accent/95 lg:p-18 pt-18 lg:pb-0 px-3">
-        <div className="flex lg:flex-row flex-col gap-15 justify-center items-center w-full">
-          <div className="start-self flex flex-col gap-4">
+      <section id="transport" className="flex flex-col bg-accent/95 lg:p-18 pt-8 lg:pb-0 px-3">
+        <div className="flex lg:flex-row flex-col lg:gap-15 gap-6 justify-center items-center w-full">
+          <div className="start-self flex flex-col lg:gap-4 gap-8">
             <Label text={"Transport Services"} icon={Icons.Heart} />
-            <div className="flex flex-col gap-4 lg:max-w-lg w-full">
-              <h1 className="text-foreground text-4xl lg:max-w-[330px] font-bold font-serif tracking-tight pb-3">
+            <div className="flex flex-col lg:gap-3 gap-8 lg:max-w-lg w-full">
+              <h1 className="text-foreground text-4xl lg:max-w-[330px] font-bold font-serif tracking-tight lg:pb-3">
                 {service?.header2}</h1>
 
-              <p className="text-foreground/70 pb-2">{service?.subheader2}</p>
+              <p className="text-foreground/70 lg:pb-5 pb-2">{service?.subheader2}</p>
               {service?.cards1.length < 2 && service?.cards1.map((card: {
                 icon: string, title: string, body: string, details?:
                 { icon: string, text: string }[]
@@ -100,7 +100,7 @@ export default async function Services() {
       </section>
 
       <section id="health" className="flex flex-col bg-[#e6ece8] w-full lg:p-18 py-18 px-3">
-        <div className="flex lg:flex-row flex-col gap-15 justify-center items-center">
+        <div className="flex lg:flex-row flex-col lg:gap-15 gap-8 justify-center items-center">
           <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full">
             <ImageWithSkeleton
               src={urlFor(service?.header3Image).width(600).url()}
@@ -109,18 +109,18 @@ export default async function Services() {
               className="object-cover rounded-lg shadow-lg"
             />
           </div>
-          <div className="flex flex-col gap-4 lg:max-w-xl w-full">
-            <div className="self-start mb-4">
+          <div className="flex flex-col lg:gap-4 gap-8 lg:max-w-xl w-full">
+            <div className="self-start lg:mb-4">
               <Label text={"Health & Wellbeing"} icon={Icons.Heart} />
             </div>
-            <h1 className="text-foreground text-4xl lg:max-w-lg font-bold font-serif tracking-tight pb-3">
+            <h1 className="text-foreground text-4xl lg:max-w-lg font-bold font-serif tracking-tight lg:pb-3">
               {service?.header3}</h1>
 
             <p className="text-foreground/70">{service?.subheader3}</p>
 
           </div>
         </div>
-        <div className="flex max-w-6xl w-full mx-auto pt-18">
+        <div className="flex max-w-6xl w-full mx-auto lg:pt-18 pt-10">
           <div className="grid gap-6 lg:grid-cols-3">
             {service?.cards2.map((card: {
               icon: string, title: string, body: string, details?:
@@ -137,7 +137,7 @@ export default async function Services() {
         </div>
       </section>
 
-      <section id="community" className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-5 pt-18 lg:px-18">
+      <section id="community" className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-18 pt-18 lg:px-18">
         <Label text={"Community Support Services"} icon={Icons.UtensilsCrossed} />
         <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">{service?.header4}</h1>
         <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-5">
