@@ -139,7 +139,7 @@ export default async function About({ welsh } : {welsh?: boolean}) {
         button2Link={"/services"}
       />
 
-      <Footer />
+      <Footer welsh={welsh} />
     </>
   )
 }
