@@ -11,6 +11,7 @@ export const aboutType = defineType({
     { name: 'header3', title: 'Section 3' },
     { name: 'header4', title: 'Section 4' },
     { name: 'header5', title: 'Section 5' },
+    { name: 'header6', title: 'CTA' },
   ],
 
   fields: [
@@ -154,5 +155,33 @@ export const aboutType = defineType({
       fieldset: 'header5',
       validation: (Rule) => Rule.min(4).max(4),
     }),
+
+    // Section 6 (CTA)
+    defineField({
+      name: 'header6',
+      title: 'Header',
+      type: 'string',
+      fieldset: 'header6',
+    }),
+    defineField({
+      name: 'subheader8',
+      title: 'Subheader',
+      type: 'text',
+      rows: 2,
+      fieldset: 'header6',
+    }),
+    defineField({
+      name: 'ctaButton1',
+      title: 'CTA Button 1',
+      type: 'string',
+      fieldset: 'header6',
+    }),
+    defineField({
+      name: 'ctaButton2',
+      title: 'CTA Button 2',
+      type: 'string',
+      fieldset: 'header6',
+    }),
+
   ],
 })

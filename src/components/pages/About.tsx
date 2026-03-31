@@ -131,10 +131,10 @@ export default async function About({ welsh } : {welsh?: boolean}) {
 
       <Cta
         Icon={Icons.MessageCircle}
-        header={"Not sure where to start? Neither are most people."}
-        body={"Pop in, have a cup of tea, and let us know what is going on with you and where you want to go. We will do our best to get you there."}
-        button1={"Get in Touch"}
-        button2={"Browse Opportunities"}
+        header={about?.header6}
+        body={about?.subheader8}
+        button1={about?.ctaButton1}
+        button2={about?.ctaButton2}
         button1Link={"/contact"}
         button2Link={"/services"}
       />
