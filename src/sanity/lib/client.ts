@@ -15,17 +15,14 @@ export async function getHome(lang: 'en' | 'cy' = 'en') {
 }
 
 export async function getAbout(lang: 'en' | 'cy' = 'en') {
-  if (lang === 'cy') {
-    return client.fetch(
-      `*[_type == "aboutCy" && _id == "aboutpageCy"][0]`
-    )
-  }
+  const id = lang === 'cy' ? 'aboutpageCy' : 'aboutpage'
+  const type = lang === 'cy' ? 'aboutCy' : 'page'
 
   return client.fetch(
-    `*[_type == "about" && _id == "aboutpage"][0]`
+    `*[_type == $type && _id == $id][0]`,
+    { type, id }
   )
 }
-
 export async function getService() {
   return client.fetch(`*[_type == "service" && _id == "servicepage"][0]`)
 }

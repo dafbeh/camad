@@ -16,6 +16,12 @@ export const aboutTypeCy = defineType({
   fields: [
     // Section 1
     defineField({
+      name: 'label1',
+      title: 'label',
+      type: 'string',
+      fieldset: 'header1',
+    }),
+    defineField({
       name: 'header1',
       title: 'Header',
       type: 'string',
@@ -61,6 +67,12 @@ export const aboutTypeCy = defineType({
 
     // Section 3
     defineField({
+      name: 'label2',
+      title: 'label',
+      type: 'string',
+      fieldset: 'header3',
+    }),
+    defineField({
       name: 'header3',
       title: 'Header',
       type: 'string',
@@ -84,6 +96,12 @@ export const aboutTypeCy = defineType({
     }),
 
     // Section 4
+    defineField({
+      name: 'label3',
+      title: 'label',
+      type: 'string',
+      fieldset: 'header4',
+    }),
     defineField({
       name: 'header4',
       title: 'Header',

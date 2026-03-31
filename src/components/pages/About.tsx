@@ -20,7 +20,7 @@ export default async function About({ welsh } : {welsh?: boolean}) {
       <Navbar background={true} welsh={welsh} />
 
       <header className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full pb-18 pt-12">
-        <Label text={"Since 1998"} icon={Icons.Heart} />
+        <Label text={about?.label1} icon={Icons.Heart} />
         <h1 className="text-foreground text-6xl font-bold font-serif tracking-tight">{about?.header1}</h1>
         <p className="max-w-xl text-center text-foreground/70 text-lg md:px-0 px-5">
           {about?.subheader1}
@@ -50,7 +50,7 @@ export default async function About({ welsh } : {welsh?: boolean}) {
       </section>
       
       <section className="flex flex-col gap-8 bg-[#e6ece8] justify-center items-center w-full sm:pb-20 pb-13 pt-18">
-        <Label text={"A cycle of giving"} icon={Icons.RefreshCw} />
+        <Label text={about?.label2} icon={Icons.RefreshCw} />
         <h1 className="text-foreground text-center text-4xl max-w-lg font-bold font-serif tracking-tight">{about?.header3}</h1>
         <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-3">
           {about?.subheader4}
@@ -88,7 +88,7 @@ export default async function About({ welsh } : {welsh?: boolean}) {
         </div>
         <div className="flex flex-col gap-4 lg:max-w-xl w-full">
           <div className="self-start mb-4">
-            <Label text={"Come say hello"} icon={Icons.Coffee} className={"text-orange-700"} />
+            <Label text={about?.label3} icon={Icons.Coffee} className={"text-orange-700"} />
           </div>
           <h1 className="text-foreground text-4xl lg:max-w-lg font-bold font-serif tracking-tight pb-3">
             {about?.header4}</h1>
