@@ -14,8 +14,16 @@ export async function getHome(lang: 'en' | 'cy' = 'en') {
   return client.fetch(`*[_type == $type][0]`, { type })
 }
 
-export async function getAbout() {
-  return client.fetch(`*[_type == "page" && _id == "aboutpage"][0]`)
+export async function getAbout(lang: 'en' | 'cy' = 'en') {
+  if (lang === 'cy') {
+    return client.fetch(
+      `*[_type == "aboutCy" && _id == "aboutpageCy"][0]`
+    )
+  }
+
+  return client.fetch(
+    `*[_type == "about" && _id == "aboutpage"][0]`
+  )
 }
 
 export async function getService() {

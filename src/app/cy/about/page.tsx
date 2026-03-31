@@ -1,5 +1,5 @@
 import About from '@/components/pages/About'
 
 export default function Page() {
-  return <About welsh={false} />
+  return <About welsh={true} />
 }

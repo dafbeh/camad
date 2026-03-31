@@ -1,4 +1,4 @@
-import Home from '../page'
+import Home from '@/components/pages/Home'
 
 export default function Page() {
   return <Home welsh={true} />

@@ -10,9 +10,10 @@ import { contactType } from './contactType'
 import { sponsorType } from './sponsorType'
 
 import { homeTypeCy } from './cy/homeTypeCy'
+import { aboutTypeCy } from './cy/aboutTypeCy'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [aboutType, serviceType, cardType, postType, teamType, contactType, sponsorType, homeType,
-    homeTypeCy,
+    homeTypeCy, aboutTypeCy
   ],
 }
