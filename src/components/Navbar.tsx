@@ -73,7 +73,7 @@ export default function Navbar({ background = false, welsh = false }: {
                         ${background
                           ? isActive
                             ? "text-primary hover:text-foreground underline text-decoration-primary hover:decoration-foreground underline-offset-[3px] decoration-2"
-                            : "text-muted-foreground hover:text-foreground"
+                            : "text-foreground/65 hover:text-foreground"
                           : isActive
                             ? "text-card/80 hover:text-card"
                             : "text-card/80 hover:text-card"

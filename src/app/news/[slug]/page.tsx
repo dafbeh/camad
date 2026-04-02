@@ -22,7 +22,7 @@ export default async function Page({ params }: any) {
 
       <article className="flex flex-col sm:gap-8 gap-5 max-w-5xl mx-auto pb-12 sm:pt-8 pt-5 lg:px-0 px-3">
         <Link href="/news">
-          <button className="flex w-fit gap-1 items-center font-medium text-sm text-foreground/70 select-none hover:text-primary cursor-pointer">
+          <button className="flex w-fit gap-1 items-center font-medium text-sm text-foreground/75 select-none hover:text-primary cursor-pointer">
             <ArrowLeft size={15} /> Back to News
           </button>
         </Link>
@@ -31,7 +31,7 @@ export default async function Page({ params }: any) {
           <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
             {post.category}
           </span>
-          <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+          <span className="flex items-center gap-1.5 text-sm text-foreground/65">
             <Calendar className="h-4 w-4" />
             {formatDate(post.publishedAt)}
           </span>
@@ -41,7 +41,7 @@ export default async function Page({ params }: any) {
           {post.title}
         </h1>
 
-        <p className="text-foreground/70 text-lg">{post.summary}</p>
+        <p className="text-foreground/75 text-lg">{post.summary}</p>
 
         <Image
           src={urlFor(post.mainImage).width(1200).height(675).url()}

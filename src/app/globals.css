@@ -3,9 +3,9 @@
 @import "shadcn/tailwind.css";
 @plugin "@tailwindcss/typography";
 
-/* html {
-  font-size: 110%;
-} */
+html {
+  font-size: 115%;
+}
 
 @theme inline {
   --color-background: var(--background);

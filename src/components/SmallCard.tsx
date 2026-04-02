@@ -20,7 +20,7 @@ export function SmallCard({ title, body, icon: Icon }: smallCardProps) {
             {title}
           </h1>
 
-          <p className="text-foreground/70 text-sm tracking-tight">
+          <p className="text-foreground/75 text-sm tracking-tight">
             {body}
           </p>
         </div>
@@ -43,7 +43,7 @@ export function SmallerCard({ title, body, icon: Icon }: smallCardProps) {
             {title}
           </h1>
 
-          <p className="text-foreground/70 text-sm tracking-tight">
+          <p className="text-foreground/75 text-sm tracking-tight">
             {body}
           </p>
         </div>

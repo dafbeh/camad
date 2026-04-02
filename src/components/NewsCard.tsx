@@ -26,12 +26,12 @@ export default function NewsCard({ image, category, date, title, summary }: News
           <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider text-primary">
             {category.toUpperCase()}
           </span>
-          <span className="text-xs text-foreground/70">{date}</span>
+          <span className="text-xs text-foreground/75">{date}</span>
         </div>
         <h3 className="font-serif text-xl font-bold leading-snug text-foreground transition-colors group-hover:text-primary text-balance">
           {title}
         </h3>
-        <p className="mt-2 mb-5 line-clamp-2 text-xs leading-relaxed text-foreground/70">
+        <p className="mt-2 mb-5 line-clamp-2 text-xs leading-relaxed text-foreground/75">
           {summary}
         </p>
       </article>

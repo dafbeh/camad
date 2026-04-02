@@ -22,14 +22,14 @@ export default async function Page() {
         <header className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full pb-18 pt-12">
           <Label text={"News & Stories"} icon={Heart} />
           <h1 className="text-foreground sm:text-5xl md:text-6xl text-4xl font-bold font-serif tracking-tight">Community Updates</h1>
-          <p className="text-center text-foreground/70 text-lg md:px-0 px-5">
+          <p className="text-center text-foreground/75 text-lg md:px-0 px-5">
             Stories, events, and news from CAMAD and the Machynlleth community.
           </p>
         </header>
 
         <section className="flex bg-accent/95 justify-center w-full lg:p-18 py-18 px-3">
           <Link href={`/news/${posts[0].slug.current}`} className="select-none max-w-6xl h-full flex lg:flex-row flex-col gap-10 cursor-pointer group">
-            <div className="my-auto relative aspect-[6/4] lg:w-[500px] lg:min-w-[400px] w-full overflow-hidden rounded-lg">
+            <div className="my-auto relative aspect-[6/4] lg:w-[550px] lg:min-w-[400px] w-full overflow-hidden rounded-lg">
               <Image
                 src={urlFor(posts[0].mainImage).width(500).height(500).url()}
                 alt="image"
@@ -43,7 +43,7 @@ export default async function Page() {
                 <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
                   {posts[0].category}
                 </span>
-                <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                <span className="flex items-center gap-1.5 text-sm text-foreground/65">
                   <Calendar className="h-4 w-4" />
                   {formatDate(posts[0].publishedAt)}
                 </span>
@@ -52,7 +52,7 @@ export default async function Page() {
                 <h2 className="text-foreground group-hover:text-primary md:text-5xl text-3xl font-bold font-serif tracking-tight lg:leading-14">
                   {posts[0].title}
                 </h2>
-                <p className="text-foreground/70 text-lg">{posts[0].summary}</p>
+                <p className="text-foreground/75 text-lg">{posts[0].summary}</p>
               </div>
               <div className="mt-2 flex items-center gap-2 text-sm font-semibold text-primary">
                 Read full story

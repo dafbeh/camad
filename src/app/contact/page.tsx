@@ -21,7 +21,7 @@ export default async function Page() {
       <header className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full pb-18 pt-12">
         <Label text={"Get in Touch"} icon={Heart} />
         <h1 className="text-foreground sm:text-5xl md:text-6xl text-4xl font-bold font-serif tracking-tight">{contact?.header1}</h1>
-        <p className="text-center text-foreground/70 text-lg md:px-0 px-5">
+        <p className="text-center text-foreground/75 text-lg md:px-0 px-5">
           {contact?.subheader1}
         </p>
       </header>
@@ -29,7 +29,7 @@ export default async function Page() {
       <section className="flex lg:flex-row flex-col gap-10 bg-accent/95 justify-center w-full lg:p-18 py-18 px-3">
         <div className="flex flex-col gap-5 lg:max-w-xl w-full">
           <h1 className="text-foreground text-4xl lg:max-w-md font-bold font-serif tracking-tight">{contact?.header2}</h1>
-          <p className="text-foreground/70 text-md">
+          <p className="text-foreground/75 text-md">
             {contact?.subheader2}
           </p>
 
@@ -42,7 +42,7 @@ export default async function Page() {
               <div className="flex-col gap-0">
                 <h3 className="font-semibold text-foreground">Our Office</h3>
                 {contact.ourOffice.map((line: string) => (
-                  <p key={line} className="text-sm leading-relaxed text-muted-foreground">
+                  <p key={line} className="text-sm leading-relaxed text-foreground/65">
                     {line}
                   </p>
                 ))}
@@ -56,7 +56,7 @@ export default async function Page() {
               </div>
               <div>
                 <h3 className="font-semibold text-foreground">Phone</h3>
-                <p className="mt-1 text-sm text-muted-foreground">
+                <p className="mt-1 text-sm text-foreground/65">
                   {contact?.phone}
                 </p>
               </div>
@@ -72,19 +72,19 @@ export default async function Page() {
                 <div className="mt-1 flex flex-col gap-1">
                   <a
                     href={`mailto:${contact?.email1[0]}`}
-                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="text-sm text-foreground/65 transition-colors hover:text-primary"
                   >
                     {contact?.email1[0]}
-                    <span className="ml-2 text-xs text-muted-foreground/60">
+                    <span className="ml-2 text-xs text-foreground/65/60">
                       ({contact?.email1[1]})
                     </span>
                   </a>
                   <a
                     href={`mailto:${contact?.email2[0]}`}
-                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="text-sm text-foreground/65 transition-colors hover:text-primary"
                   >
                     {contact?.email2[0]}
-                    <span className="ml-2 text-xs text-muted-foreground/60">
+                    <span className="ml-2 text-xs text-foreground/65/60">
                       ({contact?.email2[1]})
                     </span>
                   </a>
@@ -99,7 +99,7 @@ export default async function Page() {
               </div>
               <div>
                 <h3 className="font-semibold text-foreground">Opening Hours</h3>
-                <div className="mt-1 text-sm text-muted-foreground">
+                <div className="mt-1 text-sm text-foreground/65">
                   {contact?.openinghours.map((line: string) => (
                     <p key={line} className="mt-px">
                       {line}
@@ -111,7 +111,7 @@ export default async function Page() {
           </div>
 
         </div>
-        <div className="relative lg:aspect-square aspect-4/2 lg:w-[500px] lg:min-w-[400px] w-full overflow-hidden">
+        <div className="relative lg:aspect-square aspect-4/2 lg:w-[550px] lg:min-w-[400px] w-full overflow-hidden">
           <div className="border-2 h-full w-full rounded-2xl bg-primary/10 flex flex-col gap-1 items-center justify-center">
             <Map />
           </div>
@@ -122,7 +122,7 @@ export default async function Page() {
         <section className="flex flex-col gap-8 bg-[#e6ece8] justify-center items-center w-full sm:pb-20 pb-13 pt-18">
           <Label text={"Meet the Team"} icon={UsersRound} />
           <h1 className="text-foreground text-center text-4xl max-w-xl font-bold font-serif tracking-tight">{contact?.header3}</h1>
-          <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-3">
+          <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-3">
             {contact?.subheader3}
           </p>
 
@@ -145,7 +145,7 @@ export default async function Page() {
                         <h3 className="font-semibold text-foreground">{user?.name}</h3>
                         <p className="text-sm font-medium text-primary">{user?.role}</p>
                       </div>
-                      <p className="text-sm leading-relaxed text-foreground/70">
+                      <p className="text-sm leading-relaxed text-foreground/75">
                         {user?.body}
                       </p>
                     </div>
@@ -160,7 +160,7 @@ export default async function Page() {
       <section className={`flex flex-col gap-8 justify-center items-center w-full sm:pb-20 pb-13 pt-18 ${contact.team ? "bg-accent/95 " : "bg-[#e6ece8]"}`}>
         <Label text={"Our Supporters"} icon={Heart} className={"text-orange-700"} />
         <h1 className="text-foreground text-center text-4xl max-w-xl font-bold font-serif tracking-tight">{contact?.header4}</h1>
-        <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-3">
+        <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-3">
           {contact?.subheader4}
         </p>
 

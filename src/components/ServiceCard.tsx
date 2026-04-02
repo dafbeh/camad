@@ -43,7 +43,7 @@ export function ServiceCard({
       </h3>
 
       {/* Description */}
-      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+      <p className="mt-3 text-sm leading-relaxed text-foreground/65">
         {description}
       </p>
 
@@ -79,7 +79,7 @@ export function DetailRow({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+    <div className="flex items-center gap-3 text-sm text-foreground/65">
       <span className="text-primary">{icon}</span>
       <span>{children}</span>
     </div>

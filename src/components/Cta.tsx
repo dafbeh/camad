@@ -15,7 +15,7 @@ export default function Cta({ Icon, header, body, button1, button2, button1Link,
   return (
     <section>
       <div className="flex w-full bg-accent/95 lg:p-18 p-3 py-18">
-        <div className="text-center mx-auto max-w-5xl bg-primary rounded-2xl pt-18 pb-18 sm:px-18 px-3 lg:min-w-4xl">
+        <div className="text-center mx-auto max-w-5xl bg-primary rounded-2xl pt-18 pb-18 sm:px-18 px-3 lg:min-w-3xl">
           <div className="flex flex-col gap-5">
             {Icon && <Icon className="mx-auto text-card/80" size={40} /> }
             <h1 className="text-card font-serif font-semibold tracking-tight sm:text-4xl text-3xl">{ header }</h1>

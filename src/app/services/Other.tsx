@@ -26,7 +26,7 @@ export default async function Services() {
         </p>
       </header>
 
-      <section className="sticky top-[83px] z-40 border-b border-border bg-accent/95 px-6 backdrop-blur-md lg:px-12">
+      <section className="sticky top-[97px] z-40 border-b border-border bg-accent/95 px-6 backdrop-blur-md lg:px-12">
         <div className="mx-auto max-w-6xl md:px-10 px-0">
           <nav className="scrollbar-hide flex gap-1 overflow-x-auto py-3">
             {[
@@ -120,20 +120,95 @@ export default async function Services() {
 
           </div>
         </div>
-        <div className="flex max-w-[1285px] w-full mx-auto lg:pt-18 pt-10">
-          <div className="grid gap-6 lg:grid-cols-3">
-            {service?.cards2.map((card: {
-              icon: string, title: string, body: string, details?:
-              { icon: string, text: string }[]
-            }, index: number) => (
-              <ServiceCard key={index}
-                icon={card.icon}
-                title={card.title}
-                description={card.body}
-                details={card.details}
-              />
-            ))}
+        <div className="flex flex-col items-center gap-6">
+          <div className="flex max-w-[1285px] w-full mx-auto lg:pt-18 pt-10">
+            <div className="grid gap-6 lg:grid-cols-3">
+              {service?.cards2.map((card: {
+                icon: string, title: string, body: string, details?:
+                { icon: string, text: string }[]
+              }, index: number) => (
+                <ServiceCard key={index}
+                  icon={card.icon}
+                  title={card.title}
+                  description={card.body}
+                  details={card.details}
+                />
+              ))}
+            </div>
           </div>
+
+          <div className="grid gap-6 lg:grid-cols-2 max-w-[1285px] xl:px-0">
+            <div className="rounded-2xl border border-border bg-card p-8 transition-shadow hover:shadow-md">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Icons.UtensilsCrossed />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground">
+                {service?.cards3[0].title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-foreground/65">
+                {service?.cards3[0].body}
+              </p>
+
+              <div className="mt-6 space-y-3">
+                {service?.cards3[0].details?.map((detail: { icon: string, text: string }, index: number) => {
+                  const IconComponent =
+                    (Icons as unknown as Record<string, React.ComponentType<any>>)[detail.icon] || Icons.Heart;
+
+                  return (
+                    <DetailRow key={index} icon={<IconComponent className="h-4 w-4" />}>
+                      {detail.text}
+                    </DetailRow>
+                  );
+                })}
+              </div>
+
+              <div className="mt-6 rounded-xl bg-muted p-4">
+                <p className="text-xs font-medium uppercase tracking-wider text-foreground/65">
+                  Eligibility includes:
+                </p>
+                <ul className="mt-2 grid gap-1 text-sm text-foreground/65">
+                  {service?.eligibility?.map((item: string, index: number) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="flex flex-col h-full justify-between gap-6">
+              {service?.cards3.splice(1).map((card: {
+                icon: string, title: string, body: string, details?:
+                { icon: string, text: string }[]
+              }, index: number) => (
+                <ServiceCard key={index}
+                  icon={card.icon}
+                  title={card.title}
+                  description={card.body}
+                  details={card.details}
+                  grid
+                />
+              ))}
+            </div>
+
+          </div>
+          {service.cards3.length > 3 &&
+            <div className="grid gap-3 -mt-4 lg:grid-cols-2 max-w-6xl px-3 xl:px-0">
+              {service?.cards3.splice(3).map((card: {
+                icon: string, title: string, body: string, details?:
+                { icon: string, text: string }[]
+              }, index: number) => (
+                <ServiceCard key={index}
+                  icon={card.icon}
+                  title={card.title}
+                  description={card.body}
+                  details={card.details}
+                  grid
+                />
+              ))}
+            </div>
+          }
         </div>
       </section>
 
@@ -143,79 +218,6 @@ export default async function Services() {
         <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-5">
           {service?.subheader4}
         </p>
-
-        <div className="grid gap-3 lg:grid-cols-2 max-w-[1285px] px-3 xl:px-0">
-          <div className="rounded-2xl border border-border bg-card p-8 transition-shadow hover:shadow-md">
-            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-              <Icons.UtensilsCrossed />
-            </div>
-            <h3 className="text-xl font-semibold text-foreground">
-              {service?.cards3[0].title}
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-foreground/65">
-              {service?.cards3[0].body}
-            </p>
-
-            <div className="mt-6 space-y-3">
-              {service?.cards3[0].details?.map((detail: { icon: string, text: string }, index: number) => {
-                const IconComponent =
-                  (Icons as unknown as Record<string, React.ComponentType<any>>)[detail.icon] || Icons.Heart;
-
-                return (
-                  <DetailRow key={index} icon={<IconComponent className="h-4 w-4" />}>
-                    {detail.text}
-                  </DetailRow>
-                );
-              })}
-            </div>
-
-            <div className="mt-6 rounded-xl bg-muted p-4">
-              <p className="text-xs font-medium uppercase tracking-wider text-foreground/65">
-                Eligibility includes:
-              </p>
-              <ul className="mt-2 grid gap-1 text-sm text-foreground/65">
-                {service?.eligibility?.map((item: string, index: number) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="flex flex-col h-full justify-between gap-3">
-            {service?.cards3.splice(1).map((card: {
-              icon: string, title: string, body: string, details?:
-              { icon: string, text: string }[]
-            }, index: number) => (
-              <ServiceCard key={index}
-                icon={card.icon}
-                title={card.title}
-                description={card.body}
-                details={card.details}
-                grid
-              />
-            ))}
-          </div>
-
-        </div>
-        {service.cards3.length > 3 &&
-          <div className="grid gap-3 -mt-4 lg:grid-cols-2 max-w-6xl px-3 xl:px-0">
-            {service?.cards3.splice(3).map((card: {
-              icon: string, title: string, body: string, details?:
-              { icon: string, text: string }[]
-            }, index: number) => (
-              <ServiceCard key={index}
-                icon={card.icon}
-                title={card.title}
-                description={card.body}
-                details={card.details}
-                grid
-              />
-            ))}
-          </div>
-        }
       </section>
 
       <Cta

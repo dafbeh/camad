@@ -21,8 +21,8 @@ export default async function About({ welsh } : {welsh?: boolean}) {
 
       <header className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full pb-18 pt-12">
         <Label text={about?.label1} icon={Icons.Heart} />
-        <h1 className="text-foreground text-6xl font-bold font-serif tracking-tight">{about?.header1}</h1>
-        <p className="max-w-xl text-center text-foreground/70 text-lg md:px-0 px-5">
+        <h1 className="text-foreground text-6xl font-bold font-serif tracking-tight text-center">{about?.header1}</h1>
+        <p className="max-w-xl text-center text-foreground/75 text-lg md:px-0 px-5">
           {about?.subheader1}
         </p>
       </header>
@@ -32,11 +32,11 @@ export default async function About({ welsh } : {welsh?: boolean}) {
           <h1 className="text-foreground text-4xl lg:max-w-md font-bold font-serif tracking-tight pb-3">
             {about?.header2}</h1>
 
-          <p className="text-foreground/70">{about?.subheader2}</p>
+          <p className="text-foreground/75">{about?.subheader2}</p>
 
-          <p className="text-foreground/70">{about?.subheader3}</p>
+          <p className="text-foreground/75">{about?.subheader3}</p>
         </div>
-        <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full">
+        <div className="relative aspect-square lg:w-[550px] lg:min-w-[400px] w-full">
           <ImageWithSkeleton
             src={
               urlFor(about.header2Image).width(600).url()
@@ -52,7 +52,7 @@ export default async function About({ welsh } : {welsh?: boolean}) {
       <section className="flex flex-col gap-8 bg-[#e6ece8] justify-center items-center w-full sm:pb-20 pb-13 pt-18">
         <Label text={about?.label2} icon={Icons.RefreshCw} />
         <h1 className="text-foreground text-center text-4xl max-w-lg font-bold font-serif tracking-tight">{about?.header3}</h1>
-        <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-3">
+        <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-3">
           {about?.subheader4}
         </p>
 
@@ -76,7 +76,7 @@ export default async function About({ welsh } : {welsh?: boolean}) {
       </section>
 
       <section className="flex lg:flex-row flex-col gap-15 bg-accent/95 justify-center items-center w-full lg:p-18 py-18 px-3">
-        <div className="relative aspect-square lg:w-[500px] lg:min-w-[400px] w-full">
+        <div className="relative aspect-square lg:w-[550px] lg:min-w-[400px] w-full">
           <ImageWithSkeleton
             src={
               urlFor(about.header4Image).width(600).url()
@@ -93,15 +93,15 @@ export default async function About({ welsh } : {welsh?: boolean}) {
           <h1 className="text-foreground text-4xl lg:max-w-lg font-bold font-serif tracking-tight pb-3">
             {about?.header4}</h1>
 
-          <p className="text-foreground/70">{about?.subheader5}</p>
+          <p className="text-foreground/75">{about?.subheader5}</p>
 
-          <p className="text-foreground/70">{about?.subheader6}</p>
+          <p className="text-foreground/75">{about?.subheader6}</p>
         </div>
       </section>
 
       <section className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-5 pt-18">
         <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">{about?.header5}</h1>
-        <p className="max-w-3xl text-center text-foreground/70 text-md md:px-0 px-5">
+        <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-5">
           {about?.subheader7}
         </p>
 
