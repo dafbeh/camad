@@ -63,7 +63,7 @@ export default async function Page() {
         </section>
 
         {posts.length >= 2 &&
-          <section className="bg-[#efebe1] w-full sm:pb-16 pb-10 pt-12 px-3 lg:px-0">
+          <section className="bg-[#e6ece8] w-full sm:pb-16 pb-10 pt-12 px-3 lg:px-0">
             <Link href={`/news/${posts[0].slug.current}`} className="flex max-w-5xl mx-auto">
               <div className="flex flex-col gap-3 w-full">
                 <h1 className="text-foreground text-3xl max-w-lg font-bold font-serif">Recent Stories</h1>

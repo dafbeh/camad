@@ -20,7 +20,7 @@ export default async function Page({ params }: any) {
     <div>
       <Navbar background={true} />
 
-      <article className="flex flex-col sm:gap-8 gap-5 max-w-5xl mx-auto py-12 lg:px-0 px-3">
+      <article className="flex flex-col sm:gap-8 gap-5 max-w-5xl mx-auto pb-12 sm:pt-8 pt-5 lg:px-0 px-3">
         <Link href="/news">
           <button className="flex w-fit gap-1 items-center font-medium text-sm text-foreground/70 select-none hover:text-primary cursor-pointer">
             <ArrowLeft size={15} /> Back to News

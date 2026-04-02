@@ -6,6 +6,12 @@ export const cardType = defineType({
   type: 'object',
   fields: [
     defineField({
+      name: 'icon',
+      title: 'Main Icon',
+      type: 'string',
+      description: 'Icons from https://lucide.dev/icons/'
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
@@ -17,35 +23,18 @@ export const cardType = defineType({
       rows: 3,
     }),
     defineField({
-      name: 'price',
-      title: 'Price',
-      type: 'string',
-    }),
-    defineField({
-      name: 'date',
-      title: 'Date',
-      type: 'string',
-    }),
-    defineField({
-      name: 'location',
-      title: 'Location',
-      type: 'string',
-    }),
-    defineField({
-      name: 'phone',
-      title: 'Phone',
-      type: 'string',
-    }),
-    defineField({
-      name: 'extra',
-      title: 'Extra Info (e.g. heart/notes)',
-      type: 'string',
-    }),
-    defineField({
-      name: 'eligibility',
-      title: 'Eligibility',
+      name: 'details',
+      title: 'Details',
       type: 'array',
-      of: [{ type: 'string' }],
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'icon', type: 'string' },
+            { name: 'text', type: 'string' },
+          ]
+        }
+      ]
     }),
   ],
 })

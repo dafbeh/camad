@@ -78,7 +78,7 @@ export const contactType = defineType({
       type: 'array',
       of: [{ type: 'string' }],
       fieldset: 'header2',
-      validation: (Rule) => Rule.min(1).max(2),
+      validation: (Rule) => Rule.min(1).max(3),
     }),
 
     // Section 3

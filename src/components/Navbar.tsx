@@ -110,16 +110,23 @@ export default function Navbar({ background = false, welsh = false }: {
             isOpen && (
               <nav ref={menuRef} className="absolute top-20 left-0 bg-[#211914]/99 w-screen" id="mobile-menu" aria-label="Mobile navigation">
                 <ul className="flex flex-col gap-8 px-8 pb-4 pt-8">
-                  {navLinks.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-card/80 text-sm font-medium items-center tracking-wide"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
+                  {navLinks.map((link) => {
+                    const isActive = pathname === link.href;
+                    return (
+                      <li key={link.href}>
+                        <Link
+                          href={link.href}
+                          className={`text-card text-sm font-medium items-center tracking-wide
+                        ${isActive
+                              ? "text-card/70 underline text-decoration-primary underline-offset-[3px] decoration-2"
+                              : ""
+                            }`}
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    )
+                  })}
                 </ul>
 
                 <div className="flex flex-wrap items-center p-5 pt-3">
