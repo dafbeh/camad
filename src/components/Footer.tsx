@@ -50,11 +50,11 @@ export function Footer({ welsh }: { welsh?: boolean }) {
                 {welsh ? "CYSWLLTWCH Â NI" : "GET IN TOUCH"}
               </h3>
               <div className="flex flex-col">
-                <p className="text-sm leading-relaxed text-background/60">
-                  {welsh ? "Dewch i mewn am gwpan o de a sgwrs. Byddem wrth ein bodd i glywed gennych." :
-                    "Pop in for a cup of tea and a chat. We would love to hear from you."}
+                <p className="text-sm leading-relaxed text-background/60 font-semibold">
+                  {welsh ? "Drysau ar agor o ddydd Iau i ddydd Gwener." :
+                    "Doors open Thursday to Friday."}
                 </p>
-                <div className="flex flex-col gap-2 mt-3 text-sm text-background/30">
+                <div className="flex flex-col gap-2 mt-3 text-sm text-background/60">
                   {welsh ? (
                     <>
                       <p>Dydd Mawrth — Dydd Iau: 9:30am - 3:00pm</p>
