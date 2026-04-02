@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer"
 import Map from "@/components/Map"
 import { Heart, MapPin, Phone, Mail, Clock, UsersRound } from "lucide-react"
 import { getContact } from "@/sanity/lib/client"
+import Reveal from "@/components/Reveal"
 
 export const revalidate = 60
 
@@ -120,11 +121,13 @@ export default async function Page() {
 
       {contact.team &&
         <section className="flex flex-col gap-8 bg-[#e6ece8] justify-center items-center w-full sm:pb-20 pb-13 pt-18">
-          <Label text={"Meet the Team"} icon={UsersRound} />
-          <h1 className="text-foreground text-center text-4xl max-w-xl font-bold font-serif tracking-tight">{contact?.header3}</h1>
-          <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-3">
-            {contact?.subheader3}
-          </p>
+          <Reveal className="flex flex-col gap-8 items-center justify-center w-full">
+            <Label text={"Meet the Team"} icon={UsersRound} />
+            <h1 className="text-foreground text-center text-4xl max-w-xl font-bold font-serif tracking-tight">{contact?.header3}</h1>
+            <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-3">
+              {contact?.subheader3}
+            </p>
+          </Reveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 sm:gap-6 gap-3 sm:px-20 px-3 pt-8 sm:pb-0 pb-5 max-w-7xl items-stretch">
             {contact.team.map((user: any) => (
@@ -158,15 +161,17 @@ export default async function Page() {
       }
 
       <section className={`flex flex-col gap-8 justify-center items-center w-full sm:pb-20 pb-13 pt-18 ${contact.team ? "bg-accent/95 " : "bg-[#e6ece8]"}`}>
-        <Label text={"Our Supporters"} icon={Heart} className={"text-orange-700"} />
-        <h1 className="text-foreground text-center text-4xl max-w-xl font-bold font-serif tracking-tight">{contact?.header4}</h1>
-        <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-3">
-          {contact?.subheader4}
-        </p>
+        <Reveal className="flex flex-col gap-8 items-center justify-center w-full">
+          <Label text={"Our Supporters"} icon={Heart} className={"text-orange-700"} />
+          <h1 className="text-foreground text-center text-4xl max-w-xl font-bold font-serif tracking-tight">{contact?.header4}</h1>
+          <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-3">
+            {contact?.subheader4}
+          </p>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 sm:gap-6 gap-3 lg:px-30 md:px-18 px-3 pt-2 sm:pb-0 pb-5 max-w-6xl items-stretch">
-          {contact?.sponsors.map((sponsor: any) => (
-            <div key={sponsor._key}>
+          {contact?.sponsors.map((sponsor: any, index: number) => (
+            <Reveal key={sponsor._key} delay={index * 0.1}>
               <div className="group h-full bg-card/90 rounded-2xl border-1 border-primary/20 transition-shadow hover:shadow-md">
                 <div className="flex flex-col gap-2 pb-5">
                   <div className="aspect-square overflow-hidden rounded-t-2xl">
@@ -189,13 +194,15 @@ export default async function Page() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <p className="max-w-3xl text-center text-foreground/50 text-sm md:px-0 px-3">
-          {contact?.footer}
-        </p>
+        <Reveal delay={0.1}>
+          <p className="max-w-3xl text-center text-foreground/50 text-sm md:px-0 px-3">
+            {contact?.footer}
+          </p>
+        </Reveal>
       </section>
 
       <Footer />

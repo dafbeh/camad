@@ -8,10 +8,11 @@ import { getAbout } from "@/sanity/lib/client"
 import { SmallCard, SmallerCard } from "@/components/SmallCard"
 import Cta from "@/components/Cta"
 import ImageWithSkeleton from "@/components/ImageSkeleton"
+import Reveal from "@/components/Reveal"
 
 export const revalidate = 60
 
-export default async function About({ welsh } : {welsh?: boolean}) {
+export default async function About({ welsh }: { welsh?: boolean }) {
   const language = welsh ? 'cy' : 'en'
   const about = await getAbout(language)
 
@@ -48,35 +49,32 @@ export default async function About({ welsh } : {welsh?: boolean}) {
           <div className="lg:block hidden absolute -bottom-3 -left-3 z-1 h-full w-full rounded-2xl bg-primary/10 z-0" />
         </div>
       </section>
-      
+
       <section className="flex flex-col gap-8 bg-[#e6ece8] justify-center items-center w-full sm:pb-20 pb-13 pt-18">
-        <Label text={about?.label2} icon={Icons.RefreshCw} />
-        <h1 className="text-foreground text-center text-4xl max-w-lg font-bold font-serif tracking-tight">{about?.header3}</h1>
-        <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-3">
-          {about?.subheader4}
-        </p>
+        <Reveal className="flex flex-col gap-8 items-center justify-center w-full">
+          <Label text={about?.label2} icon={Icons.RefreshCw} />
+          <h1 className="text-foreground text-center text-4xl max-w-lg font-bold font-serif tracking-tight">{about?.header3}</h1>
+          <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-3">
+            {about?.subheader4}
+          </p>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 sm:gap-6 gap-3 sm:px-17 px-3 pt-8 sm:pb-0 pb-5 max-w-7xl items-stretch">
-          <SmallCard
-            title={about?.cards1[0].title}
-            body={about?.cards1[0].body}
-            icon={Icons[about?.cards1[0].icon as keyof typeof Icons] as any}
-          />
-          <SmallCard
-            title={about?.cards1[1].title}
-            body={about?.cards1[1].body}
-            icon={Icons[about?.cards1[1].icon as keyof typeof Icons] as any}
-          />
-          <SmallCard
-            title={about?.cards1[2].title}
-            body={about?.cards1[2].body}
-            icon={Icons[about?.cards1[2].icon as keyof typeof Icons] as any}
-          />
+
+          {about?.cards1.map((card: any, index: number) => (
+            <Reveal key={index} delay={index * 0.1}>
+              <SmallCard
+                title={card.title}
+                body={card.body}
+                icon={Icons[card.icon as keyof typeof Icons] as any}
+              />
+            </Reveal>
+          ))}
         </div>
       </section>
 
       <section className="flex lg:flex-row flex-col gap-15 bg-accent/95 justify-center items-center w-full lg:p-18 py-18 px-3">
-        <div className="relative aspect-square lg:w-[550px] lg:min-w-[400px] w-full">
+        <Reveal className="relative aspect-square lg:w-[550px] lg:min-w-[400px] w-full">
           <ImageWithSkeleton
             src={
               urlFor(about.header4Image).width(600).url()
@@ -85,8 +83,8 @@ export default async function About({ welsh } : {welsh?: boolean}) {
             fill
             className="object-cover rounded-lg shadow-lg"
           />
-        </div>
-        <div className="flex flex-col gap-4 lg:max-w-xl w-full">
+        </Reveal>
+        <Reveal className="flex flex-col gap-4 lg:max-w-xl w-full" delay={0.1}>
           <div className="self-start mb-4">
             <Label text={about?.label3} icon={Icons.Coffee} className={"text-orange-700"} />
           </div>
@@ -96,36 +94,27 @@ export default async function About({ welsh } : {welsh?: boolean}) {
           <p className="text-foreground/75">{about?.subheader5}</p>
 
           <p className="text-foreground/75">{about?.subheader6}</p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-5 pt-18">
-        <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">{about?.header5}</h1>
-        <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-5">
-          {about?.subheader7}
-        </p>
+        <Reveal className="flex flex-col gap-8 items-center justify-center w-full">
+          <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">{about?.header5}</h1>
+          <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-5">
+            {about?.subheader7}
+          </p>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 sm:gap-6 gap-3 sm:px-17 px-3 pt-8 max-w-7xl items-stretch">
-          <SmallerCard
-            title={about?.cards2[0].title}
-            body={about?.cards2[0].body}
-            icon={Icons[about?.cards2[0].icon as keyof typeof Icons] as any}
-          />
-          <SmallerCard
-            title={about?.cards2[1].title}
-            body={about?.cards2[1].body}
-            icon={Icons[about?.cards2[1].icon as keyof typeof Icons] as any}
-          />
-          <SmallerCard
-            title={about?.cards2[2].title}
-            body={about?.cards2[2].body}
-            icon={Icons[about?.cards2[2].icon as keyof typeof Icons] as any}
-          />
-          <SmallerCard
-            title={about?.cards2[3].title}
-            body={about?.cards2[3].body}
-            icon={Icons[about?.cards2[3].icon as keyof typeof Icons] as any}
-          />
+          {about?.cards2.map((card: any, index: number) => (
+            <Reveal key={index} delay={index * 0.1}>
+              <SmallerCard
+                title={card.title}
+                body={card.body}
+                icon={Icons[card.icon as keyof typeof Icons] as any}
+              />
+            </Reveal>
+          ))}
         </div>
       </section>
 

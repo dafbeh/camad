@@ -9,6 +9,7 @@ import { ServiceCard, DetailRow } from "@/components/ServiceCard"
 import { getService } from "@/sanity/lib/client"
 import ImageWithSkeleton from "@/components/ImageSkeleton"
 import { urlFor } from "@/sanity/lib/image"
+import Reveal from "@/components/Reveal"
 
 export const revalidate = 60
 
@@ -18,6 +19,7 @@ export default async function Services() {
   return (
     <>
       <Navbar background={true} />
+
       <header className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full pb-18 pt-12">
         <Label text={"Our Services"} icon={Icons.Heart} />
         <h1 className="text-foreground sm:text-5xl md:text-6xl text-4xl text-center font-bold font-serif tracking-tight">{service?.header1}</h1>
@@ -26,7 +28,7 @@ export default async function Services() {
         </p>
       </header>
 
-      <section className="sticky top-[83px] z-40 border-b border-border bg-accent/95 px-6 backdrop-blur-md lg:px-12">
+      <section className="sticky top-[95px] z-40 border-b border-border bg-accent/95 px-6 backdrop-blur-md lg:px-12">
         <div className="mx-auto max-w-6xl md:px-10 px-0">
           <nav className="scrollbar-hide flex gap-1 overflow-x-auto py-3">
             {[
@@ -100,7 +102,7 @@ export default async function Services() {
       </section>
 
       <section id="health" className="flex flex-col bg-[#e6ece8] w-full lg:p-18 py-18 px-3">
-        <div className="flex lg:flex-row flex-col lg:gap-15 gap-8 justify-center items-center">
+        <Reveal className="flex lg:flex-row flex-col lg:gap-15 gap-8 justify-center items-center">
           <div className="relative aspect-square lg:w-[550px] lg:min-w-[400px] w-full">
             <ImageWithSkeleton
               src={urlFor(service?.header3Image).width(600).url()}
@@ -119,83 +121,91 @@ export default async function Services() {
             <p className="text-foreground/75">{service?.subheader3}</p>
 
           </div>
-        </div>
+        </Reveal>
         <div className="flex max-w-[1285px] w-full mx-auto lg:pt-18 pt-10">
           <div className="grid gap-6 lg:grid-cols-3">
             {service?.cards2.map((card: {
               icon: string, title: string, body: string, details?:
               { icon: string, text: string }[]
             }, index: number) => (
-              <ServiceCard key={index}
-                icon={card.icon}
-                title={card.title}
-                description={card.body}
-                details={card.details}
-              />
+              <Reveal key={index} className="flex h-full" delay={index * 0.1}>
+                <ServiceCard
+                  icon={card.icon}
+                  title={card.title}
+                  description={card.body}
+                  details={card.details}
+                />
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       <section id="community" className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-18 pt-18 lg:px-18">
-        <Label text={"Community Support Services"} icon={Icons.UtensilsCrossed} />
-        <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">{service?.header4}</h1>
-        <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-5">
-          {service?.subheader4}
-        </p>
+        <Reveal className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full">
+          <Label text={"Community Support Services"} icon={Icons.UtensilsCrossed} />
+          <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">{service?.header4}</h1>
+          <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-5">
+            {service?.subheader4}
+          </p>
+        </Reveal>
 
         <div className="grid gap-3 lg:grid-cols-2 max-w-[1285px] px-3 xl:px-0">
-          <div className="rounded-2xl border border-border bg-card p-8 transition-shadow hover:shadow-md">
-            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-              <Icons.UtensilsCrossed />
-            </div>
-            <h3 className="text-xl font-semibold text-foreground">
-              {service?.cards3[0].title}
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-foreground/65">
-              {service?.cards3[0].body}
-            </p>
-
-            <div className="mt-6 space-y-3">
-              {service?.cards3[0].details?.map((detail: { icon: string, text: string }, index: number) => {
-                const IconComponent =
-                  (Icons as unknown as Record<string, React.ComponentType<any>>)[detail.icon] || Icons.Heart;
-
-                return (
-                  <DetailRow key={index} icon={<IconComponent className="h-4 w-4" />}>
-                    {detail.text}
-                  </DetailRow>
-                );
-              })}
-            </div>
-
-            <div className="mt-6 rounded-xl bg-muted p-4">
-              <p className="text-xs font-medium uppercase tracking-wider text-foreground/65">
-                Eligibility includes:
+          <Reveal className="flex h-full" delay={0.1}>
+            <div className="rounded-2xl border border-border bg-card p-8 transition-shadow hover:shadow-md">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Icons.UtensilsCrossed />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground">
+                {service?.cards3[0].title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-foreground/65">
+                {service?.cards3[0].body}
               </p>
-              <ul className="mt-2 grid gap-1 text-sm text-foreground/65">
-                {service?.eligibility?.map((item: string, index: number) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+
+              <div className="mt-6 space-y-3">
+                {service?.cards3[0].details?.map((detail: { icon: string, text: string }, index: number) => {
+                  const IconComponent =
+                    (Icons as unknown as Record<string, React.ComponentType<any>>)[detail.icon] || Icons.Heart;
+
+                  return (
+                    <DetailRow key={index} icon={<IconComponent className="h-4 w-4" />}>
+                      {detail.text}
+                    </DetailRow>
+                  );
+                })}
+              </div>
+
+              <div className="mt-6 rounded-xl bg-muted p-4">
+                <p className="text-xs font-medium uppercase tracking-wider text-foreground/65">
+                  Eligibility includes:
+                </p>
+                <ul className="mt-2 grid gap-1 text-sm text-foreground/65">
+                  {service?.eligibility?.map((item: string, index: number) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          </Reveal>
 
           <div className="flex flex-col h-full justify-between gap-3">
             {service?.cards3.splice(1).map((card: {
               icon: string, title: string, body: string, details?:
               { icon: string, text: string }[]
             }, index: number) => (
-              <ServiceCard key={index}
-                icon={card.icon}
-                title={card.title}
-                description={card.body}
-                details={card.details}
-                grid
-              />
+              <Reveal key={index} className="flex h-full" delay={index * 0.1}>
+                <ServiceCard key={index}
+                  icon={card.icon}
+                  title={card.title}
+                  description={card.body}
+                  details={card.details}
+                  grid
+                />
+              </Reveal>
             ))}
           </div>
 
@@ -206,13 +216,15 @@ export default async function Services() {
               icon: string, title: string, body: string, details?:
               { icon: string, text: string }[]
             }, index: number) => (
-              <ServiceCard key={index}
-                icon={card.icon}
-                title={card.title}
-                description={card.body}
-                details={card.details}
-                grid
-              />
+              <Reveal key={index} className="flex h-full" delay={index * 0.1}>
+                <ServiceCard key={index}
+                  icon={card.icon}
+                  title={card.title}
+                  description={card.body}
+                  details={card.details}
+                  grid
+                />
+              </Reveal>
             ))}
           </div>
         }
