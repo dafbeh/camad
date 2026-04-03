@@ -8,7 +8,7 @@ interface smallCardProps {
 
 export function SmallCard({ title, body, icon: Icon }: smallCardProps) {
   return (
-    <div>
+    <div className="h-full">
       <div className="h-full bg-card/90 rounded-2xl border-1 border-primary/20 transition-shadow hover:shadow-md">
         <div className="flex flex-col gap-2 p-8">
 
@@ -31,7 +31,7 @@ export function SmallCard({ title, body, icon: Icon }: smallCardProps) {
 
 export function SmallerCard({ title, body, icon: Icon }: smallCardProps) {
   return (
-    <div>
+    <div className="h-full">
       <div className="h-full bg-card/90 rounded-2xl border-1 border-primary/20 transition-shadow hover:shadow-md">
         <div className="flex flex-col gap-2 p-8 items-center text-center">
 

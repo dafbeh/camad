@@ -10,6 +10,7 @@ import { getService } from "@/sanity/lib/client"
 import ImageWithSkeleton from "@/components/ImageSkeleton"
 import { urlFor } from "@/sanity/lib/image"
 import Reveal from "@/components/Reveal"
+import { SupportCard } from "@/components/SupportCard"
 
 export const revalidate = 60
 
@@ -34,7 +35,8 @@ export default async function Services() {
             {[
               { label: "Transport", href: "#transport" },
               { label: "Health & Wellbeing", href: "#health" },
-              { label: "Community Support", href: "#community" }
+              { label: "Community Support", href: "#community" },
+              { label: "Local Support", href: "#localsupport" }
             ].map((item) => (
               <a
                 key={item.label}
@@ -141,8 +143,8 @@ export default async function Services() {
         </div>
       </section>
 
-      <section id="community" className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-18 pt-18 lg:px-18">
-        <Reveal className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full">
+      <section id="community" className="flex flex-col gap-8 bg-accent/95 justify-center items-center w-full sm:pb-20 pb-18 pt-18 lg:px-18">
+        <Reveal className="flex flex-col gap-8 justify-center items-center w-full">
           <Label text={"Community Support Services"} icon={Icons.UtensilsCrossed} />
           <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">{service?.header4}</h1>
           <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-5">
@@ -228,6 +230,35 @@ export default async function Services() {
             ))}
           </div>
         }
+      </section>
+
+      <section id="localsupport" className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-18 pt-18 lg:px-18">
+        <Reveal className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full">
+          <Label text={"Local Support"} icon={Icons.Handshake} />
+          <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">{service?.header5}</h1>
+          <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-5">
+            {service?.subheader5}
+          </p>
+        </Reveal>
+
+        <div className="flex max-w-[1285px] w-full mx-auto lg:pt-18 pt-10">
+          <div className="grid gap-6 lg:grid-cols-3">
+            {service.cards4 && service?.cards4.map((card: {
+              image: string, name: string, about: string, isLink?: boolean, details?:
+              { icon: string, text: string, isLink?: boolean }[]
+            }, index: number) => (
+              <Reveal key={index} className="flex h-full" delay={index * 0.1}>
+                <SupportCard
+                  image={urlFor(card.image).width(600).url()}
+                  title={card.name}
+                  description={card.about}
+                  details={card.details}
+                  isLink={card.isLink}
+                />
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </section>
 
       <Cta

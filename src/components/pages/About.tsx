@@ -105,7 +105,7 @@ export default async function About({ welsh }: { welsh?: boolean }) {
           </p>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 sm:gap-6 gap-3 sm:px-17 px-3 pt-8 max-w-7xl items-stretch">
+        <div className="grid h-full md:grid-cols-2 lg:grid-cols-4 sm:gap-6 gap-3 sm:px-17 px-3 pt-8 max-w-7xl items-stretch">
           {about?.cards2.map((card: any, index: number) => (
             <Reveal key={index} delay={index * 0.1}>
               <SmallerCard

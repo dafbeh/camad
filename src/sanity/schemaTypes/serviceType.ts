@@ -10,6 +10,7 @@ export const serviceType = defineType({
     { name: 'header2', title: 'Transport Services' },
     { name: 'header3', title: 'Health & Wellbeing' },
     { name: 'header4', title: 'Community Support Services' },
+    { name: 'header5', title: 'Local Support' },
   ],
 
   fields: [
@@ -117,6 +118,39 @@ export const serviceType = defineType({
       description: 'List of eligibility for Meals on Wheels',
       type: 'array',
       of: [{ type: 'string' }],
+    }),
+
+    // Section 5
+    defineField({
+      name: 'header5',
+      title: 'Header',
+      type: 'string',
+      fieldset: 'header5',
+    }),
+    defineField({
+      name: 'subheader5',
+      title: 'Subheader',
+      type: 'text',
+      rows: 2,
+      fieldset: 'header5',
+    }),
+
+    defineField({
+      name: 'cards4',
+      title: 'Cards',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'image', type: 'image' },
+            { name: 'name', type: 'string' },
+            { name: 'about', type: 'text', rows: 3 },
+            { name: 'details', type: 'array', of: [{ type: 'object', fields: [{ name: 'icon', type: 'string' }, { name: 'text', type: 'string' }, { name: 'isLink', type: 'boolean' }] }] },
+          ]
+        }
+      ],
+      fieldset: 'header5',
     }),
   ],
 })
