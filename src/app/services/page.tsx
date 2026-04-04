@@ -232,7 +232,7 @@ export default async function Services() {
         }
       </section>
 
-      <section id="localsupport" className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-18 pt-18 lg:px-18">
+      <section id="localsupport" className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-18 pt-18 lg:px-18 px-3">
         <Reveal className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full">
           <Label text={"Local Support"} icon={Icons.Handshake} />
           <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">{service?.header5}</h1>
@@ -242,12 +242,12 @@ export default async function Services() {
         </Reveal>
 
         <div className="flex max-w-[1285px] w-full mx-auto lg:pt-18 pt-10">
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 xl:grid-cols-3 md:grid-cols-2">
             {service.cards4 && service?.cards4.map((card: {
               image: string, name: string, about: string, isLink?: boolean, details?:
               { icon: string, text: string, isLink?: boolean }[]
             }, index: number) => (
-              <Reveal key={index} className="flex h-full" delay={index * 0.1}>
+              <Reveal key={index} delay={index * 0.1}>
                 <SupportCard
                   image={urlFor(card.image).width(600).url()}
                   title={card.name}
