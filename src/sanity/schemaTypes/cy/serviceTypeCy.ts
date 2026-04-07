@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity'
 
-export const serviceType = defineType({
-  name: 'service',
+export const serviceTypeCy = defineType({
+  name: 'serviceCy',
   title: 'Page Content',
   type: 'document',
 
@@ -47,7 +47,7 @@ export const serviceType = defineType({
       title: 'Header',
       type: 'string',
       fieldset: 'header2',
-    }),
+   }),
     defineField({
       name: 'subheader2',
       title: 'Subheader',

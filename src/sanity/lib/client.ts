@@ -23,8 +23,11 @@ export async function getAbout(lang: 'en' | 'cy' = 'en') {
     { type, id }
   )
 }
-export async function getService() {
-  return client.fetch(`*[_type == "service" && _id == "servicepage"][0]`)
+
+export async function getService(lang: 'en' | 'cy' = 'en') {
+  const id = lang === 'cy' ? 'servicepageCy' : 'servicepage'
+  const type = lang === 'cy' ? 'serviceCy' : 'service'
+  return client.fetch(`*[_type == $type && _id == $id][0]`, { type, id })
 }
 
 export async function getPosts() {
