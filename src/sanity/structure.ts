@@ -56,5 +56,13 @@ export const structure: StructureResolver = (S) =>
             .schemaType('aboutCy')
             .documentId('aboutpageCy')
         ),
+      S.listItem()
+        .title('Contact Page (Cymraeg)')
+        .child(
+          S.document()
+            .schemaType('contactCy')
+            .documentId('contactpageCy')
+        ),
+
 
     ])

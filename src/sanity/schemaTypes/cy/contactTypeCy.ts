@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity'
 
-export const contactType = defineType({
-  name: 'contact',
+export const contactTypeCy = defineType({
+  name: 'contactCy',
   title: 'Page Content',
   type: 'document',
 

@@ -241,7 +241,7 @@ export default async function Services() {
           </p>
         </Reveal>
 
-        <div className="flex max-w-[1285px] w-full mx-auto lg:pt-18 pt-10">
+        <div className="flex max-w-[1285px] w-full mx-auto">
           <div className="grid gap-6 xl:grid-cols-3 md:grid-cols-2">
             {service.cards4 && service?.cards4.map((card: {
               image: string, name: string, about: string, isLink?: boolean, details?:

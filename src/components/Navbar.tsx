@@ -46,7 +46,7 @@ export default function Navbar({ background = false, welsh = false }: {
       <div className="mx-auto flex max-w-6xl w-full justify-between items-center py-5 lg:px-12 px-5">
 
         {/* Left */}
-        <Link href="/" className="flex items-center gap-3 text-card select-none">
+        <Link href={welsh ? "/cy" : "/"} className="flex items-center gap-3 text-card select-none">
           <div className="bg-primary rounded-full w-5 h-5 p-5 flex
               items-center justify-center">
             <span className="text-lg font-bold tracking-tight text-primary-foreground">C</span>

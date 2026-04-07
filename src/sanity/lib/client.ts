@@ -42,6 +42,8 @@ export async function getPosts() {
   `)
 }
 
-export async function getContact() {
-  return client.fetch(`*[_type == "contact" && _id == "contactpage"][0]`)
+export async function getContact(lang: 'en' | 'cy' = 'en') {
+  const id = lang === 'cy' ? 'contactpageCy' : 'contactpage'
+  const type = lang === 'cy' ? 'contactCy' : 'contact'
+  return client.fetch(`*[_type == $type && _id == $id][0]`, { type, id })
 }
