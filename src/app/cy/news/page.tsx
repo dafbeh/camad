@@ -1,5 +1,5 @@
 import News from '@/components/pages/News'
 
 export default function Page() {
-  return <News welsh={false} />
+  return <News welsh={true} />
 }
