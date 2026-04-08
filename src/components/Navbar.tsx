@@ -62,7 +62,7 @@ export default function Navbar({ background = false, welsh = false }: {
         {/* Right */}
         <div className="flex z-50">
           <nav aria-label="Main navigation">
-            <ul className="hidden md:flex gap-8 text-card/80 text-sm font-medium items-center tracking-wide">
+            <ul className="hidden lg:flex gap-8 text-card/80 text-sm font-medium items-center tracking-wide">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -98,7 +98,7 @@ export default function Navbar({ background = false, welsh = false }: {
             </ul>
           </nav>
 
-          <button className={`md:hidden flex items-center ${background ? "text-foreground" : "text-card"}`}
+          <button className={`lg:hidden flex items-center ${background ? "text-foreground" : "text-card"}`}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
             aria-controls="mobile-menu"

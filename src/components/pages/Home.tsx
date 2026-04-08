@@ -4,9 +4,15 @@ import { Heart, Users, HandHelping } from "lucide-react"
 import Navbar from "@/components/Navbar"
 import { getHome } from "@/sanity/lib/client"
 
+import { Outfit } from "next/font/google"
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+})
+
 export const revalidate = 60
 
-export default async function Home({ welsh } : {welsh?: boolean}) {
+export default async function Home({ welsh }: { welsh?: boolean }) {
   const language = welsh ? 'cy' : 'en'
   const home = await getHome(language)
 
@@ -42,8 +48,10 @@ export default async function Home({ welsh } : {welsh?: boolean}) {
             </div>
 
             {/* Heading */}
-            <h1 className="max-w-3xl font-serif text-4xl font-semibold leading-tight 
-              tracking-tight text-card sm:text-5xl md:text-6xl lg:text-7xl text-balance">
+            <h1
+              className={`${outfit.className} max-w-3xl text-4xl font-medium leading-tight 
+                tracking-tight text-card sm:text-5xl md:text-6xl lg:text-7xl text-balance`}
+            >
               {home?.header1}
             </h1>
 
@@ -55,14 +63,14 @@ export default async function Home({ welsh } : {welsh?: boolean}) {
             {/* CTA buttons */}
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
-                href="/volunteer"
+                href={welsh ? "/cy/services" : "/services"}
                 className="rounded-full bg-primary px-8 py-3.5 text-base font-semibold text-primary-foreground 
-                  shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
+                  shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl text-center"
               >
-               {home?.button1}
+                {home?.button1}
               </Link>
               <Link
-                href="/services"
+                href={welsh ? "/cy/contact" : "/contact"}
                 className="rounded-full border border-card/30 bg-card/10 px-8 py-3.5 text-base font-semibold 
                   text-card backdrop-blur-sm transition-all hover:bg-card/20"
               >

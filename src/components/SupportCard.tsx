@@ -90,12 +90,12 @@ function DetailRow({
           className="flex items-center gap-3"
         >
           <span className="text-primary">{icon}</span>
-          <span>{children}</span>
+          <span className="break-all">{children}</span>
         </a>
       ) : (
         <div className="flex items-center gap-3">
           <span className="text-primary">{icon}</span>
-          <span>{children}</span>
+          <span className="break-all">{children}</span>
         </div>
       )}
     </div>

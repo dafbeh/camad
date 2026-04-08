@@ -30,7 +30,7 @@ export default async function Services({ welsh } : {welsh?: boolean}) {
         </p>
       </header>
 
-      <section className="sticky top-[95px] z-40 border-b border-border bg-accent/95 px-6 backdrop-blur-md lg:px-12">
+      <section className="sticky sm:top-[95px] top-[83px] z-40 border-b border-border bg-accent/95 px-6 backdrop-blur-md lg:px-12">
         <div className="mx-auto max-w-6xl md:px-10 px-0">
           <nav className="scrollbar-hide flex gap-1 overflow-x-auto py-3">
             {[
@@ -242,7 +242,7 @@ export default async function Services({ welsh } : {welsh?: boolean}) {
           </p>
         </Reveal>
 
-        <div className="flex max-w-[1285px] w-full mx-auto">
+        <div className="flex w-full mx-auto">
           <div className="grid gap-6 xl:grid-cols-3 md:grid-cols-2">
             {service.cards4 && service?.cards4.map((card: {
               image: string, name: string, about: string, isLink?: boolean, details?:

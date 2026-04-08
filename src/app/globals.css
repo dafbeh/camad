@@ -4,7 +4,13 @@
 @plugin "@tailwindcss/typography";
 
 html {
-  font-size: 115%;
+  font-size: 100%;
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 115%;
+  }
 }
 
 @theme inline {

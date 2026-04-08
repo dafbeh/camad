@@ -188,7 +188,7 @@ export default async function Contact({ welsh }: { welsh?: boolean }) {
                   </div>
                   <div className="flex flex-col px-4 gap-1">
                     <div className="mx-auto">
-                      <h3 className="font-medium text-foreground">{sponsor.name}</h3>
+                      <h3 className="font-medium text-foreground text-center">{sponsor.name}</h3>
                     </div>
                   </div>
                 </div>
