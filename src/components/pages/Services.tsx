@@ -242,7 +242,7 @@ export default async function Services({ welsh } : {welsh?: boolean}) {
           </p>
         </Reveal>
 
-        <div className="flex w-full mx-auto">
+        <div className="flex w-full mx-auto max-w-[1285px]">
           <div className="grid gap-6 xl:grid-cols-3 md:grid-cols-2">
             {service.cards4 && service?.cards4.map((card: {
               image: string, name: string, about: string, isLink?: boolean, details?:
