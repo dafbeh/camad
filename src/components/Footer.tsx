@@ -14,7 +14,7 @@ export function Footer({ welsh }: { welsh?: boolean }) {
               <Link href={welsh ? "/cy" : "/"} className="flex w-full h-full items-center justify-center group">
                 <div className="lg:w-5/6 h-full w-full flex items-center justify-center bg-gray-800/10 shadow-xl rounded-lg">
                   <Image
-                    src="/CAMAD/whiteLogo.svg"
+                    src="/CAMAD/WhiteLogo.svg"
                     alt="The charming high street of Machynlleth, Wales, with its colorful buildings and iconic clock tower"
                     width={500}
                     height={500}
