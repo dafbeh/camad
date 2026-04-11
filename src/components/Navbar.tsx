@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from "lucide-react";
@@ -46,10 +47,18 @@ export default function Navbar({ background = false, welsh = false }: {
       <div className="mx-auto flex max-w-6xl w-full justify-between items-center py-5 lg:px-12 px-5">
 
         {/* Left */}
-        <Link href={welsh ? "/cy" : "/"} className="flex items-center gap-3 text-card select-none">
-          <div className="bg-primary rounded-full w-5 h-5 p-5 flex
+        <Link href={welsh ? "/cy" : "/"} className="flex items-center gap-5 text-card select-none">
+          <div className="bg-primary/0 rounded-full w-5 h-5 p-5 flex
               items-center justify-center">
-            <span className="text-lg font-bold tracking-tight text-primary-foreground">C</span>
+            {/* <span className="text-lg font-bold tracking-tight text-primary-foreground">C</span> */}
+            <Image
+              src="/CAMAD/Arrows.svg"
+              alt="The charming high street of Machynlleth, Wales, with its colorful buildings and iconic clock tower"
+              width={75}
+              height={75}
+              className="object-cover absolute"
+              priority
+            />
           </div>
           <div className="flex flex-col">
             <span className={`font-bold text-lg tracking-tight 

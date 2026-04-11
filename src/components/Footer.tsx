@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Heart } from "lucide-react"
 
 export function Footer({ welsh }: { welsh?: boolean }) {
@@ -10,22 +11,22 @@ export function Footer({ welsh }: { welsh?: boolean }) {
 
             {/* Left */}
             <div className="flex flex-col gap-4">
-              <Link href="/" className="flex items-center gap-3 text-card select-none">
-                <div className="bg-primary rounded-full w-5 h-5 p-5 flex items-center justify-center">
-                  <span className="text-lg font-bold tracking-tight text-primary-foreground">C</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-lg tracking-tight">CAMAD</span>
+              <Link href={welsh ? "/cy" : "/"} className="flex w-full h-full items-center justify-center group">
+                <div className="lg:w-5/6 h-full w-full flex items-center justify-center bg-gray-800/10 shadow-xl rounded-lg">
+                  <Image
+                    src="/CAMAD/whiteLogo.svg"
+                    alt="The charming high street of Machynlleth, Wales, with its colorful buildings and iconic clock tower"
+                    width={500}
+                    height={500}
+                    priority
+                    className="object-contain w-5/6 lg:-translate-x-3 md:-translate-x-2 sm:-translate-x-4 -translate-x-2 group-hover:scale-105 duration-200 "
+                  />
                 </div>
               </Link>
-              <p className="text-card/60 text-sm">
-                {welsh ? "Cymuned Gweithredu Machynlleth a’r Cylch. Gwirfoddoli a chefnogaeth gymunedol ers 1998."
-                  : "Community Action Machynlleth & District. Volunteering and community support since 1998."}
-              </p>
             </div>
 
             <div className="flex flex-col gap-4">
-              <h3 className="text-sm font-semibold text-card/40 tracking-wider">{welsh ? "DOLENNI CYNNYDD": "QUICK LINKS"}</h3>
+              <h3 className="text-sm font-semibold text-card/40 tracking-wider">{welsh ? "DOLENNI CYNNYDD" : "QUICK LINKS"}</h3>
               <ul className="flex flex-col gap-3">
                 {[
                   { label: welsh ? "Amdanom" : "About", href: "/about" },
@@ -51,8 +52,8 @@ export function Footer({ welsh }: { welsh?: boolean }) {
               </h3>
               <div className="flex flex-col">
                 <p className="text-sm leading-relaxed text-background/60 font-semibold">
-                  {welsh ? "Drysau ar agor o ddydd Iau i ddydd Gwener." :
-                    "Doors open Thursday to Friday."}
+                  {welsh ? "Drysau ar agor o ddydd Mawrth i ddydd Gwener." :
+                    "Doors open Tuesday to Friday."}
                 </p>
                 <div className="flex flex-col gap-2 mt-3 text-sm text-background/60">
                   {welsh ? (
@@ -73,21 +74,21 @@ export function Footer({ welsh }: { welsh?: boolean }) {
           <hr className="w-full h-[1px] mx-auto border-background/10" />
 
           <div className="flex sm:flex-row flex-col sm:gap-0 gap-4 w-full sm:justify-between text-card/40 text-sm pt-8 pb-12">
-            <p>{welsh ? "2026 CAMAD. Pob hawl wedi’i harchebu." : "2026 CAMAD. All rights reserved."}</p>
-              {welsh ? (
-                <>
+            <p>{new Date().getFullYear()} {welsh ? "CAMAD. Pob hawl wedi’i harchebu." : "CAMAD. All rights reserved."}</p>
+            {welsh ? (
+              <>
                 <p className="flex gap-2 items-center">
                   Wedi greu gyda <Heart size={15} className="text-red-500" />yn Machynlleth
                 </p>
-                </>
-              ) : 
+              </>
+            ) :
               (
                 <>
-                <p className="flex gap-2 items-center">
-                  Made with <Heart size={15} className="text-red-500" />in Machynlleth
-                </p>
+                  <p className="flex gap-2 items-center">
+                    Made with <Heart size={15} className="text-red-500" />in Machynlleth
+                  </p>
                 </>
-              )} 
+              )}
           </div>
         </div>
       </div>
