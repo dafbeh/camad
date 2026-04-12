@@ -21,7 +21,7 @@ export default async function Page({ welsh }: { welsh?: boolean }) {
       <main className="flex-1">
         <header className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full pb-18 pt-12">
           <Label text={welsh ? "Newyddion a Storiadau" : "News & Stories"} icon={Heart} />
-          <h1 className="text-foreground sm:text-5xl md:text-6xl text-4xl font-bold font-serif tracking-tight text-center">
+          <h1 className="text-foreground md:text-6xl text-5xl text-center font-bold font-serif tracking-tight text-center">
             {welsh ? "Diweddariadau Cymunedol" : "Community Updates"}
           </h1>
           <p className="text-center text-foreground/75 text-lg md:px-0 px-5">

@@ -38,7 +38,7 @@ export default async function Home({ welsh }: { welsh?: boolean }) {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 flex min-h-screen flex-col justify-center px-6 pt-24 pb-16 lg:px-12">
+        <div className="relative z-10 flex min-h-screen flex-col justify-center px-6 sm:pt-24 pt-12 pb-16 lg:px-12">
           <div className="mx-auto w-full max-w-5xl">
             {/* Badge */}
             <div className="mb-8 inline-flex items-center gap-2 rounded-full 
@@ -49,7 +49,7 @@ export default async function Home({ welsh }: { welsh?: boolean }) {
 
             {/* Heading */}
             <h1
-              className={`${jakarta.className} max-w-3xl text-4xl font-bold leading-tight 
+              className={`${jakarta.className} max-w-3xl text-5xl font-bold leading-tight 
                 tracking-tight text-card sm:text-5xl md:text-6xl lg:text-7xl text-balance`}
             >
               {home?.header1}
@@ -61,17 +61,17 @@ export default async function Home({ welsh }: { welsh?: boolean }) {
             </p>
 
             {/* CTA buttons */}
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-16 flex items-center sm:justify-start justify-center gap-4 text-center">
               <Link
                 href={welsh ? "/cy/services" : "/services"}
-                className="rounded-full bg-primary px-8 py-3.5 text-base font-semibold text-primary-foreground 
+                className="rounded-full sm:w-fit w-full bg-primary sm:px-8 px-5 py-5 text-base font-semibold text-primary-foreground 
                   shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl text-center"
               >
                 {home?.button1}
               </Link>
               <Link
                 href={welsh ? "/cy/contact" : "/contact"}
-                className="rounded-full border border-card/30 bg-card/10 px-8 py-3.5 text-base font-semibold 
+                className="rounded-full sm:w-fit w-full border border-card/30 bg-card/10 sm:px-8 px-5 py-5 text-base font-semibold 
                   text-card backdrop-blur-sm transition-all hover:bg-card/20"
               >
                 {home?.button2}

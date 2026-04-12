@@ -20,7 +20,7 @@ export default async function Contact({ welsh }: { welsh?: boolean }) {
 
       <header className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full pb-18 pt-12">
         <Label text={contact?.label1} icon={Heart} />
-        <h1 className="text-foreground sm:text-5xl md:text-6xl text-4xl font-bold font-serif tracking-tight">{contact?.header1}</h1>
+        <h1 className="text-foreground md:text-6xl text-5xl text-center font-bold font-serif tracking-tight text-center">{contact?.header1}</h1>
         <p className="text-center text-foreground/75 text-lg md:px-0 px-5">
           {contact?.subheader1}
         </p>

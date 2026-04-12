@@ -3,8 +3,18 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export default function Navbar({ background = false, welsh = false }: {
   background?: boolean
@@ -40,6 +50,14 @@ export default function Navbar({ background = false, welsh = false }: {
   }, []);
 
   const pathname = usePathname();
+
+  const englishPath = pathname.startsWith("/cy")
+    ? pathname.replace(/^\/cy/, "") || "/"
+    : pathname;
+
+  const welshPath = pathname.startsWith("/cy")
+    ? pathname
+    : `/cy${pathname === "/" ? "" : pathname}`;
 
   return (
     <div className={`top-0 left-0 w-full z-50 
@@ -94,15 +112,23 @@ export default function Navbar({ background = false, welsh = false }: {
                 )
               })}
 
+              <li className="flex flex-wrap">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button className={`bg-transparent cursor-pointer ${background ? "text-foreground hover:bg-foreground/10" : "text-card hover:bg-accent/10"}`}>
+                      <Globe className={`${background ? "text-foreground/65" : "text-card"}`} />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="w-10 p-1">
+                    <DropdownMenuItem asChild className="px-2 py-3 text-xs hover:bg-primary/10 cursor-pointer">
+                      <Link href={englishPath}>English</Link>
+                    </DropdownMenuItem>
 
-              <li className="flex flex-wrap items-center">
-                <Link
-                  href={welsh ? "/cy/contact" : "/contact"}
-                  className="rounded-full bg-primary px-5 py-3 font-semibold text-card
-                  transition-all hover:bg-primary/90 text-md"
-                >
-                  {welsh ? "Cymerwch Ran" : "Get Involved"}
-                </Link>
+                    <DropdownMenuItem asChild className="px-2 py-3 text-xs hover:bg-primary/10 cursor-pointer">
+                      <Link href={welshPath}>Cymraeg</Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </li>
             </ul>
           </nav>
