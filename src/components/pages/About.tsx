@@ -122,10 +122,10 @@ export default async function About({ welsh }: { welsh?: boolean }) {
         Icon={Icons.MessageCircle}
         header={about?.header6}
         body={about?.subheader8}
-        button1={about?.ctaButton1}
-        button2={about?.ctaButton2}
-        button1Link={"/contact"}
-        button2Link={"/services"}
+        button1={about?.ctaButton?.[0]?.text}
+        button2={about?.ctaButton?.[1]?.text}
+        button1Link={about?.ctaButton?.[0]?.link}
+        button2Link={about?.ctaButton?.[1]?.link}
       />
 
       <Footer welsh={welsh} />

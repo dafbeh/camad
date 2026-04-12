@@ -11,6 +11,7 @@ export const serviceType = defineType({
     { name: 'header3', title: 'Health & Wellbeing' },
     { name: 'header4', title: 'Community Support Services' },
     { name: 'header5', title: 'Local Support' },
+    { name: 'header6', title: 'CTA' }
   ],
 
   fields: [
@@ -181,6 +182,37 @@ export const serviceType = defineType({
         }
       ],
       fieldset: 'header5',
+    }),
+
+    // Section 6 (CTA)
+    defineField({
+      name: 'header6',
+      title: 'Header',
+      type: 'string',
+      fieldset: 'header6',
+    }),
+    defineField({
+      name: 'subheader6',
+      title: 'Subheader',
+      type: 'text',
+      rows: 2,
+      fieldset: 'header6',
+    }),
+    defineField({
+      name: 'ctaButton',
+      title: 'CTA Buttons',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'text', type: 'string' },
+            { name: 'link', type: 'string' },
+          ]
+        }
+      ],
+      validation: Rule => Rule.min(2).max(2),
+      fieldset: 'header6',
     }),
   ],
 })

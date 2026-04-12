@@ -171,15 +171,19 @@ export const aboutTypeCy = defineType({
       fieldset: 'header6',
     }),
     defineField({
-      name: 'ctaButton1',
-      title: 'CTA Button 1',
-      type: 'string',
-      fieldset: 'header6',
-    }),
-    defineField({
-      name: 'ctaButton2',
-      title: 'CTA Button 2',
-      type: 'string',
+      name: 'ctaButton',
+      title: 'CTA Buttons',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'text', type: 'string' },
+            { name: 'link', type: 'string' },
+          ]
+        }
+      ],
+      validation: Rule => Rule.min(2).max(2),
       fieldset: 'header6',
     }),
   ],

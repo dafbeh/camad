@@ -56,7 +56,7 @@ export default async function Services({ welsh } : {welsh?: boolean}) {
           <div className="start-self flex flex-col lg:gap-4 gap-8">
             <Label text={service?.label2} icon={Icons.Heart} />
             <div className="flex flex-col lg:gap-3 gap-8 lg:max-w-xl w-full">
-              <h1 className="text-foreground text-4xl lg:max-w-[400px] font-bold font-serif tracking-tight lg:pb-3">
+              <h1 className="text-foreground text-4xl lg:max-w-[450px] font-bold font-serif tracking-tight lg:pb-3">
                 {service?.header2}</h1>
 
               <p className="text-foreground/75 lg:pb-5 pb-2">{service?.subheader2}</p>
@@ -264,12 +264,12 @@ export default async function Services({ welsh } : {welsh?: boolean}) {
 
       <Cta
         Icon={Icons.Phone}
-        header={"Need one of our services?"}
-        body={"Give us a call or pop in to our office. We are always happy to help and can talk you through how each service works."}
-        button1={"Get in Touch"}
-        button2={"Learn About CAMAD"}
-        button1Link={"/contact"}
-        button2Link={"/about"}
+        header={service?.header6}
+        body={service?.subheader6}
+        button1={service?.ctaButton?.[0]?.text}
+        button2={service?.ctaButton?.[1]?.text}
+        button1Link={service?.ctaButton?.[0]?.link}
+        button2Link={service?.ctaButton?.[1]?.link}
       />
 
       <Footer welsh={welsh} />
