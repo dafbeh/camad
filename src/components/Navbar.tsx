@@ -164,13 +164,12 @@ export default function Navbar({ background = false, welsh = false }: {
                   })}
                 </ul>
 
-                <div className="flex flex-wrap items-center p-5 pt-3">
+                <div className="p-5 pt-3 border-t border-card/10">
                   <Link
-                    href={welsh ? "/cy/contact" : "/contact"}
-                    className="rounded-full bg-primary px-5 py-3 font-semibold text-card
-                  transition-all hover:bg-primary/90 text-md w-full text-center"
+                    href={welsh ? englishPath : welshPath}
+                    className="block w-fit rounded-full bg-card/10 px-8 py-3 text-card font-medium hover:bg-card/20 transition"
                   >
-                    {welsh ? "Cymerwch Ran" : "Get Involved"}
+                    {welsh ? "English" : "Cymraeg"}
                   </Link>
                 </div>
               </nav>
