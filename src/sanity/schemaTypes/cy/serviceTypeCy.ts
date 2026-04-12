@@ -199,7 +199,7 @@ export const serviceTypeCy = defineType({
       fieldset: 'header6',
     }),
     defineField({
-      name: 'ctaButton1',
+      name: 'ctaButton',
       title: 'CTA Buttons',
       type: 'array',
       of: [
