@@ -38,7 +38,7 @@ export default async function Home({ welsh }: { welsh?: boolean }) {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 flex min-h-screen flex-col justify-center px-6 sm:pt-24 pt-12 pb-16 lg:px-12">
+        <div className="relative z-10 flex min-h-screen flex-col justify-center px-6 sm:pt-24 pt-24 pb-16 lg:px-12">
           <div className="mx-auto w-full max-w-5xl">
             {/* Badge */}
             <div className="mb-8 inline-flex items-center gap-2 rounded-full 

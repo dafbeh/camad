@@ -19,7 +19,7 @@ export function Footer({ welsh }: { welsh?: boolean }) {
                     width={600}
                     height={600}
                     priority
-                    className="object-contain w-5/6 lg:-translate-x-3 md:-translate-x-2 sm:-translate-x-4 -translate-x-2 group-hover:scale-105 duration-200"
+                    className="select-none object-contain w-5/6 lg:-translate-x-3 md:-translate-x-2 sm:-translate-x-4 -translate-x-2 group-hover:scale-105 duration-200"
                   />
                 </div>
               </Link>
