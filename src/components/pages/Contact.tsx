@@ -168,7 +168,7 @@ export default async function Contact({ welsh }: { welsh?: boolean }) {
           </p>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 sm:gap-6 gap-3 lg:px-30 md:px-18 px-3 pt-2 sm:pb-0 pb-5 max-w-6xl items-stretch">
+        <div className="grid grid-cols-2 lg:grid-cols-3 sm:gap-6 gap-3 lg:px-30 md:px-18 px-3 pt-2 sm:pb-0 pb-5 max-w-6xl items-stretch">
           {contact?.sponsors.map((sponsor: any, index: number) => (
             <Reveal key={sponsor._key} delay={index * 0.1}>
               <div className="group h-full bg-card/90 rounded-2xl border-1 border-primary/20 transition-shadow hover:shadow-md">

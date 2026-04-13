@@ -97,7 +97,7 @@ export default async function About({ welsh }: { welsh?: boolean }) {
         </Reveal>
       </section>
 
-      <section className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full sm:pb-20 pb-5 pt-18">
+      <section className="flex flex-col gap-8 bg-[#eff0ec] justify-center items-center w-full py-18">
         <Reveal className="flex flex-col gap-8 items-center justify-center w-full">
           <h1 className="text-foreground text-center text-4xl max-w-2xl font-bold font-serif tracking-tight">{about?.header5}</h1>
           <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-5">
