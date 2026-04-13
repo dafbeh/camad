@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar"
 import Label from "@/components/Label"
 import NewsCard from "@/components/NewsCard"
 import { Footer } from "@/components/Footer"
-import { Heart, Calendar, ArrowRight } from "lucide-react"
+import { Heart, Calendar, ArrowRight, Inbox } from "lucide-react"
 import { getPosts } from "@/sanity/lib/client"
 import { urlFor } from "@/sanity/lib/image"
 import { formatDate } from "@/lib/formatDate"
@@ -12,10 +12,11 @@ import { formatDate } from "@/lib/formatDate"
 export const revalidate = 60
 
 export default async function Page({ welsh }: { welsh?: boolean }) {
-  const posts = await getPosts()
+  const language = welsh ? 'cy' : 'en'
+  const posts = await getPosts(language)
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-accent/95 flex flex-col">
       <Navbar background={true} welsh={welsh} />
 
       <main className="flex-1">
@@ -29,39 +30,47 @@ export default async function Page({ welsh }: { welsh?: boolean }) {
           </p>
         </header>
 
-        <section className="flex bg-accent/95 justify-center w-full lg:p-18 py-18 px-3">
-          <Link href={`/news/${posts[0].slug.current}`} className="select-none max-w-6xl h-full flex lg:flex-row flex-col gap-10 cursor-pointer group">
-            <div className="my-auto relative aspect-[6/4] lg:w-[550px] lg:min-w-[400px] w-full overflow-hidden rounded-lg">
-              <Image
-                src={urlFor(posts[0].mainImage).width(500).height(500).url()}
-                alt="image"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
+        <section className="flex bg-accent/95 min-h-80 justify-center w-full lg:p-18 py-18 px-3">
+          {posts.length >= 1 ? (
+            <Link href={`/news/${posts[0].slug.current}`} className="select-none max-w-6xl h-full flex lg:flex-row flex-col gap-10 cursor-pointer group">
+              <div className="my-auto relative aspect-[6/4] lg:w-[550px] lg:min-w-[400px] w-full overflow-hidden rounded-lg">
+                <Image
+                  src={urlFor(posts[0].mainImage).width(500).height(500).url()}
+                  alt="image"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex gap-5">
+                  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+                    {posts[0].category}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-sm text-foreground/65">
+                    <Calendar className="h-4 w-4" />
+                    {formatDate(posts[0].publishedAt)}
+                  </span>
+                </div>
+                <div className="lg:max-w-lg max-w-full flex flex-col h-full gap-2">
+                  <h2 className="text-foreground group-hover:text-primary md:text-5xl text-3xl font-bold font-serif tracking-tight lg:leading-14">
+                    {posts[0].title}
+                  </h2>
+                  <p className="text-foreground/75 text-lg">{posts[0].summary}</p>
+                </div>
+                <div className="mt-2 flex items-center gap-2 text-sm font-semibold text-primary">
+                  Read full story
+                  <ArrowRight className="h-4 w-4 mt-px transition-transform group-hover:translate-x-1" />
+                </div>
+              </div>
+            </Link>
+          ) : (
+            <div className="h-full flex flex-col items-center justify-center my-auto gap-1 text-center text-foreground/80">
+              <Inbox />
+              <p className="text-foreground/75 mt-2">{welsh ? "Dim storïau newydd ar gael." : "No news stories available."}</p>
             </div>
-            <div className="flex flex-col gap-2">
-              <div className="flex gap-5">
-                <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
-                  {posts[0].category}
-                </span>
-                <span className="flex items-center gap-1.5 text-sm text-foreground/65">
-                  <Calendar className="h-4 w-4" />
-                  {formatDate(posts[0].publishedAt)}
-                </span>
-              </div>
-              <div className="lg:max-w-lg max-w-full flex flex-col h-full gap-2">
-                <h2 className="text-foreground group-hover:text-primary md:text-5xl text-3xl font-bold font-serif tracking-tight lg:leading-14">
-                  {posts[0].title}
-                </h2>
-                <p className="text-foreground/75 text-lg">{posts[0].summary}</p>
-              </div>
-              <div className="mt-2 flex items-center gap-2 text-sm font-semibold text-primary">
-                Read full story
-                <ArrowRight className="h-4 w-4 mt-px transition-transform group-hover:translate-x-1" />
-              </div>
-            </div>
-          </Link>
+          )
+          }
         </section>
 
         {posts.length >= 2 &&

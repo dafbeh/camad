@@ -48,7 +48,6 @@ export const structure: StructureResolver = (S) =>
             .schemaType('homeCy')
             .documentId('homesPageCy')
         ),
-
       S.listItem()
         .title('About Page (Cymraeg)')
         .child(
@@ -56,7 +55,6 @@ export const structure: StructureResolver = (S) =>
             .schemaType('aboutCy')
             .documentId('aboutpageCy')
         ),
-
       S.listItem()
         .title('Service Page (Cymraeg)')
         .child(
@@ -64,7 +62,11 @@ export const structure: StructureResolver = (S) =>
             .schemaType('serviceCy')
             .documentId('servicepageCy')
         ),
-
+      S.listItem()
+        .title('Posts (Cymraeg)')
+        .schemaType('postCy')
+        .child(S.documentTypeList('postCy').title('Posts')
+        ),
       S.listItem()
         .title('Contact Page (Cymraeg)')
         .child(

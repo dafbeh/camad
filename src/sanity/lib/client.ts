@@ -30,9 +30,10 @@ export async function getService(lang: 'en' | 'cy' = 'en') {
   return client.fetch(`*[_type == $type && _id == $id][0]`, { type, id })
 }
 
-export async function getPosts() {
+export async function getPosts(lang: 'en' | 'cy' = 'en') {
+  const type = lang === 'cy' ? 'postCy' : 'post'
   return await client.fetch(`
-    *[_type == "post"] | order(publishedAt desc){
+    *[_type == $type] | order(publishedAt desc){
       _id,
       title,
       summary,
@@ -42,7 +43,7 @@ export async function getPosts() {
       category,
       publishedAt
     }
-  `)
+  `, { type })
 }
 
 export async function getContact(lang: 'en' | 'cy' = 'en') {
