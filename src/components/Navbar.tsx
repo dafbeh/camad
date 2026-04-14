@@ -65,7 +65,7 @@ export default function Navbar({ background = false, welsh = false }: {
       <div className="mx-auto flex max-w-6xl w-full justify-between items-center py-5 lg:px-12 px-5">
 
         {/* Left */}
-        <Link href={welsh ? "/cy" : "/"} className="flex items-center gap-5 text-card select-none">
+        <Link href={welsh ? "/cy" : "/"} className={`flex items-center text-card select-none ${background ? "gap-5" : "lg:gap-10 gap-5"}`}>
           <div className="bg-primary/0 rounded-full w-5 h-5 p-5 flex
               items-center justify-center">
             {/* <span className="text-lg font-bold tracking-tight text-primary-foreground">C</span> */}
@@ -74,15 +74,16 @@ export default function Navbar({ background = false, welsh = false }: {
               alt="The charming high street of Machynlleth, Wales, with its colorful buildings and iconic clock tower"
               width={75}
               height={75}
-              className="object-cover absolute"
+              className={`object-cover absolute
+                ${background ? "w-18 h-18" : "lg:w-24 lg:h-24 w-18 h-18"}`}
               priority
             />
           </div>
           <div className="flex flex-col">
-            <span className={`font-bold text-lg tracking-tight 
-                ${background ? "text-foreground/90" : ""}`}>CAMAD</span>
-            <span className={`font-light text-xs 
-                ${background ? "text-foreground/90" : "text-card/70"}`}>{welsh ? "Gweithredu Cymunedol Machynlleth" : "Community Action Machynlleth"}</span>
+            <span className={`font-bold tracking-tight 
+                ${background ? "text-foreground/90 text-lg" : "lg:text-xl text-lg"}`}>CAMAD</span>
+            <span className={`font-light
+                ${background ? "text-foreground/90 text-xs" : "text-card/70 lg:text-md text-sm"}`}>{welsh ? "Gweithredu Cymunedol Machynlleth" : "Community Action Machynlleth"}</span>
           </div>
         </Link>
 

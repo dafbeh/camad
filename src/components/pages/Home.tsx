@@ -49,8 +49,8 @@ export default async function Home({ welsh }: { welsh?: boolean }) {
 
             {/* Heading */}
             <h1
-              className={`${jakarta.className} max-w-3xl text-5xl font-bold leading-tight 
-                tracking-tight text-card sm:text-5xl md:text-6xl lg:text-7xl text-balance`}
+              className={`${jakarta.className} max-w-3xl font-bold leading-tight 
+                tracking-tight text-card sm:text-4xl md:text-5xl lg:text-6xl text-4xl`}
             >
               {home?.header1}
             </h1>
