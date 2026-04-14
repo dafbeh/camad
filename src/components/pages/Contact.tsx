@@ -7,6 +7,7 @@ import Map from "@/components/Map"
 import { Heart, MapPin, Phone, Mail, Clock, UsersRound } from "lucide-react"
 import { getContact } from "@/sanity/lib/client"
 import Reveal from "@/components/Reveal"
+import { ContactForm } from "@/components/ContactForm"
 
 export const revalidate = 60
 
@@ -110,8 +111,21 @@ export default async function Contact({ welsh }: { welsh?: boolean }) {
         </div>
       </section >
 
+      <section className="py-18 bg-[#e6ece8] lg:px-0 px-3">
+        <div className="flex flex-col gap-8 mb-8 items-center justify-center w-full">
+          <h1 className="text-foreground text-center text-4xl max-w-xl font-bold font-serif tracking-tight">
+            {welsh ? "Anfonwch neges atom" : "Send us a Message"}
+          </h1>
+          <p className="max-w-3xl text-center text-foreground/75 text-md md:px-0 px-3">
+            { welsh ? "Oes gwestiwn arnoch neu ydych am ddweud wrthym amdanoch chi?" 
+              : "Have a question or want to tell us about yourself? Fill out the form below and we'll get back to you soon." }
+          </p>
+        </div>
+        <ContactForm welsh={welsh} />
+      </section>
+
       {contact.team &&
-        <section className="flex flex-col gap-8 bg-[#e6ece8] justify-center items-center w-full sm:pb-20 pb-13 pt-18">
+        <section className="flex flex-col gap-8 bg-accent/95 justify-center items-center w-full sm:pb-20 pb-13 pt-18">
           <Reveal className="flex flex-col gap-8 items-center justify-center w-full">
             <Label text={contact?.label2} icon={UsersRound} />
             <h1 className="text-foreground text-center text-4xl max-w-xl font-bold font-serif tracking-tight">{contact?.header3}</h1>
@@ -156,7 +170,7 @@ export default async function Contact({ welsh }: { welsh?: boolean }) {
         </section>
       }
 
-      <section className={`flex flex-col gap-8 justify-center items-center w-full sm:pb-20 pb-13 pt-18 ${contact.team ? "bg-accent/95 " : "bg-[#e6ece8]"}`}>
+      <section className={`flex flex-col gap-8 justify-center items-center w-full sm:pb-20 pb-13 pt-18 ${contact.team ? "bg-[#e6ece8]" : "bg-accent/95"}`}>
         <Reveal className="flex flex-col gap-8 items-center justify-center w-full">
           <Label text={contact?.label3} icon={Heart} className={"text-orange-700"} />
           <h1 className="text-foreground text-center text-4xl max-w-xl font-bold font-serif tracking-tight">{contact?.header4}</h1>
