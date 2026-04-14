@@ -127,11 +127,16 @@ export default async function Contact({ welsh }: { welsh?: boolean }) {
                   <div className="flex flex-col gap-2 pb-5">
                     <div className="aspect-[4/5] overflow-hidden rounded-t-2xl">
                       <Image
-                        src={urlFor(user.picture).width(600).url()}
-                        alt="image"
+                        src={
+                          user.picture
+                            ? urlFor(user.picture).width(600).url()
+                            : "/images/users-round.svg"
+                        }
+                        alt={user.name + " profile picture"}
                         width={500}
                         height={500}
-                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        className={`transition-transform duration-300 group-hover:scale-105 h-full w-full
+                        ${user.picture ? "object-cover" : "object-contain p-20 opacity-60"}`}
                       />
                     </div>
                     <div className="flex flex-col px-4 pb-4 gap-1">
@@ -170,12 +175,13 @@ export default async function Contact({ welsh }: { welsh?: boolean }) {
                       src={
                         sponsor.picture
                           ? urlFor(sponsor.picture).width(600).url()
-                          : "/images/camadOffice.png"
+                          : "/images/image-off.svg"
                       }
-                      alt="image"
+                      alt={sponsor.name + " profile picture"}
                       width={500}
                       height={500}
-                      className="h-full w-full object-scale-down transition-transform duration-300 max-w-4/6 mx-auto my-auto select-none"
+                      className={`transition-transform duration-300 max-w-4/6 mx-auto my-auto select-none
+                        ${sponsor.picture ? "h-full w-full object-scale-down" : "h-full w-full object-contain p-20 opacity-60"}`}
                     />
                   </div>
                   <div className="flex flex-col px-4 gap-1">

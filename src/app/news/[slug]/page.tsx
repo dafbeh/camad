@@ -45,7 +45,7 @@ export default async function Page({ params }: any) {
 
         <Image
           src={urlFor(post.mainImage).width(1200).height(675).url()}
-          alt={post.title}
+          alt={post.title + " image"}
           width={1200}
           height={675}
           className="w-full rounded-lg object-cover"

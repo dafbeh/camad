@@ -36,7 +36,7 @@ export default async function Page({ welsh }: { welsh?: boolean }) {
               <div className="my-auto relative aspect-[6/4] lg:w-[550px] lg:min-w-[400px] w-full overflow-hidden rounded-lg">
                 <Image
                   src={urlFor(posts[0].mainImage).width(500).height(500).url()}
-                  alt="image"
+                  alt={posts[0].title + " image"}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 50vw"

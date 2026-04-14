@@ -42,7 +42,7 @@ export default async function About({ welsh }: { welsh?: boolean }) {
             src={
               urlFor(about.header2Image).width(600).url()
             }
-            alt="image"
+            alt={about?.header2 + " image"}
             fill
             className="object-cover rounded-lg z-2"
           />
@@ -79,7 +79,7 @@ export default async function About({ welsh }: { welsh?: boolean }) {
             src={
               urlFor(about.header4Image).width(600).url()
             }
-            alt="image"
+            alt={about?.header4 + " image"}
             fill
             className="object-cover rounded-lg shadow-lg"
           />

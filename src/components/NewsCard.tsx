@@ -16,7 +16,7 @@ export default function NewsCard({ image, category, date, title, summary }: News
         <div className="overflow-hidden rounded-lg mb-3">
           <Image
             src={urlFor(image).width(500).height(500).url()}
-            alt="image"
+            alt={title + " image"}
             width={500}
             height={500}
             className="aspect-[4/3] w-full object-cover group-hover:scale-105 transition-transform duration-500"

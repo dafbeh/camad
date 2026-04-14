@@ -72,7 +72,7 @@ export default async function Services() {
           <div className="relative aspect-square lg:w-[550px] lg:min-w-[400px] w-full z-2">
             <ImageWithSkeleton
               src={urlFor(service?.header2Image).width(600).url()}
-              alt="image"
+              alt="transport service image"
               fill
               className="object-cover rounded-lg z-2"
             />
@@ -104,7 +104,7 @@ export default async function Services() {
           <div className="relative aspect-square lg:w-[550px] lg:min-w-[400px] w-full">
             <ImageWithSkeleton
               src={urlFor(service?.header3Image).width(600).url()}
-              alt="image"
+              alt="health and wellbeing service image"
               fill
               className="object-cover rounded-lg shadow-lg"
             />

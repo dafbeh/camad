@@ -71,7 +71,7 @@ export default function Navbar({ background = false, welsh = false }: {
             {/* <span className="text-lg font-bold tracking-tight text-primary-foreground">C</span> */}
             <Image
               src="/CAMAD/Arrows.svg"
-              alt="The charming high street of Machynlleth, Wales, with its colorful buildings and iconic clock tower"
+              alt="CAMAD Logo"
               width={75}
               height={75}
               className={`object-cover absolute
@@ -114,28 +114,11 @@ export default function Navbar({ background = false, welsh = false }: {
               })}
 
               <li className="flex flex-wrap">
-                {/* <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button className={`bg-transparent cursor-pointer ${background ? "text-foreground hover:bg-foreground/10" : "text-card hover:bg-accent/10"}`}>
-                      <Globe className={`${background ? "text-foreground/65" : "text-card"}`} />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="w-10 p-1">
-                    <DropdownMenuItem asChild className="px-2 py-3 text-xs hover:bg-primary/10 cursor-pointer">
-                      <Link href={englishPath}>English</Link>
-                    </DropdownMenuItem>
-
-                    <DropdownMenuItem asChild className="px-2 py-3 text-xs hover:bg-primary/10 cursor-pointer">
-                      <Link href={welshPath}>Cymraeg</Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu> */}
-
                 <Button className={`bg-transparent cursor-pointer px-3 h-0 py-5 group rounded-lg ${background ? "text-foreground hover:bg-foreground/10" : "text-card hover:bg-accent/10"}`}>
                   <Link href={welsh ? englishPath : welshPath} className="flex items-center gap-2">
                     <Image
                       src={welsh ? "/flags/gb.svg" : "/flags/wales.svg"}
-                      alt="The charming high street of Machynlleth, Wales, with its colorful buildings and iconic clock tower"
+                      alt="Language switcher icon"
                       width={50}
                       height={50}
                       className={`object-fit rounded-lg w-7 h-7 aspect-[4/3] group-hover:scale-110 transition-transform duration-200`}
@@ -143,8 +126,6 @@ export default function Navbar({ background = false, welsh = false }: {
                     />
                   </Link>
                 </Button>
-
-
               </li>
             </ul>
           </nav>

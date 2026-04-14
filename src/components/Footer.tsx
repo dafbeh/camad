@@ -15,7 +15,7 @@ export function Footer({ welsh }: { welsh?: boolean }) {
                 <div className="h-full w-full flex items-center justify-center bg-gray-800/10 shadow-xl rounded-lg p-2">
                   <Image
                     src="/CAMAD/WhiteLogo.svg"
-                    alt="The charming high street of Machynlleth, Wales, with its colorful buildings and iconic clock tower"
+                    alt="CAMAD logo"
                     width={600}
                     height={600}
                     priority
