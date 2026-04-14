@@ -150,7 +150,7 @@ export default async function Contact({ welsh }: { welsh?: boolean }) {
                         width={500}
                         height={500}
                         className={`transition-transform duration-300 group-hover:scale-105 h-full w-full
-                        ${user.picture ? "object-cover" : "object-contain p-20 opacity-60"}`}
+                        ${user.picture ? "object-cover" : "object-contain lg:p-10 xl:p-20 sm:p-15 p-12 opacity-60"}`}
                       />
                     </div>
                     <div className="flex flex-col px-4 pb-4 gap-1">
@@ -195,7 +195,7 @@ export default async function Contact({ welsh }: { welsh?: boolean }) {
                       width={500}
                       height={500}
                       className={`transition-transform duration-300 max-w-4/6 mx-auto my-auto select-none
-                        ${sponsor.picture ? "h-full w-full object-scale-down" : "h-full w-full object-contain p-20 opacity-60"}`}
+                        ${sponsor.picture ? "h-full w-full object-scale-down" : "h-full w-full object-contain lg:p-10 xl:p-20 sm:p-15 p-12 opacity-60"}`}
                     />
                   </div>
                   <div className="flex flex-col px-4 gap-1">
