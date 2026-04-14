@@ -35,7 +35,7 @@ export default async function Page({ welsh }: { welsh?: boolean }) {
             <Link href={`/news/${posts[0].slug.current}`} className="select-none max-w-6xl h-full flex lg:flex-row flex-col gap-10 cursor-pointer group">
               <div className="my-auto relative aspect-[6/4] lg:w-[550px] lg:min-w-[400px] w-full overflow-hidden rounded-lg">
                 <Image
-                  src={urlFor(posts[0].mainImage).width(500).height(500).url()}
+                  src={urlFor(posts[0].mainImage[0]).width(500).height(500).url()}
                   alt={posts[0].title + " image"}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -75,24 +75,31 @@ export default async function Page({ welsh }: { welsh?: boolean }) {
 
         {posts.length >= 2 &&
           <section className="bg-[#e6ece8] w-full sm:pb-16 pb-10 pt-12 px-3 lg:px-0">
-            <Link href={`/news/${posts[0].slug.current}`} className="flex max-w-5xl mx-auto">
+            <div className="flex max-w-5xl mx-auto">
               <div className="flex flex-col gap-3 w-full">
-                <h1 className="text-foreground text-3xl max-w-lg font-bold font-serif">{welsh ? "Yr Ymbarion Diweddar" : "Recent Stories"}</h1>
+                <h1 className="text-foreground text-3xl max-w-lg font-bold font-serif">
+                  {welsh ? "Yr Ymbarion Diweddar" : "Recent Stories"}
+                </h1>
+
                 <div className="mt-5 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-5">
                   {posts.slice(1).map((post: any) => (
-                    <div key={post._id}>
+                    <Link
+                      key={post._id}
+                      href={`/news/${post.slug.current}`}
+                      className="block"
+                    >
                       <NewsCard
-                        image={post.mainImage}
+                        image={post.mainImage?.[0]}
                         category={post.category}
                         date={formatDate(post.publishedAt)}
                         title={post.title}
                         summary={post.summary}
                       />
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
-            </Link>
+            </div>
           </section>
         }
       </main>

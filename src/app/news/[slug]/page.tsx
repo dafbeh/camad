@@ -6,6 +6,7 @@ import { urlFor } from "@/sanity/lib/image"
 import { client } from '@/sanity/lib/client'
 import { formatDate } from "@/lib/formatDate"
 import { ArrowLeft, Calendar } from "lucide-react"
+import Carousel from "@/components/Carousel";
 
 export const revalidate = 60
 
@@ -43,12 +44,15 @@ export default async function Page({ params }: any) {
 
         <p className="text-foreground/75 text-lg">{post.summary}</p>
 
-        <Image
-          src={urlFor(post.mainImage).width(1200).height(675).url()}
-          alt={post.title + " image"}
-          width={1200}
-          height={675}
-          className="w-full rounded-lg object-cover"
+        <Carousel
+          images={
+            Array.isArray(post.mainImage)
+              ? post.mainImage.map((img: any, i: number) => ({
+                src: urlFor(img).width(1200).height(675).url(),
+                alt: `${post.title} image ${i + 1}`,
+              }))
+              : []
+          }
         />
 
         <div className="prose max-w-none w-full mt-2">
