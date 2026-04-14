@@ -114,7 +114,7 @@ export default function Navbar({ background = false, welsh = false }: {
               })}
 
               <li className="flex flex-wrap">
-                <DropdownMenu>
+                {/* <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button className={`bg-transparent cursor-pointer ${background ? "text-foreground hover:bg-foreground/10" : "text-card hover:bg-accent/10"}`}>
                       <Globe className={`${background ? "text-foreground/65" : "text-card"}`} />
@@ -129,7 +129,22 @@ export default function Navbar({ background = false, welsh = false }: {
                       <Link href={welshPath}>Cymraeg</Link>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
-                </DropdownMenu>
+                </DropdownMenu> */}
+
+                <Button className={`bg-transparent cursor-pointer px-3 h-0 py-5 group rounded-lg ${background ? "text-foreground hover:bg-foreground/10" : "text-card hover:bg-accent/10"}`}>
+                  <Link href={welsh ? englishPath : welshPath} className="flex items-center gap-2">
+                    <Image
+                      src={welsh ? "/flags/gb.svg" : "/flags/wales.svg"}
+                      alt="The charming high street of Machynlleth, Wales, with its colorful buildings and iconic clock tower"
+                      width={50}
+                      height={50}
+                      className={`object-fit rounded-lg w-7 h-7 aspect-[4/3] group-hover:scale-110 transition-transform duration-200`}
+                      priority
+                    />
+                  </Link>
+                </Button>
+
+
               </li>
             </ul>
           </nav>
