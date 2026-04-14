@@ -63,20 +63,19 @@ export const contactTypeCy = defineType({
       fieldset: 'header2',
     }),
     defineField({
-      name: 'email1',
-      title: 'Email 1',
+      name: 'emails',
+      title: 'Emails',
       type: 'array',
-      of: [{ type: 'string' }],
-      fieldset: 'header2',
-      validation: (Rule) => Rule.min(1).max(2),
-    }),
-    defineField({
-      name: 'email2',
-      title: 'Email 2',
-      type: 'array',
-      of: [{ type: 'string' }],
-      fieldset: 'header2',
-      validation: (Rule) => Rule.min(1).max(2),
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'email', type: 'string' },
+            { name: 'description', type: 'string' },
+          ]
+        }
+      ],
+      fieldset: 'header2'
     }),
     defineField({
       name: 'openinghours',

@@ -70,24 +70,16 @@ export default async function Contact({ welsh }: { welsh?: boolean }) {
               <div>
                 <h3 className="font-semibold text-foreground">Email</h3>
                 <div className="mt-1 flex flex-col gap-1">
-                  <a
-                    href={`mailto:${contact?.email1[0]}`}
-                    className="text-sm text-foreground/65 transition-colors hover:text-primary"
-                  >
-                    {contact?.email1[0]}
-                    <span className="ml-2 text-xs text-foreground/65/60">
-                      ({contact?.email1[1]})
-                    </span>
-                  </a>
-                  <a
-                    href={`mailto:${contact?.email2[0]}`}
-                    className="text-sm text-foreground/65 transition-colors hover:text-primary"
-                  >
-                    {contact?.email2[0]}
-                    <span className="ml-2 text-xs text-foreground/65/60">
-                      ({contact?.email2[1]})
-                    </span>
-                  </a>
+                  {contact?.emails?.map((email: { email: string; description: string }, index: number) => (
+                    <a key={index}
+                      href={`mailto:${email.email}`}
+                      className="text-sm text-foreground/65 transition-colors hover:text-primary" >
+                      {email.email}
+                      <span className="ml-2 text-xs text-foreground/65/60">
+                        ({email.description})
+                      </span>
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
