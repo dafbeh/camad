@@ -117,7 +117,7 @@ export default function Navbar({ background = false, welsh = false }: {
                 <Button className={`bg-transparent cursor-pointer px-3 h-0 py-5 group rounded-lg ${background ? "text-foreground hover:bg-foreground/10" : "text-card hover:bg-accent/10"}`}>
                   <Link href={welsh ? englishPath : welshPath} className="flex items-center gap-2">
                     <Image
-                      src={welsh ? "/flags/gb.svg" : "/flags/wales.svg"}
+                      src={welsh ? "/Flags/gb.svg" : "/Flags/wales.svg"}
                       alt="Language switcher icon"
                       width={50}
                       height={50}
