@@ -184,7 +184,7 @@ export default async function Contact({ welsh }: { welsh?: boolean }) {
             <Reveal key={sponsor._key} delay={index * 0.1}>
               <div className="group h-full bg-card/90 rounded-2xl border-1 border-primary/20 transition-shadow hover:shadow-md">
                 <div className="flex flex-col gap-2 pb-5">
-                  <div className="aspect-square overflow-hidden rounded-t-2xl">
+                  <div className="aspect-square overflow-hidden rounded-t-2xl w-full h-full items-center justify-center flex">
                     <Image
                       src={
                         sponsor.picture
@@ -195,7 +195,7 @@ export default async function Contact({ welsh }: { welsh?: boolean }) {
                       width={500}
                       height={500}
                       className={`transition-transform duration-300 max-w-4/6 mx-auto my-auto select-none
-                        ${sponsor.picture ? "h-full w-full object-scale-down" : "h-full w-full object-contain lg:p-10 xl:p-20 sm:p-15 p-12 opacity-60"}`}
+                        ${sponsor.picture ? "h-full w-full object-scale-down" : "h-1/4 w-1/4 object-contain opacity-60"}`}
                     />
                   </div>
                   <div className="flex flex-col px-4 gap-1">
